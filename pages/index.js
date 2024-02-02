@@ -31,15 +31,26 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>sos</h1>
-      {data.map((event) => (
-        <div key={event.id}>
-          {event.name}
-          <img src={event.images[0].url} alt={event.name} />
-          {event.dates.start.localDate}
-          {event._embedded.venues[0].city.name}
-        </div>
-      ))}
+      <Head>
+        <title>EVENT APP</title>
+      </Head>
+
+      <body>
+        <h1>EVENT APP</h1>
+        {data.map((event) => (
+          <div key={event.id}>
+            {event.name}
+            <Image
+              src={event.images[1].url}
+              alt={event.name}
+              width={350}
+              height={200}
+            />
+            {event.dates.start.localDate}
+            {event._embedded.venues[0].city.name}
+          </div>
+        ))}
+      </body>
     </>
   );
 }
