@@ -1,6 +1,6 @@
 import GlobalStyle from "../styles";
 import { useState, useEffect } from "react";
-const apiKey = process.env.NEXT_PUBLIC_API_KEY
+const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 export default function App({ Component, pageProps }) {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
@@ -27,10 +27,18 @@ export default function App({ Component, pageProps }) {
     fetchData();
   }, [page]);
 
+  function handleLoadMore() {
+    setPage((prevPage) => prevPage + 1);
+  }
+
   return (
     <>
       <GlobalStyle />
-      <Component apiData={data} {...pageProps} />
+      <Component
+        apiData={data}
+        handleLoadMore={handleLoadMore}
+        {...pageProps}
+      />
     </>
   );
 }
