@@ -17,23 +17,21 @@ const CardContainer = styled.div`
 
 export default function EventList({ events }) {
   return (
-    <>
-      <Wrapper>
-        {events?.map((event) => (
-          <StyledList key={event.id}>
-            <CardContainer>
-              <EventCard
-                title={event.name}
-                location={event._embedded.venues[0].city.name}
-                date={event.dates.start.localDate}
-                image={event.images[2].url}
-                width={300}
-                height={200}
-              />
-            </CardContainer>
-          </StyledList>
-        ))}
-      </Wrapper>
-    </>
+    <Wrapper>
+      {events?.map((event) => (
+        <StyledList key={event.id}>
+          <CardContainer>
+            <EventCard
+              title={event.name}
+              location={event._embedded.venues[0].city.name}
+              date={event.dates.start.localDate}
+              image={event.images[2].url}
+              width={300}
+              height={200}
+            />
+          </CardContainer>
+        </StyledList>
+      ))}
+    </Wrapper>
   );
 }
