@@ -15,17 +15,16 @@ const CardContainer = styled.div`
   display: flex;
 `;
 
-export default function EventList({ apiData }) {
+export default function EventList({ events }) {
   return (
     <>
       <Wrapper>
-        {apiData.map((event) => (
+        {events?.map((event) => (
           <StyledList key={event.id}>
             <CardContainer>
               <EventCard
                 title={event.name}
                 location={event._embedded.venues[0].city.name}
-                venue={event._embedded.venues[0].name}
                 date={event.dates.start.localDate}
                 image={event.images[2].url}
                 width={300}
