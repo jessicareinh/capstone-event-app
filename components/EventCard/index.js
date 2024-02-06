@@ -31,16 +31,12 @@ export default function EventCard({
   venue,
   width,
   height,
-  id,
 }) {
   return (
     <>
       <Wrapper>
-        <Link href={`/details/${id}`}>
-          <Image src={image} alt={title} width={width} height={height} />
-          <Title>{title}</Title>
-        </Link>
-
+        <Image src={image} alt={title} width={width} height={height} />
+        <Title>{title}</Title>
         <DetailsContainer>
           <div>
             <p>{date}</p>
