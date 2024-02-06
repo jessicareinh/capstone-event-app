@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
+import Link from "next/link";
 
 const Wrapper = styled.div`
   width: 350px;
@@ -30,12 +31,16 @@ export default function EventCard({
   venue,
   width,
   height,
+  id,
 }) {
   return (
     <>
       <Wrapper>
-        <Image src={image} alt={title} width={width} height={height} />
-        <Title>{title}</Title>
+        <Link href={`/details/${id}`}>
+          <Image src={image} alt={title} width={width} height={height} />
+          <Title>{title}</Title>
+        </Link>
+
         <DetailsContainer>
           <div>
             <p>{date}</p>
