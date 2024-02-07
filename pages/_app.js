@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
           throw new Error("Failed to fetch api");
         }
         const json = await response.json();
-        setData([...data, ...json._embedded.events]);
+        setData((prev) => [...prev, ...json._embedded.events]);
       } catch (error) {
         console.log("Error:", error);
       }
