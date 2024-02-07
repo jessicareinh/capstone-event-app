@@ -2,6 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const ImageContainer = styled.div`
   position: relative;
   width: 350px;
@@ -9,7 +13,7 @@ const ImageContainer = styled.div`
 `;
 
 const DetailsContainer = styled.div`
-  width: 400px;
+  width: 350px;
   height: 500px;
   margin: 10px;
   padding: 10px;
@@ -45,24 +49,27 @@ export default function EventDetails({
 }) {
   return (
     <>
-      <PageTitle>Details</PageTitle>
       <Link href="/">Back</Link>
-      <DetailsContainer>
-        <ImageContainer>
-          <Image src={image} alt={title} fill objectFit="contain" />
-        </ImageContainer>
-        <StyledList>
-          <Name>{title}</Name>
-          <li>{category}</li>
-          <li> {date}</li>
-          <li>{time} Uhr</li>
-          <li>{genre}</li>
-          <li>{address}</li>
-          <li>
-            {postalCode} {location}
-          </li>
-        </StyledList>
-      </DetailsContainer>
+      <PageTitle>Details</PageTitle>
+
+      <Wrapper>
+        <DetailsContainer>
+          <ImageContainer>
+            <Image src={image} alt={title} fill objectFit="contain" />
+          </ImageContainer>
+          <StyledList>
+            <Name>{title}</Name>
+            <li>{category}</li>
+            <li> {date}</li>
+            <li>{time} Uhr</li>
+            <li>{genre}</li>
+            <li>{address}</li>
+            <li>
+              {postalCode} {location}
+            </li>
+          </StyledList>
+        </DetailsContainer>
+      </Wrapper>
     </>
   );
 }

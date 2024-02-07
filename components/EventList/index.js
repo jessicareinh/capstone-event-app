@@ -21,7 +21,7 @@ export default function EventList({ apiData }) {
             title={event.name}
             location={event._embedded.venues[0].city.name}
             venue={event._embedded.venues[0].name}
-            formatDate={event.dates.start.localDate}
+            date={event.dates.start.localDate}
             image={event.images[2].url}
             width={event.images[2].width}
             height={0}
