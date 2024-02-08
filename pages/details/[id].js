@@ -1,5 +1,6 @@
 import EventDetails from "@/components/EventDetails";
 import { useRouter } from "next/router";
+import { selectImage } from "@/components/EventList";
 
 export default function DetailsPage({ apiData }) {
   const router = useRouter();
@@ -14,7 +15,7 @@ export default function DetailsPage({ apiData }) {
   return (
     <main>
       <EventDetails
-        image={currentEvent.images[2].url}
+        image={selectImage(currentEvent.images)?.url}
         title={currentEvent.name}
         date={currentEvent.dates.start.localDate}
         category={currentEvent.classifications[0].segment.name}
@@ -23,6 +24,8 @@ export default function DetailsPage({ apiData }) {
         postalCode={currentEvent._embedded.venues[0].postalCode}
         location={currentEvent._embedded.venues[0].city.name}
         time={currentEvent.dates.start.localTime}
+        width={300}
+        height={300}
       ></EventDetails>
     </main>
   );
