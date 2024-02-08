@@ -6,22 +6,27 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
-const ImageContainer = styled.div`
-  position: relative;
-  width: 350px;
-  height: 250px;
-`;
 
-const DetailsContainer = styled.div`
-  width: 350px;
-  height: 500px;
-  margin: 10px;
-  padding: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+const CardContainer = styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
-  text-align: center;
+
+  width: 100%;
+
+  height: 450px;
+  margin: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+
+  @media (max-width: 767px) {
+    max-width: 444px;
+    margin: 20px 10px;
+  }
+  @media (min-width: 768px) {
+    max-width: 300px;
+    margin: 20px 10px;
+  }
 `;
 
 const StyledList = styled.ul`
@@ -36,6 +41,12 @@ const PageTitle = styled.h1`
   text-align: center;
 `;
 
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+`;
+
 export default function EventDetails({
   title,
   location,
@@ -46,6 +57,8 @@ export default function EventDetails({
   genre,
   address,
   postalCode,
+  width,
+  height,
 }) {
   return (
     <>
@@ -53,10 +66,9 @@ export default function EventDetails({
       <PageTitle>Details</PageTitle>
 
       <Wrapper>
-        <DetailsContainer>
-          <ImageContainer>
-            <Image src={image} alt={title} fill objectFit="contain" />
-          </ImageContainer>
+        <CardContainer>
+          <StyledImage src={image} alt={title} width={width} height={height} />
+
           <StyledList>
             <Name>{title}</Name>
             <li>{category}</li>
@@ -68,7 +80,7 @@ export default function EventDetails({
               {postalCode} {location}
             </li>
           </StyledList>
-        </DetailsContainer>
+        </CardContainer>
       </Wrapper>
     </>
   );

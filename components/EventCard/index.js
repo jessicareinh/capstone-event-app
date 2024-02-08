@@ -6,13 +6,11 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
-
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
 
   width: 100%;
-  max-width: 375px;
   height: 380px;
   margin: 25px;
   border-radius: 10px;
@@ -20,6 +18,14 @@ const CardContainer = styled.div`
   overflow: hidden;
   &:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  }
+  @media (max-width: 767px) {
+    max-width: 444px;
+    margin: 20px 10px;
+  }
+  @media (min-width: 768px) {
+    max-width: 335px;
+    margin: 20px 20px;
   }
 `;
 
