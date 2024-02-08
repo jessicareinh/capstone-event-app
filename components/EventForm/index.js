@@ -1,6 +1,14 @@
 import Link from "next/link";
 
 export default function EventForm() {
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
+  function addEvent() {
+    return "";
+  }
+
   return (
     <>
       <h2> Add your Own Event</h2>
