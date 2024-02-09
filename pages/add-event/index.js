@@ -2,13 +2,17 @@ import EventForm from "@/components/EventForm";
 import Link from "next/link";
 import { useState } from "react";
 import { uid } from "uid";
-// import useLocalStorageState from "use-local-storage-state";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function MyEvents({ onAddEvent }) {
-  const [myEvents, setMyEvents] = useState([]);
+  const [myEvents, setMyEvents] = useLocalStorageState("myEvents", {
+    defaultValue: [],
+  });
+
   function handleAddEvent(newEvent) {
     setMyEvents([...myEvents, { id: uid(), ...newEvent }]);
   }
+
   return (
     <>
       <EventForm onAddEvent={handleAddEvent} />
