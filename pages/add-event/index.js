@@ -3,11 +3,11 @@ import Link from "next/link";
 // import { uid } from "uid";
 // import useLocalStorageState from "use-local-storage-state";
 
-export default function MyEvents() {
+export default function MyEvents({ onAddEvent }) {
   return (
     <>
       <Link href="/my-events"> Back </Link>
-      <EventForm />
+      <EventForm onAddEvent={onAddEvent} />
     </>
   );
 }

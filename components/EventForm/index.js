@@ -1,12 +1,14 @@
 import Link from "next/link";
+import { useState } from "react";
 
-export default function EventForm() {
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
-
-  function addEvent() {
-    return "";
+export default function EventForm({ onAddEvent }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+    onAddEvent(data);
+    console.log(data);
+    event.target.reset();
   }
 
   return (
@@ -34,11 +36,7 @@ export default function EventForm() {
         ></textarea>
         <br></br>
         <br></br>
-        <Link href="/MyEvents">
-          <button type="button" onClick={addEvent}>
-            Add Your Own Event
-          </button>
-        </Link>
+        <button type="submit">Add Your Own Event</button>
       </form>
     </>
   );

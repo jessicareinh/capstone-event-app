@@ -5,7 +5,7 @@ export default function MyEvents() {
     <>
       <h1>My Events List</h1>
 
-      <Link href="/addEvent">
+      <Link href="/add-event">
         <button type="button">➕</button>
       </Link>
     </>
