@@ -10,8 +10,11 @@ export default function MyEvents({ ownEvents, setOwnEvents }) {
 
   return (
     <>
+
       <EventForm onAddEvent={handleAddEvent} />
-      <Link href="/my-events"> Back </Link>
+      <Link href="/my-events"> MyEventList </Link>
+      <Link href="/"> Back to homepage </Link>
+
     </>
   );
 }
