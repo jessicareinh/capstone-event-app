@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import styled from "styled-components";
+import Map from "../LocationMap";
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const CardContainer = styled.div`
 
   width: 100%;
 
-  height: 450px;
+  height: 800px;
   margin: 25px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -24,17 +24,14 @@ const CardContainer = styled.div`
     margin: 20px 10px;
   }
   @media (min-width: 768px) {
-    max-width: 300px;
+    max-width: 700px;
     margin: 20px 10px;
   }
 `;
 
 const StyledList = styled.ul`
   list-style: none;
-`;
-
-const Name = styled.h3`
-  margin: 15px 0;
+  margin: 20px;
 `;
 
 const PageTitle = styled.h1`
@@ -59,10 +56,11 @@ export default function EventDetails({
   postalCode,
   width,
   height,
+  lat,
+  lon,
 }) {
   return (
     <>
-      <Link href="/">Back</Link>
       <PageTitle>Details</PageTitle>
 
       <Wrapper>
@@ -70,7 +68,7 @@ export default function EventDetails({
           <StyledImage src={image} alt={title} width={width} height={height} />
 
           <StyledList>
-            <Name>{title}</Name>
+            <h3>{title}</h3>
             <li>{category}</li>
             <li> {date}</li>
             <li>{time} Uhr</li>
@@ -80,6 +78,7 @@ export default function EventDetails({
               {postalCode} {location}
             </li>
           </StyledList>
+          <Map lat={lat} lon={lon} />
         </CardContainer>
       </Wrapper>
     </>

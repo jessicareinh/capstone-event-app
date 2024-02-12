@@ -26,6 +26,8 @@ export default function DetailsPage({ apiData }) {
         time={currentEvent.dates.start.localTime}
         width={300}
         height={300}
+        lat={currentEvent._embedded.venues[0].location.latitude}
+        lon={currentEvent._embedded.venues[0].location.longitude}
       ></EventDetails>
     </main>
   );
