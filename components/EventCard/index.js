@@ -17,7 +17,7 @@ const CardContainer = styled.div`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   &:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
   }
   @media (max-width: 767px) {
     max-width: 444px;
@@ -37,6 +37,10 @@ const StyledImage = styled(Image)`
   width: 100%;
   height: 250px;
   object-fit: cover;
+  transition: transform 0.1s ease;
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 const DetailsRow = styled.div`
@@ -53,6 +57,7 @@ export default function EventCard({
   width,
   height,
   id,
+  venue,
 }) {
   return (
     <Wrapper>
@@ -67,6 +72,7 @@ export default function EventCard({
           <p>{location}</p>
           <p>{date}</p>
         </DetailsRow>
+        <p>{venue}</p>
       </CardContainer>
     </Wrapper>
   );
