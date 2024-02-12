@@ -36,9 +36,8 @@ export default function EventForm({ onAddEvent }) {
         ></textarea>
         <br></br>
         <br></br>
-        <Link href="/my-events">
-          <button type="submit">Add Your Own Event</button>
-        </Link>
+
+        <button type="submit">Add Your Own Event</button>
       </form>
     </>
   );

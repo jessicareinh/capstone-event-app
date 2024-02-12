@@ -5,12 +5,13 @@ import { uid } from "uid";
 export default function MyEvents({ ownEvents, setOwnEvents }) {
   function handleAddEvent(newEvent) {
     setOwnEvents([...ownEvents, { id: uid(), ...newEvent }]);
+    alert("🎉You have added your Event successfully!");
   }
 
   return (
     <>
       <EventForm onAddEvent={handleAddEvent} />
-      <Link href="/my-events"> Zurück </Link>
+      <Link href="/my-events"> Back </Link>
     </>
   );
 }
