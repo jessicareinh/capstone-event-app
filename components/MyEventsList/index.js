@@ -1,14 +1,20 @@
-import AddEvent from "../addEvent";
 import Link from "next/link";
-import { useState } from "react";
 
-export default function MyEvents() {
-  const [events, setEvents] = useState([]);
+export default function MyEventsList({ ownEvents }) {
   return (
     <>
       <h2>My Events</h2>
-      <p>Page is empty</p>
-
+      <ul>
+        {ownEvents.map((event) => (
+          <li key={event.id}>
+            <p>{event.title}</p>
+            <p>{event.date}</p>
+            <p>{event.time}</p>
+            <p>{event.location}</p>
+            <p>{event.description}</p>
+          </li>
+        ))}
+      </ul>
       <Link href="/addEvent">
         <button type="button">➕</button>
       </Link>
