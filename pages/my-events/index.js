@@ -1,13 +1,14 @@
 import Link from "next/link";
 import MyEventsList from "@/components/MyEventsList";
+import styled from "styled-components";
 
-export default function MyEvents() {
+export default function MyEvents({ ownEvents }) {
   return (
     <>
       <h1>My Events List</h1>
-      <MyEventsList />
+      <MyEventsList ownEvents={ownEvents} />
       <Link href="/add-event">
-        <button type="button">➕</button>
+        <button>➕</button>
       </Link>
     </>
   );
