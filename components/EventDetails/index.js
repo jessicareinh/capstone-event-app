@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Map from "../LocationMap";
+import Link from "next/link";
 
 const Wrapper = styled.div`
   display: flex;
