@@ -12,7 +12,6 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-
 const StyledButton = styled.button`
   align-items: center;
   background-color: lightpink;
@@ -25,7 +24,7 @@ const StyledButton = styled.button`
   font-family: Inter, sans-serif;
   font-size: 16px;
   height: 48px;
-  justify-content: center;xj 
+  justify-content: center;
   line-height: 24px;
   max-width: 100%;
   padding: 0 25px;
@@ -61,12 +60,6 @@ const StyledLink = styled(Link)`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  &:hover {
-    background-color: grey;
-    color: white;
-  }
-`;
-
   &:hover {
     background-color: grey;
     color: white;
