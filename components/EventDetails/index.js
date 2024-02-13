@@ -66,7 +66,6 @@ export default function EventDetails({
       <Wrapper>
         <CardContainer>
           <StyledImage src={image} alt={title} width={width} height={height} />
-                <h3>{title}</h3>
           <StyledList>
             <h3>{title}</h3>
             <li>{category} - {genre}</li>
