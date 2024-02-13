@@ -67,17 +67,18 @@ export default function EventDetails({
       <Wrapper>
         <CardContainer>
           <StyledImage src={image} alt={title} width={width} height={height} />
-
           <StyledList>
             <h3>{title}</h3>
-            <li>{category}</li>
-            <li> {date}</li>
-            <li>{time} Uhr</li>
-            <li>{genre}</li>
-            <li>{address}</li>
-            <li>
-              {postalCode} {location}
-            </li>
+            <ul>
+              <li>{category}</li>
+              <li> {date}</li>
+              <li>{time} Uhr</li>
+              <li>{genre}</li>
+              <li>{address}</li>
+              <li>
+                {postalCode} {location}
+              </li>
+            </ul>
           </StyledList>
           <Map lat={lat} lon={lon} />
         </CardContainer>
