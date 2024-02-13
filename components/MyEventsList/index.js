@@ -29,20 +29,17 @@ const Title = styled.h2`
 
 export default function MyEventsList({ ownEvents }) {
   return (
-    <>
-      {" "}
-      <StyledList>
-        {ownEvents.length === 0 && <p>You haven't added any events yet </p>}
-        {ownEvents.map((event) => (
-          <EventCard key={event.id}>
-            <Title>{event.title}</Title>
-            <Paragraph>{event.date}</Paragraph>
-            <Paragraph>{event.time}</Paragraph>
-            <Paragraph>{event.location}</Paragraph>
-            <Paragraph>{event.description}</Paragraph>
-          </EventCard>
-        ))}
-      </StyledList>
-    </>
+    <StyledList>
+      {ownEvents.length === 0 && <p>You have not added any events yet </p>}
+      {ownEvents.map((event) => (
+        <EventCard key={event.id}>
+          <Title>{event.title}</Title>
+          <Paragraph>{event.date}</Paragraph>
+          <Paragraph>{event.time}</Paragraph>
+          <Paragraph>{event.location}</Paragraph>
+          <Paragraph>{event.description}</Paragraph>
+        </EventCard>
+      ))}
+    </StyledList>
   );
 }
