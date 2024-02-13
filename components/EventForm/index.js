@@ -18,7 +18,6 @@ export default function EventForm({ onAddEvent }) {
     onAddEvent(data);
     alert("🎉You have added your Event successfully!");
     router.push("/my-events");
-    event.target.reset();
   }
 
   return (
