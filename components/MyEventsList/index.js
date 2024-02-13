@@ -32,6 +32,7 @@ export default function MyEventsList({ ownEvents }) {
     <>
       {" "}
       <StyledList>
+        {ownEvents.length === 0 && <p>You haven't added any events yet </p>}
         {ownEvents.map((event) => (
           <EventCard key={event.id}>
             <Title>{event.title}</Title>
