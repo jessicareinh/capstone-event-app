@@ -13,25 +13,53 @@ const Title = styled.h1`
 `;
 
 const StyledButton = styled.button`
-  width: 100px;
-  height: 40px;
-  padding: 5px;
+  align-items: center;
+  background-color: lightpink;
+  border: 2px solid #111;
   border-radius: 8px;
-  &:hover {
-    background-color: grey;
-    color: white;
-  }
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: absulute;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 `;
 
 const StyledLink = styled(Link)`
-  background-color: grey;
-  color: white;
-  float: right;
-  width: 45px;
-  height: 35px;
-  padding: 5px;
+  align-items: center;
+  background-color: lightpink;
+  border: 2px solid #111;
   border-radius: 8px;
 
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  height: 42px;
+  justify-content: right;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 23px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
   &:hover {
     background-color: grey;
     color: white;
@@ -41,7 +69,7 @@ const StyledLink = styled(Link)`
 export default function HomePage({ apiData, handleLoadMore }) {
   return (
     <>
-      <StyledLink href="/my-events"> ADD </StyledLink>
+      <StyledLink href="/my-events"> my events </StyledLink>
       <Wrapper>
         <Title>EVENT APP</Title>
         <EventList apiData={apiData} />
