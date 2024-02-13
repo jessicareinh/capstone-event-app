@@ -63,10 +63,10 @@ export default function EventDetails({
   return (
     <>
       <PageTitle>Details</PageTitle>
-
       <Wrapper>
         <CardContainer>
           <StyledImage src={image} alt={title} width={width} height={height} />
+                <h3>{title}</h3>
           <StyledList>
             <h3>{title}</h3>
             <li>{category} - {genre}</li>
