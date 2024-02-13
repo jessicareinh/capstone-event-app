@@ -1,21 +1,25 @@
 import Link from "next/link";
 import { useState } from "react";
 import styled from "styled-components";
+import { useRouter } from "next/router";
+
+const Paragraph = styled.p`
+  font-size: small;
+  color: gray;
+`;
 
 export default function EventForm({ onAddEvent }) {
+  const router = useRouter();
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+
     onAddEvent(data);
-    console.log(data);
+    alert("🎉You have added your Event successfully!");
+    router.push("/my-events");
     event.target.reset();
   }
-
-  const Paragraph = styled.p`
-    font-size: small;
-    color: gray;
-  `;
 
   return (
     <>
