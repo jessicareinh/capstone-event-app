@@ -7,8 +7,11 @@ export default function MyEvents({ ownEvents }) {
     <>
       <h1>My Events List</h1>
       <MyEventsList ownEvents={ownEvents} />
+      <Link href="/"> Back to homepage </Link>
+      <br></br>
+      <br></br>
       <Link href="/add-event">
-        <button>➕</button>
+        <button>Add your Event</button>
       </Link>
     </>
   );
