@@ -1,9 +1,15 @@
 import GlobalStyle from "../styles";
 import { useState, useEffect } from "react";
+import { uid } from "uid";
+import useLocalStorageState from "use-local-storage-state";
+
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 export default function App({ Component, pageProps }) {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
+  const [ownEvents, setOwnEvents] = useLocalStorageState("myEvents", {
+    defaultValue: [],
+  });
 
   const baseUrl = "https://app.ticketmaster.com/discovery/v2/events?apikey=";
   const countryCode = "DE";
@@ -30,13 +36,18 @@ export default function App({ Component, pageProps }) {
   function handleLoadMore() {
     setPage((prevPage) => prevPage + 1);
   }
+  function handleAddEvents(newEvent) {
+    setOwnEvents([...ownEvents, { ...newEvent, id: uid() }]);
+  }
 
   return (
     <>
       <GlobalStyle />
       <Component
+        onAddEvent={handleAddEvents}
         apiData={data}
         handleLoadMore={handleLoadMore}
+        ownEvents={ownEvents}
         {...pageProps}
       />
     </>
