@@ -63,13 +63,11 @@ export default function EventDetails({
   return (
     <>
       <PageTitle>Details</PageTitle>
-
       <Wrapper>
         <CardContainer>
           <StyledImage src={image} alt={title} width={width} height={height} />
+                <h3>{title}</h3>
           <StyledList>
-            <h3>{title}</h3>
-            <ul>
               <li>{category}</li>
               <li> {date}</li>
               <li>{time} Uhr</li>
@@ -78,7 +76,6 @@ export default function EventDetails({
               <li>
                 {postalCode} {location}
               </li>
-            </ul>
           </StyledList>
           <Map lat={lat} lon={lon} />
         </CardContainer>
