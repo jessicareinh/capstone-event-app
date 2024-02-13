@@ -11,7 +11,6 @@ export default function App({ Component, pageProps }) {
     defaultValue: [],
   });
 
-  console.log(ownEvents);
   const baseUrl = "https://app.ticketmaster.com/discovery/v2/events?apikey=";
   const countryCode = "DE";
   const sortBy = "relevance,desc";
@@ -49,7 +48,6 @@ export default function App({ Component, pageProps }) {
         apiData={data}
         handleLoadMore={handleLoadMore}
         ownEvents={ownEvents}
-        setOwnEvents={setOwnEvents}
         {...pageProps}
       />
     </>
