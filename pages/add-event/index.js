@@ -13,9 +13,9 @@ export default function MyEvents({ ownEvents, setOwnEvents }) {
 
   return (
     <>
-      <h2>Add your own Event </h2>
       <EventForm onAddEvent={handleAddEvent} />
-
+      <Link href="/my-events"> Back to your Events </Link>
+      <br></br>
       <Link href="/"> Back to homepage </Link>
     </>
   );
