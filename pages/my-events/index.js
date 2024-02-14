@@ -7,6 +7,7 @@ export default function MyEvents({ ownEvents }) {
     "myEvents",
     ownEvents
   );
+
   const handleDeleteEvent = (eventId) => {
     setStoredOwnEvents(storedOwnEvents.filter((event) => event.id !== eventId));
   };
@@ -14,9 +15,11 @@ export default function MyEvents({ ownEvents }) {
   return (
     <>
       <h1>My Events List</h1>
-      <MyEventsList ownEvents={ownEvents} onDeleteEvent={handleDeleteEvent} />
+      <MyEventsList
+        ownEvents={storedOwnEvents}
+        onDeleteEvent={handleDeleteEvent}
+      />
       <Link href="/"> Back to homepage </Link>
-
       <br></br>
       <br></br>
       <Link href="/add-event">

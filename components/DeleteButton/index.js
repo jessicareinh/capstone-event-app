@@ -7,16 +7,20 @@ const StyledDeleteButton = styled.button`
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  position: absolute;
+  bottom: 0.8rem;
+  right: 0.8rem;
 `;
 
-export default function DeleteButton({ onClick, confirmMessage }) {
-  const onDeleteEvent = (id) => {
+export default function DeleteButton({ id, onDeleteEvent, confirmMessage }) {
+  const confirmDelete = () => {
     const isConfirmed = window.confirm(confirmMessage);
     if (isConfirmed) {
-      onClick(id);
+      onDeleteEvent(id);
     }
   };
+
   return (
-    <StyledDeleteButton onClick={onDeleteEvent}>Delete</StyledDeleteButton>
+    <StyledDeleteButton onClick={confirmDelete}>Delete</StyledDeleteButton>
   );
 }
