@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import DeleteButton from "../DeleteButton";
 
 const StyledList = styled.li`
   list-style: none;
@@ -28,24 +28,7 @@ const Title = styled.h2`
   font-weight: 600;
 `;
 
-const DeleteButton = styled.button`
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-`;
-
-export default function MyEventsList({ ownEvents, onDelete }) {
-  const handleDeleteEvent = (id) => {
-    const isConfirmed = window.confirm(
-      "Are you sure you want to delete this event?"
-    );
-    if (isConfirmed) {
-      onDelete(id);
-    }
-  };
+export default function MyEventsList({ ownEvents, onDeleteEvent }) {
   return (
     <StyledList>
       {ownEvents.length === 0 && <p>You have not added any events yet </p>}
@@ -56,7 +39,10 @@ export default function MyEventsList({ ownEvents, onDelete }) {
           <Paragraph>{event.time}</Paragraph>
           <Paragraph>{event.location}</Paragraph>
           <Paragraph>{event.description}</Paragraph>
-          <DeleteButton onClick={() => handleDeleteEvent(event.id)}>
+          <DeleteButton
+            onClick={() => onDeleteEvent(event.id)}
+            confirmMessage="Are you sure you want to delete this event?"
+          >
             Delete
           </DeleteButton>
         </EventCard>
