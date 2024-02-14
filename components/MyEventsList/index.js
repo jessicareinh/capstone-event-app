@@ -27,7 +27,29 @@ const Title = styled.h2`
   font-weight: 600;
 `;
 
+const EditButton = styled.button`
+  align-items: center;
+  background-color: #fffbf5;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  height: 30px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 10px;
+  position: absulute;
+  text-align: center;
+  text-decoration: none;
+`;
+
 export default function MyEventsList({ ownEvents }) {
+  const [editEvent, setEditEvent] = useState([]);
   return (
     <StyledList>
       {ownEvents.length === 0 && <p>You have not added any events yet </p>}
@@ -38,6 +60,7 @@ export default function MyEventsList({ ownEvents }) {
           <Paragraph>{event.time}</Paragraph>
           <Paragraph>{event.location}</Paragraph>
           <Paragraph>{event.description}</Paragraph>
+          <EditButton onClick={() => handleEdit(event.id)}>edit</EditButton>
         </EventCard>
       ))}
     </StyledList>
