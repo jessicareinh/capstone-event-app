@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const StyledList = styled.li`
   list-style: none;
@@ -50,6 +51,15 @@ const EditButton = styled.button`
 
 export default function MyEventsList({ ownEvents }) {
   const [editEvent, setEditEvent] = useState([]);
+
+  const handleEdit = (eventId) => {
+    setEditEvent(eventId);
+  };
+
+  const handleSave = (event) => {
+    console.log("Änderungen gespeichert: ", event);
+    setEditEvent(null);
+  };
   return (
     <StyledList>
       {ownEvents.length === 0 && <p>You have not added any events yet </p>}
@@ -60,6 +70,40 @@ export default function MyEventsList({ ownEvents }) {
           <Paragraph>{event.time}</Paragraph>
           <Paragraph>{event.location}</Paragraph>
           <Paragraph>{event.description}</Paragraph>
+          {editEvent === event.id && (
+            <div>
+              <input
+                type="text"
+                defaultValue={event.title}
+                onChange={(e) => (event.title = e.target.Value)}
+                required
+              />
+              <input
+                htmlFor="date"
+                defaultValue={event.date}
+                onChange={(e) => (event.date = e.target.value)}
+                required
+              />
+              <input
+                htmlFor="time"
+                defaultValue={event.time}
+                onChange={(e) => (event.time = e.target.value)}
+                required
+              />
+              <input
+                type="text"
+                defaultValue={event.location}
+                onChange={(e) => (event.location = e.target.value)}
+                required
+              />
+              <input
+                type="text"
+                defaultValue={event.description}
+                onChange={(e) => (event.description = e.target.value)}
+              />
+              <button onClick={() => handleSave(event.id)}>Save</button>
+            </div>
+          )}
           <EditButton onClick={() => handleEdit(event.id)}>edit</EditButton>
         </EventCard>
       ))}
