@@ -80,30 +80,35 @@ export default function MyEventsList({ ownEvents }) {
           <Paragraph>{event.description}</Paragraph>
           {isEditing && editEvent === event.id && (
             <div>
+              <p>Title</p>
               <input
                 type="text"
                 defaultValue={event.title}
                 onChange={(e) => (event.title = e.target.value)}
                 required
               />
+              <p>Date</p>
               <input
                 htmlFor="date"
                 defaultValue={event.date}
                 onChange={(e) => (event.date = e.target.value)}
                 required
               />
+              <p>Time</p>
               <input
                 htmlFor="time"
                 defaultValue={event.time}
                 onChange={(e) => (event.time = e.target.value)}
                 required
               />
+              <p>Location</p>
               <input
                 type="text"
                 defaultValue={event.location}
                 onChange={(e) => (event.location = e.target.value)}
                 required
               />
+              <p>Description</p>
               <input
                 type="text"
                 defaultValue={event.description}
