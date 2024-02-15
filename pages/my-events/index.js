@@ -1,7 +1,6 @@
 import Link from "next/link";
 import MyEventsList from "@/components/MyEventsList";
 import useLocalStorageState from "use-local-storage-state";
-import React from "react";
 
 export default function MyEvents({ ownEvents }) {
   const [storedOwnEvents, setStoredOwnEvents] = useLocalStorageState(

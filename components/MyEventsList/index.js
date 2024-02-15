@@ -6,7 +6,7 @@ const StyledList = styled.ul`
   line-height: 2rem;
 `;
 
-const EventCard = styled.li`
+const EventCard = styled.div`
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
   background-color: lightgray;
   margin: 30px;
@@ -26,14 +26,16 @@ export default function MyEventsList({ ownEvents, onDeleteEvent }) {
     return <p>You have not added any events yet </p>;
   }
   return (
-    <StyledList>
+    <>
       {ownEvents.map((event) => (
         <EventCard key={event.id}>
           <Title>{event.title}</Title>
-          <li>{event.date}</li>
-          <li>{event.time}</li>
-          <li>{event.location}</li>
-          <li>{event.description}</li>
+          <StyledList>
+            <li>{event.date}</li>
+            <li>{event.time}</li>
+            <li>{event.location}</li>
+            <li>{event.description}</li>
+          </StyledList>
 
           <DeleteButton
             id={event.id}
@@ -42,6 +44,6 @@ export default function MyEventsList({ ownEvents, onDeleteEvent }) {
           />
         </EventCard>
       ))}
-    </StyledList>
+    </>
   );
 }
