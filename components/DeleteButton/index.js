@@ -13,15 +13,11 @@ const StyledDeleteButton = styled.button`
   right: 0.8rem;
 `;
 
-export default function DeleteButton({
-  eventId,
-  onDeleteEvent,
-  confirmMessage,
-}) {
+export default function DeleteButton({ id, onDeleteEvent, confirmMessage }) {
   const confirmDelete = () => {
     const isConfirmed = window.confirm(confirmMessage);
     if (isConfirmed) {
-      onDeleteEvent(eventId);
+      onDeleteEvent(id);
     }
   };
 

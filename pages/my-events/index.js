@@ -2,7 +2,6 @@ import Link from "next/link";
 import MyEventsList from "@/components/MyEventsList";
 import useLocalStorageState from "use-local-storage-state";
 import React from "react";
-import DeleteButton from "@/components/DeleteButton";
 
 export default function MyEvents({ ownEvents }) {
   const [storedOwnEvents, setStoredOwnEvents] = useLocalStorageState(
@@ -20,7 +19,6 @@ export default function MyEvents({ ownEvents }) {
       <MyEventsList
         ownEvents={storedOwnEvents}
         onDeleteEvent={handleDeleteEvent}
-        DeleteButton={DeleteButton}
       />
       <Link href="/"> Back to homepage </Link>
       <br></br>
