@@ -11,6 +11,10 @@ export default function App({ Component, pageProps }) {
     defaultValue: [],
   });
 
+  const [favList, setFavList] = useLocalStorageState("favList", {
+    defaultValue: [],
+  });
+
   const baseUrl = "https://app.ticketmaster.com/discovery/v2/events?apikey=";
   const countryCode = "DE";
   const sortBy = "relevance,desc";
@@ -40,6 +44,20 @@ export default function App({ Component, pageProps }) {
     setOwnEvents([...ownEvents, { ...newEvent, id: uid() }]);
   }
 
+  function toggleFavorite(id) {
+    const currentEvent = favList.find((event) => event.id === id);
+    if (currentEvent) {
+      setFavList(
+        favList.map((fav) =>
+          fav.id === id ? { id, isFavorite: !fav.isFavorite } : fav
+        )
+      );
+    } else {
+      setFavList([...favList, { id, isFavorite: true }]);
+    }
+    console.log(currentEvent);
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -48,6 +66,8 @@ export default function App({ Component, pageProps }) {
         apiData={data}
         handleLoadMore={handleLoadMore}
         ownEvents={ownEvents}
+        onToggleFavorite={toggleFavorite}
+        favList={favList}
         {...pageProps}
       />
     </>

@@ -66,13 +66,18 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export default function HomePage({ apiData, handleLoadMore }) {
+export default function HomePage({
+  apiData,
+  handleLoadMore,
+  onToggleFavorite,
+}) {
+
   return (
     <>
       <StyledLink href="/my-events"> my events </StyledLink>
       <Wrapper>
         <Title>EVENT APP</Title>
-        <EventList apiData={apiData} />
+        <EventList apiData={apiData} onToggleFavorite={onToggleFavorite} />
         <StyledButton onClick={handleLoadMore}>Load More</StyledButton>
       </Wrapper>
     </>
