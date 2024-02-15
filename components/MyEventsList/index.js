@@ -75,7 +75,7 @@ export default function MyEventsList({ ownEvents }) {
               <input
                 type="text"
                 defaultValue={event.title}
-                onChange={(e) => (event.title = e.target.Value)}
+                onChange={(e) => (event.title = e.target.value)}
                 required
               />
               <input
