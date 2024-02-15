@@ -70,14 +70,19 @@ export default function HomePage({
   apiData,
   handleLoadMore,
   onToggleFavorite,
+  favList,
 }) {
-
   return (
     <>
+      <Link href="/favorites">Favorites</Link>
       <StyledLink href="/my-events"> my events </StyledLink>
       <Wrapper>
         <Title>EVENT APP</Title>
-        <EventList apiData={apiData} onToggleFavorite={onToggleFavorite} />
+        <EventList
+          apiData={apiData}
+          onToggleFavorite={onToggleFavorite}
+          favList={favList}
+        />
         <StyledButton onClick={handleLoadMore}>Load More</StyledButton>
       </Wrapper>
     </>

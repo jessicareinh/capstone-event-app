@@ -1,9 +1,9 @@
 import EventDetails from "@/components/EventDetails";
 import { useRouter } from "next/router";
-import { selectImage } from "@/components/EventList";
+import selectImage from "@/components/utils";
 import Link from "next/link";
 
-export default function DetailsPage({ apiData }) {
+export default function DetailsPage({ apiData, onToggleFavorite, favList }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -30,6 +30,12 @@ export default function DetailsPage({ apiData }) {
         height={300}
         lat={currentEvent._embedded.venues[0].location.latitude}
         lon={currentEvent._embedded.venues[0].location.longitude}
+        isFavorite={
+          favList?.find((fav) => fav.id === currentEvent.id)?.isFavorite
+        }
+        onToggleFavorite={() => {
+          onToggleFavorite(currentEvent.id);
+        }}
       ></EventDetails>
     </main>
   );

@@ -55,9 +55,7 @@ export default function App({ Component, pageProps }) {
     } else {
       setFavList([...favList, { id, isFavorite: true }]);
     }
-    console.log(currentEvent);
   }
-
   return (
     <>
       <GlobalStyle />
