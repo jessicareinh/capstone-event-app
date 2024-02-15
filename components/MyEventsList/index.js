@@ -64,7 +64,6 @@ export default function MyEventsList({ ownEvents }) {
   };
 
   const handleSave = (event) => {
-    console.log("Änderungen gespeichert: ", event);
     setEditEvent(false);
     setIsEditing(false);
   };
