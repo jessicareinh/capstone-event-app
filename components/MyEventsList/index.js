@@ -22,9 +22,11 @@ const Title = styled.h2`
 `;
 
 export default function MyEventsList({ ownEvents, onDeleteEvent }) {
+  if (!ownEvents || ownEvents.length === 0) {
+    return <p>You have not added any events yet </p>;
+  }
   return (
     <StyledList>
-      {ownEvents.length === 0 && <p>You have not added any events yet </p>}
       {ownEvents.map((event) => (
         <EventCard key={event.id}>
           <Title>{event.title}</Title>
