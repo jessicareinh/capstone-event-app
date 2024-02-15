@@ -28,7 +28,7 @@ const Title = styled.h2`
   font-weight: 600;
 `;
 
-const EditButton = styled.button`
+const StyledEditButton = styled.button`
   align-items: center;
   background-color: #fffbf5;
   border: 2px solid #111;
@@ -51,15 +51,24 @@ const EditButton = styled.button`
 
 export default function MyEventsList({ ownEvents }) {
   const [editEvent, setEditEvent] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
 
   const handleEdit = (eventId) => {
     setEditEvent(eventId);
+    setIsEditing(true);
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+    setEditEvent(false);
   };
 
   const handleSave = (event) => {
     console.log("Änderungen gespeichert: ", event);
-    setEditEvent(null);
+    setEditEvent(false);
+    setIsEditing(false);
   };
+
   return (
     <StyledList>
       {ownEvents.length === 0 && <p>You have not added any events yet </p>}
@@ -70,7 +79,7 @@ export default function MyEventsList({ ownEvents }) {
           <Paragraph>{event.time}</Paragraph>
           <Paragraph>{event.location}</Paragraph>
           <Paragraph>{event.description}</Paragraph>
-          {editEvent === event.id && (
+          {isEditing && editEvent === event.id && (
             <div>
               <input
                 type="text"
@@ -102,9 +111,14 @@ export default function MyEventsList({ ownEvents }) {
                 onChange={(e) => (event.description = e.target.value)}
               />
               <button onClick={() => handleSave(event.id)}>Save</button>
+              <button onClick={handleCancel}>Cancel</button>
             </div>
           )}
-          <EditButton onClick={() => handleEdit(event.id)}>edit</EditButton>
+          {!isEditing && (
+            <StyledEditButton onClick={() => handleEdit(event.id)}>
+              edit
+            </StyledEditButton>
+          )}
         </EventCard>
       ))}
     </StyledList>
