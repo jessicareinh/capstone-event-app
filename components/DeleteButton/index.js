@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React from "react";
 
 const StyledDeleteButton = styled.button`
   background-color: black;
@@ -12,11 +13,15 @@ const StyledDeleteButton = styled.button`
   right: 0.8rem;
 `;
 
-export default function DeleteButton({ id, onDeleteEvent, confirmMessage }) {
+export default function DeleteButton({
+  eventId,
+  onDeleteEvent,
+  confirmMessage,
+}) {
   const confirmDelete = () => {
     const isConfirmed = window.confirm(confirmMessage);
     if (isConfirmed) {
-      onDeleteEvent(id);
+      onDeleteEvent(eventId);
     }
   };
 
