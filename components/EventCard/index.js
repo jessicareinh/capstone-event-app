@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
+import FavoriteButton from "../FavoriteButton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -39,7 +40,7 @@ const StyledImage = styled(Image)`
   object-fit: cover;
   transition: transform 0.1s ease;
   &:hover {
-    transform: scale(1.02);
+    /* transform: scale(1.02); */
   }
 `;
 
@@ -47,6 +48,13 @@ const DetailsRow = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px;
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
 `;
 
 export default function EventCard({
@@ -58,22 +66,35 @@ export default function EventCard({
   height,
   id,
   venue,
+  onToggleFavorite,
+  isFavorite,
 }) {
   return (
     <Wrapper>
-      <CardContainer>
-        <Link href={`/details/${id}`}>
-          <StyledImage src={image} alt={title} width={width} height={height} />
-        </Link>
+      <ImageContainer>
+        <FavoriteButton
+          isFavorite={isFavorite}
+          onToggleFavorite={onToggleFavorite}
+        />
+        <CardContainer>
+          <Link href={`/details/${id}`}>
+            <StyledImage
+              src={image}
+              alt={title}
+              width={width}
+              height={height}
+            />
+          </Link>
 
-        <Title>{title}</Title>
+          <Title>{title}</Title>
 
-        <DetailsRow>
-          <p>{location}</p>
-          <p>{date}</p>
-        </DetailsRow>
-        <p>{venue}</p>
-      </CardContainer>
+          <DetailsRow>
+            <p>{location}</p>
+            <p>{date}</p>
+          </DetailsRow>
+          <p>{venue}</p>
+        </CardContainer>
+      </ImageContainer>
     </Wrapper>
   );
 }
