@@ -7,19 +7,13 @@ const StyledList = styled.li`
   margin: 30px;
 `;
 
+const Title = styled.h2`
+  font-weight: 600;
+`;
+
 export default function MyEventsList({ ownEvents }) {
   const [editEvent, setEditEvent] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
-
-  const handleEdit = (eventId) => {
-    setEditEvent(eventId);
-    setIsEditing(true);
-  };
-
-  const handleCancel = () => {
-    setEditEvent(false);
-    setIsEditing(false);
-  };
 
   const handleSave = (event) => {
     setEditEvent(false);
