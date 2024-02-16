@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${baseUrl}${apiKey}&sort=${sortBy}&page=${page}&countryCode=${countryCode}`
+          `${baseUrl}${apiKey}&sort=${sortBy}&page=${page}&countryCode=${countryCode}&locale=*`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch api");

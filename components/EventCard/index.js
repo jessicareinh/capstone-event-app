@@ -10,10 +10,10 @@ const Wrapper = styled.div`
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-
   width: 100%;
   height: 380px;
   margin: 25px;
+  position: relative;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -30,8 +30,10 @@ const CardContainer = styled.div`
   }
 `;
 
-const Title = styled.h3`
-  margin: 10px;
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
 `;
 
 const StyledImage = styled(Image)`
@@ -39,23 +41,32 @@ const StyledImage = styled(Image)`
   height: 250px;
   object-fit: cover;
   transition: transform 0.1s ease;
-  &:hover {
-    /* transform: scale(1.02); */
-  }
 `;
 
-const DetailsRow = styled.div`
+const Title = styled.h3`
+  margin: 10px;
+`;
+
+const DetailsContainer = styled.div`
+  margin: 10px;
+  line-height: 1.3rem;
+  margin-top: auto;
+`;
+
+const DetailsRows = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Row1 = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+`;
+const Location = styled.p`
+  font-size: 1.2rem;
 `;
 
-const ImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  position: relative;
-`;
+const Row2 = styled.div``;
 
 export default function EventCard({
   title,
@@ -85,14 +96,18 @@ export default function EventCard({
               height={height}
             />
           </Link>
-
           <Title>{title}</Title>
-
-          <DetailsRow>
-            <p>{location}</p>
-            <p>{date}</p>
-          </DetailsRow>
-          <p>{venue}</p>
+          <DetailsContainer>
+            <DetailsRows>
+              <Row1>
+                <Location>{location}</Location>
+                <p>{date}</p>
+              </Row1>
+              <Row2>
+                <p>{venue}</p>
+              </Row2>
+            </DetailsRows>
+          </DetailsContainer>
         </CardContainer>
       </ImageContainer>
     </Wrapper>
