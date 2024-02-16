@@ -10,23 +10,35 @@ const Wrapper = styled.div`
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-
   width: 100%;
   height: 380px;
-  margin: 25px;
+  margin: 20px 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   &:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
   }
-  @media (max-width: 767px) {
-    max-width: 444px;
-    margin: 20px 10px;
+
+  @media (max-width: 360px) {
+    max-width: 250px;
+    background-color: antiquewhite;
   }
+
+  @media (360px <= width <= 411px) {
+    max-width: 335px;
+  }
+
+  @media (412px <= width <= 500px) {
+    max-width: 380px;
+  }
+
+  @media (501px <= width <= 767px) {
+    max-width: 335px;
+  }
+
   @media (min-width: 768px) {
     max-width: 335px;
-    margin: 20px 20px;
   }
 `;
 
@@ -39,9 +51,6 @@ const StyledImage = styled(Image)`
   height: 250px;
   object-fit: cover;
   transition: transform 0.1s ease;
-  &:hover {
-    /* transform: scale(1.02); */
-  }
 `;
 
 const DetailsRow = styled.div`
@@ -54,7 +63,6 @@ const ImageContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
 `;
 
 export default function EventCard({
