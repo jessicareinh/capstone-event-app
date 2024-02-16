@@ -26,7 +26,14 @@ const NavLink = styled(Link)`
   }
 `;
 
-const StyledButton = styled.button``;
+const StyledButton = styled.button`
+  width: 150px;
+  height: 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 6px;
+  margin: 20px;
+`;
 
 export default function HomePage({
   apiData,
@@ -48,7 +55,7 @@ export default function HomePage({
           onToggleFavorite={onToggleFavorite}
           favList={favList}
         />
-        <StyledButton onClick={handleLoadMore}>Load More</StyledButton>
+        <StyledButton onClick={handleLoadMore}>See More</StyledButton>
       </Wrapper>
     </>
   );
