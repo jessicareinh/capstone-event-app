@@ -40,11 +40,16 @@ export default function App({ Component, pageProps }) {
     setOwnEvents([...ownEvents, { ...newEvent, id: uid() }]);
   }
 
+  function handleSaveEvent()) {
+    setSaveEvents();
+  }
+
   return (
     <>
       <GlobalStyle />
       <Component
         onAddEvent={handleAddEvents}
+        onSave={handleSave}
         apiData={data}
         handleLoadMore={handleLoadMore}
         ownEvents={ownEvents}
