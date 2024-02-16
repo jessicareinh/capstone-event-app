@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useState } from "react";
 import EditEvent from "../EditEvent";
 
 const StyledList = styled.li`
@@ -11,20 +10,12 @@ const Title = styled.h2`
   font-weight: 600;
 `;
 
-export default function MyEventsList({ ownEvents }) {
-  const [editEvent, setEditEvent] = useState([]);
-  const [isEditing, setIsEditing] = useState(false);
-
-  const handleSave = (event) => {
-    setEditEvent(false);
-    setIsEditing(false);
-  };
-
+export default function MyEventsList({ ownEvents, onSave }) {
   return (
     <StyledList>
       {ownEvents.length === 0 && <p>You have not added any events yet </p>}
       {ownEvents.map((event) => (
-        <EditEvent keys={event.id} event={event} onSave={handleSave} />
+        <EditEvent key={event.id} event={event} onSave={onSave} />
       ))}
     </StyledList>
   );

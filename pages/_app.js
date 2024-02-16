@@ -40,8 +40,16 @@ export default function App({ Component, pageProps }) {
     setOwnEvents([...ownEvents, { ...newEvent, id: uid() }]);
   }
 
-  function handleSaveEvent()) {
-    setSaveEvents();
+  function handleSaveEvent(editedEvent) {
+    setOwnEvents(
+      ownEvents.map(function (ownEvent) {
+        if (ownEvent.id === editedEvent.id) {
+          return editedEvent;
+        } else {
+          return ownEvent;
+        }
+      })
+    );
   }
 
   return (
@@ -49,7 +57,7 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <Component
         onAddEvent={handleAddEvents}
-        onSave={handleSave}
+        onSave={handleSaveEvent}
         apiData={data}
         handleLoadMore={handleLoadMore}
         ownEvents={ownEvents}

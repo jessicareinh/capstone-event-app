@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const StyledList = styled.li`
+const StyledList = styled.ul`
   list-style: none;
   margin: 30px;
 `;
@@ -42,24 +42,13 @@ const StyledEditButton = styled.button`
   text-decoration: none;
 `;
 
-export default function EditEvent(event, onSave) {
+export default function EditEvent({ event, onSave }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editableEvent, setEditableEvent] = useState({ ...event });
-
-  //   const handleEdit = (eventId) => {
-  //     setEditEvent(eventId);
-  //     setIsEditing(true);
-  //   };
-
-  //   const handleCancel = () => {
-  //     setEditEvent(false);
-  //     setIsEditing(false);
-  //   };
 
   return (
     <StyledList>
       <EventCard key={event.id}>
-        {isEditing && <p>hello world</p>}
         <Paragraph>{event.title}</Paragraph>
         <Paragraph>{event.date}</Paragraph>
         <Paragraph>{event.time}</Paragraph>
@@ -73,7 +62,7 @@ export default function EditEvent(event, onSave) {
               onChange={(e) =>
                 setEditableEvent({
                   ...editableEvent,
-                  Title: e.target.title,
+                  title: e.target.value,
                 })
               }
               placeholder="Title"
@@ -86,7 +75,7 @@ export default function EditEvent(event, onSave) {
               onChange={(e) =>
                 setEditableEvent({
                   ...editableEvent,
-                  date: e.target.date,
+                  date: e.target.value,
                 })
               }
               placeholder="Date"
@@ -99,7 +88,7 @@ export default function EditEvent(event, onSave) {
               onChange={(e) =>
                 setEditableEvent({
                   ...editableEvent,
-                  time: e.target.time,
+                  time: e.target.value,
                 })
               }
               placeholder="Time"
@@ -112,7 +101,7 @@ export default function EditEvent(event, onSave) {
               onChange={(e) =>
                 setEditableEvent({
                   ...editableEvent,
-                  location: e.target.location,
+                  location: e.target.value,
                 })
               }
               placeholder="Location"
@@ -124,7 +113,7 @@ export default function EditEvent(event, onSave) {
               onChange={(e) =>
                 setEditableEvent({
                   ...editableEvent,
-                  description: e.target.description,
+                  description: e.target.value,
                 })
               }
               placeholder="Description"
