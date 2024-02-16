@@ -28,6 +28,12 @@ const Title = styled.h2`
   font-weight: 600;
 `;
 
+const Section = styled.section`
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  color: #111;
+`;
+
 const StyledEditButton = styled.button`
   align-items: center;
   background-color: #fffbf5;
@@ -79,7 +85,7 @@ export default function MyEventsList({ ownEvents }) {
           <Paragraph>{event.location}</Paragraph>
           <Paragraph>{event.description}</Paragraph>
           {isEditing && editEvent === event.id && (
-            <div>
+            <Section>
               <p>Title</p>
               <input
                 type="text"
@@ -116,7 +122,7 @@ export default function MyEventsList({ ownEvents }) {
               />
               <button onClick={() => handleSave(event.id)}>Save</button>
               <button onClick={handleCancel}>Cancel</button>
-            </div>
+            </Section>
           )}
           {!isEditing && (
             <StyledEditButton onClick={() => handleEdit(event.id)}>
