@@ -20,7 +20,7 @@ const Paragraph = styled.p`
 const EventCard = styled.li`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   background-color: lightpink;
-  margin-top: 30px;
+  margin-top: 40px;
   border-radius: 10px;
 `;
 
@@ -50,7 +50,6 @@ const StyledEditButton = styled.button`
   line-height: 24px;
   max-width: 100%;
   padding: 0 10px;
-  position: absulute;
   text-align: center;
   text-decoration: none;
 `;
@@ -65,7 +64,7 @@ export default function MyEventsList({ ownEvents }) {
   };
 
   const handleCancel = () => {
-    setEditEvent(null);
+    setEditEvent(false);
     setIsEditing(false);
   };
 
@@ -90,7 +89,7 @@ export default function MyEventsList({ ownEvents }) {
                 type="text"
                 defaultValue={event.title}
                 onChange={(e) => (event.title = e.target.value)}
-                placeholder="Title"
+                placeholder="Title*"
                 required
               />
 
