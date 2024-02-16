@@ -65,8 +65,8 @@ export default function MyEventsList({ ownEvents }) {
   };
 
   const handleCancel = () => {
+    setEditEvent(null);
     setIsEditing(false);
-    setEditEvent(false);
   };
 
   const handleSave = (event) => {
@@ -86,39 +86,42 @@ export default function MyEventsList({ ownEvents }) {
           <Paragraph>{event.description}</Paragraph>
           {isEditing && editEvent === event.id && (
             <Section>
-              <p>Title</p>
               <input
                 type="text"
                 defaultValue={event.title}
                 onChange={(e) => (event.title = e.target.value)}
+                placeholder="Title"
                 required
               />
-              <p>Date</p>
+
               <input
                 htmlFor="date"
                 defaultValue={event.date}
                 onChange={(e) => (event.date = e.target.value)}
+                placeholder="Date"
                 required
               />
-              <p>Time</p>
+
               <input
                 htmlFor="time"
                 defaultValue={event.time}
                 onChange={(e) => (event.time = e.target.value)}
+                placeholder="Time"
                 required
               />
-              <p>Location</p>
+
               <input
                 type="text"
                 defaultValue={event.location}
                 onChange={(e) => (event.location = e.target.value)}
+                placeholder="Location"
                 required
               />
-              <p>Description</p>
               <input
                 type="text"
                 defaultValue={event.description}
                 onChange={(e) => (event.description = e.target.value)}
+                placeholder="Description"
               />
               <button onClick={() => handleSave(event.id)}>Save</button>
               <button onClick={handleCancel}>Cancel</button>
