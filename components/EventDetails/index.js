@@ -14,7 +14,7 @@ const CardContainer = styled.div`
   position: relative;
   width: 100%;
 
-  height: 800px;
+  height: 750px;
   margin: 25px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -25,7 +25,6 @@ const CardContainer = styled.div`
     margin: 20px 10px;
   }
   @media (min-width: 768px) {
-    max-width: 700px;
     margin: 20px 10px;
   }
 `;
@@ -33,10 +32,6 @@ const CardContainer = styled.div`
 const StyledList = styled.ul`
   list-style: none;
   margin: 20px;
-`;
-
-const PageTitle = styled.h1`
-  text-align: center;
 `;
 
 const StyledImage = styled(Image)`
@@ -64,7 +59,6 @@ export default function EventDetails({
 }) {
   return (
     <>
-      <PageTitle>Details</PageTitle>
       <Wrapper>
         <CardContainer>
           <FavoriteButton
