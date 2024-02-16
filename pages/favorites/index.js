@@ -4,8 +4,9 @@ import Link from "next/link";
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  width: 100%;
 `;
 
 const PageTitle = styled.h1`
@@ -26,36 +27,23 @@ const NavLink = styled(Link)`
   }
 `;
 
-const StyledButton = styled.button`
-  width: 150px;
-  height: 40px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding: 6px;
-  margin: 20px;
-`;
-
-export default function HomePage({
-  apiData,
-  handleLoadMore,
-  onToggleFavorite,
-  favList,
-}) {
+export default function Favorites({ apiData, favList, onToggleFavorite }) {
+  const favorites = apiData.filter((event) =>
+    favList.find((fav) => fav.id === event.id && fav.isFavorite)
+  );
   return (
     <>
+      <PageTitle>Favorites Page</PageTitle>
       <Wrapper>
-        <PageTitle>Upcoming Events</PageTitle>
         <Nav>
-          <NavLink href="/favorites">Favorites</NavLink>
+          <NavLink href="/">Home</NavLink>
           <NavLink href="/my-events">My Events</NavLink>
         </Nav>
-
         <EventList
-          apiData={apiData}
-          onToggleFavorite={onToggleFavorite}
           favList={favList}
+          onToggleFavorite={onToggleFavorite}
+          apiData={favorites}
         />
-        <StyledButton onClick={handleLoadMore}>See More</StyledButton>
       </Wrapper>
     </>
   );

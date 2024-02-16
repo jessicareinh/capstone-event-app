@@ -1,5 +1,6 @@
 import EventCard from "../EventCard";
 import styled from "styled-components";
+import selectImage from "../utils";
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,21 +13,20 @@ const StyledList = styled.li`
   list-style: none;
 `;
 
-export function selectImage(images) {
-  let selectedImage = null;
+export default function EventList({ apiData, favList, onToggleFavorite }) {
+  const uniqueIds = new Set();
+  const filteredData = [];
 
-  for (let i = 0; i < images.length; i++) {
-    if (images[i].url.includes("RETINA_PORTRAIT_16_9")) {
-      selectedImage = images[i];
-      return selectedImage;
+  // Filter out duplicate events based on their IDs
+  apiData.forEach((event) => {
+    if (!uniqueIds.has(event.id)) {
+      uniqueIds.add(event.id);
+      filteredData.push(event);
     }
-  }
-}
-
-export default function EventList({ apiData }) {
+  });
   return (
     <Wrapper>
-      {apiData.map((event) => (
+      {filteredData.map((event) => (
         <StyledList key={event.id}>
           <EventCard
             title={event.name}
@@ -37,6 +37,8 @@ export default function EventList({ apiData }) {
             width={event.images[2].width}
             height={0}
             id={event.id}
+            isFavorite={favList?.find((fav) => fav.id === event.id)?.isFavorite}
+            onToggleFavorite={() => onToggleFavorite(event.id)}
           />
         </StyledList>
       ))}

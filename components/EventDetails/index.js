@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Map from "../LocationMap";
-import Link from "next/link";
+import FavoriteButton from "../FavoriteButton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,10 +11,10 @@ const Wrapper = styled.div`
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-
+  position: relative;
   width: 100%;
 
-  height: 800px;
+  height: 750px;
   margin: 25px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -25,7 +25,6 @@ const CardContainer = styled.div`
     margin: 20px 10px;
   }
   @media (min-width: 768px) {
-    max-width: 700px;
     margin: 20px 10px;
   }
 `;
@@ -33,10 +32,6 @@ const CardContainer = styled.div`
 const StyledList = styled.ul`
   list-style: none;
   margin: 20px;
-`;
-
-const PageTitle = styled.h1`
-  text-align: center;
 `;
 
 const StyledImage = styled(Image)`
@@ -59,16 +54,23 @@ export default function EventDetails({
   height,
   lat,
   lon,
+  onToggleFavorite,
+  isFavorite,
 }) {
   return (
     <>
-      <PageTitle>Details</PageTitle>
       <Wrapper>
         <CardContainer>
+          <FavoriteButton
+            isFavorite={isFavorite}
+            onToggleFavorite={onToggleFavorite}
+          />
           <StyledImage src={image} alt={title} width={width} height={height} />
           <StyledList>
             <h3>{title}</h3>
-            <li>{category} - {genre}</li>
+            <li>
+              {category} - {genre}
+            </li>
             <li> {date}</li>
             <li>{time} Uhr</li>
             <li>{address}</li>
