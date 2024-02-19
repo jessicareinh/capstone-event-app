@@ -71,6 +71,7 @@ export default function EditEvent({ event, onSave }) {
 
             <input
               htmlFor="date"
+              type="date"
               defaultValue={event.date}
               onChange={(e) =>
                 setEditableEvent({
@@ -84,6 +85,7 @@ export default function EditEvent({ event, onSave }) {
 
             <input
               htmlFor="time"
+              type="time"
               defaultValue={event.time}
               onChange={(e) =>
                 setEditableEvent({
