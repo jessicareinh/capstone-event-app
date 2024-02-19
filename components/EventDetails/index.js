@@ -13,7 +13,7 @@ const CardContainer = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-
+  margin: 20px 10px;
   height: 750px;
   margin: 25px;
   border-radius: 10px;
@@ -22,10 +22,8 @@ const CardContainer = styled.div`
 
   @media (max-width: 767px) {
     max-width: 444px;
-    margin: 20px 10px;
   }
   @media (min-width: 768px) {
-    margin: 20px 10px;
   }
 `;
 
