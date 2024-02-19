@@ -14,7 +14,6 @@ const StyledList = styled.li`
 `;
 
 export default function EventList({ apiData, favList, onToggleFavorite }) {
-  const condition = "RETINA_PORTRAIT_16_9";
   const uniqueIds = new Set();
   const filteredData = [];
 
@@ -34,9 +33,9 @@ export default function EventList({ apiData, favList, onToggleFavorite }) {
             location={event._embedded.venues[0].city.name}
             venue={event._embedded.venues[0].name}
             date={formatDate(event.dates.start.localDate)}
-            image={selectImage(condition, event.images).url}
-            width={selectImage(condition, event.images).width}
-            height={selectImage(condition, event.images).height}
+            image={selectImage(event.images).url}
+            width={selectImage(event.images).width}
+            height={selectImage(event.images).height}
             id={event.id}
             isFavorite={favList?.find((fav) => fav.id === event.id)?.isFavorite}
             onToggleFavorite={() => onToggleFavorite(event.id)}

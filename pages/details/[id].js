@@ -51,7 +51,6 @@ const BackLink = styled.button`
 `;
 
 export default function DetailsPage({ apiData, onToggleFavorite, favList }) {
-  const condition = "TABLET_LANDSCAPE_16_9";
   const router = useRouter();
   const { id } = router.query;
 
@@ -71,9 +70,9 @@ export default function DetailsPage({ apiData, onToggleFavorite, favList }) {
         </Nav>
         <EventDetails
           title={currentEvent.name}
-          image={selectImage(condition, currentEvent.images)?.url}
-          width={selectImage(condition, currentEvent.images)?.width}
-          height={selectImage(condition, currentEvent.images)?.height}
+          image={selectImage(currentEvent.images)?.url}
+          width={selectImage(currentEvent.images)?.width}
+          height={selectImage(currentEvent.images)?.height}
           category={currentEvent.classifications[0].segment.name}
           genre={currentEvent.classifications[0].genre.name}
           address={currentEvent._embedded.venues[0].address?.line1}

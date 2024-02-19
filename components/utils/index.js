@@ -1,9 +1,9 @@
 //function to select image from API based on condition
-export function selectImage(condition, images) {
+export function selectImage(images) {
   let selectedImage = null;
 
   for (let i = 0; i < images.length; i++) {
-    if (images[i].url.includes(condition)) {
+    if (images[i].url.includes("RETINA_PORTRAIT_16_9")) {
       selectedImage = images[i];
       return selectedImage;
     }
