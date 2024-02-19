@@ -1,6 +1,6 @@
 import EventDetails from "@/components/EventDetails";
 import { useRouter } from "next/router";
-import selectImage from "@/components/utils";
+import selectImage from "@/components/Utils";
 import Link from "next/link";
 import styled from "styled-components";
 

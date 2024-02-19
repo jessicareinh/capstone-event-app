@@ -22,11 +22,10 @@ const CardContainer = styled.div`
 
   @media (max-width: 360px) {
     max-width: 250px;
-    background-color: antiquewhite;
   }
 
   @media (360px <= width <= 411px) {
-    max-width: 335px;
+    max-width: 90vw;
   }
 
   @media (412px <= width <= 500px) {
