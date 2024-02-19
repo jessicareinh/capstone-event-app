@@ -11,7 +11,7 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 380px;
+  height: 295px;
   margin: 20px 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -20,20 +20,17 @@ const CardContainer = styled.div`
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
   }
 
-  @media (max-width: 360px) {
-    max-width: 250px;
-  }
-
   @media (360px <= width <= 411px) {
-    max-width: 90vw;
+    width: 330px;
+    height: 270px;
   }
 
   @media (412px <= width <= 500px) {
-    max-width: 380px;
+    width: 380px;
   }
 
   @media (501px <= width <= 767px) {
-    max-width: 335px;
+    width: 335px;
   }
 
   @media (min-width: 768px) {
@@ -42,17 +39,13 @@ const CardContainer = styled.div`
   }
 `;
 
-const ImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-`;
-
 const StyledImage = styled(Image)`
   width: 100%;
-  height: 250px;
+  height: 180px;
   object-fit: cover;
-  transition: transform 0.1s ease;
+  @media (max-width: 480px) {
+    height: 150px;
+  }
 `;
 
 const DetailsRows = styled.div`
@@ -72,6 +65,20 @@ const ImageContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+`;
+const DetailsContainer = styled.div`
+  line-height: 1.4rem;
+  margin: auto 10px 10px 10px;
+`;
+
+const Title = styled.h3`
+  margin: 10px 10px 0 10px;
+  font-size: ${({ longtitle }) => (longtitle ? "1rem" : "1.2rem")};
+`;
+
+const Row2 = styled.div`
+  font-style: italic;
+  font-size: 0.8rem;
 `;
 
 export default function EventCard({
