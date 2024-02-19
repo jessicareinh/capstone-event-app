@@ -2,7 +2,7 @@ import Link from "next/link";
 import MyEventsList from "@/components/MyEventsList";
 import useLocalStorageState from "use-local-storage-state";
 
-export default function MyEvents({ ownEvents }) {
+export default function MyEvents({ ownEvents, onSave }) {
   const [storedOwnEvents, setStoredOwnEvents] = useLocalStorageState(
     "myEvents",
     ownEvents
@@ -18,6 +18,7 @@ export default function MyEvents({ ownEvents }) {
       <MyEventsList
         ownEvents={storedOwnEvents}
         onDeleteEvent={handleDeleteEvent}
+        onSave={onSave}
       />
       <Link href="/"> Back to homepage </Link>
       <br></br>

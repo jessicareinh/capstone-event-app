@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import DeleteButton from "../DeleteButton";
+import EditEvent from "../EditEvent";
 
 const StyledList = styled.ul`
   list-style: none;
@@ -12,7 +13,7 @@ const EventCard = styled.div`
   margin: 30px;
   padding: 15px;
   width: 300px;
-  height: 230px;
+  height: 400px;
   border-radius: 10px;
   position: relative;
 `;
@@ -21,7 +22,7 @@ const Title = styled.h2`
   font-weight: 600;
 `;
 
-export default function MyEventsList({ ownEvents, onDeleteEvent }) {
+export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
   if (!ownEvents || ownEvents.length === 0) {
     return <p>You have not added any events yet </p>;
   }
@@ -36,7 +37,7 @@ export default function MyEventsList({ ownEvents, onDeleteEvent }) {
             <li>{event.location}</li>
             <li>{event.description}</li>
           </StyledList>
-
+          <EditEvent key={event.id} event={event} onSave={onSave} />
           <DeleteButton
             id={event.id}
             onDeleteEvent={() => onDeleteEvent(event.id)}
