@@ -73,7 +73,6 @@ const DetailsContainer = styled.div`
 
 const Title = styled.h3`
   margin: 10px 10px 0 10px;
-  font-size: ${({ longtitle }) => (longtitle ? "1rem" : "1.2rem")};
 `;
 
 const Row2 = styled.div`
