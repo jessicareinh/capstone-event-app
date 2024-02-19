@@ -8,6 +8,9 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    scrollRestoration: true,
+  },
   compiler: {
     styledComponents: true,
   },
