@@ -90,7 +90,6 @@ export default function EventCard({
   venue,
   onToggleFavorite,
   isFavorite,
-  longtitle,
 }) {
   return (
     <Wrapper>
@@ -110,7 +109,7 @@ export default function EventCard({
           </Link>
         </ImageContainer>
 
-        <Title longtitle={longtitle}>{title}</Title>
+        <Title>{title}</Title>
         <DetailsContainer>
           <DetailsRows>
             <Row1>

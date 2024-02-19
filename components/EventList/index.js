@@ -31,7 +31,6 @@ export default function EventList({ apiData, favList, onToggleFavorite }) {
         <StyledList key={event.id}>
           <EventCard
             title={event.name}
-            longtitle={event.name.length >= 30}
             location={event._embedded.venues[0].city.name}
             venue={event._embedded.venues[0].name}
             date={formatDate(event.dates.start.localDate)}
