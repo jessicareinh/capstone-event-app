@@ -13,5 +13,6 @@ export default createGlobalStyle`
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
+    background-color: #fdf0db70;
   }
 `;

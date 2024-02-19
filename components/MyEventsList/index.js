@@ -6,19 +6,21 @@ const StyledList = styled.ul`
   line-height: 2rem;
 `;
 
-const EventCard = styled.div`
+const MyEventCard = styled.div`
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
-  background-color: lightgray;
-  margin: 30px;
+  background-color: #fda1de7a;
+  margin: 15px;
   padding: 15px;
-  width: 300px;
+  width: 350px;
   height: 230px;
   border-radius: 10px;
   position: relative;
 `;
 
-const Title = styled.h2`
+const Title = styled.h3`
   font-weight: 600;
+  text-decoration: dotted underline;
+  margin-bottom: 10px;
 `;
 
 export default function MyEventsList({ ownEvents, onDeleteEvent }) {
@@ -28,13 +30,22 @@ export default function MyEventsList({ ownEvents, onDeleteEvent }) {
   return (
     <>
       {ownEvents.map((event) => (
-        <EventCard key={event.id}>
+        <MyEventCard key={event.id}>
           <Title>{event.title}</Title>
           <StyledList>
-            <li>{event.date}</li>
-            <li>{event.time}</li>
-            <li>{event.location}</li>
-            <li>{event.description}</li>
+            <li>
+              <b>Date:</b> {event.date}
+            </li>
+            <li>
+              <b>Time:</b> {event.time}
+            </li>
+            <li>
+              <b>Where:</b> {event.location}
+            </li>
+            <li>
+              <b>Info: </b>
+              {event.description}
+            </li>
           </StyledList>
 
           <DeleteButton
@@ -42,7 +53,7 @@ export default function MyEventsList({ ownEvents, onDeleteEvent }) {
             onDeleteEvent={() => onDeleteEvent(event.id)}
             confirmMessage="Are you sure you want to delete this event?"
           />
-        </EventCard>
+        </MyEventCard>
       ))}
     </>
   );

@@ -11,21 +11,21 @@ const Wrapper = styled.div`
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: #fff;
   position: relative;
   width: 100%;
-
-  height: 750px;
-  margin: 25px;
+  height: 80vh;
+  margin: 20px 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 
-  @media (max-width: 767px) {
-    max-width: 444px;
-    margin: 20px 10px;
+  @media (max-width: 400px) {
+    height: 100vh;
   }
   @media (min-width: 768px) {
-    margin: 20px 10px;
+    width: 100%;
+    height: 80vh;
   }
 `;
 
@@ -36,7 +36,7 @@ const StyledList = styled.ul`
 
 const StyledImage = styled(Image)`
   width: 100%;
-  height: 250px;
+  height: 40%;
   object-fit: cover;
 `;
 
@@ -56,6 +56,7 @@ export default function EventDetails({
   lon,
   onToggleFavorite,
   isFavorite,
+  priority,
 }) {
   return (
     <>
@@ -65,14 +66,20 @@ export default function EventDetails({
             isFavorite={isFavorite}
             onToggleFavorite={onToggleFavorite}
           />
-          <StyledImage src={image} alt={title} width={width} height={height} />
+          <StyledImage
+            src={image}
+            alt={title}
+            width={width}
+            height={height}
+            priority={priority}
+          />
           <StyledList>
             <h3>{title}</h3>
             <li>
               {category} - {genre}
             </li>
-            <li> {date}</li>
-            <li>{time} Uhr</li>
+            <li>{date}</li>
+            {time && <li>{time} Uhr</li>}
             <li>{address}</li>
             <li>
               {postalCode} {location}

@@ -7,12 +7,17 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+const ImageContainer = styled.div`
+  width: 100%;
+`;
+
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: #fff;
   width: 100%;
-  height: 380px;
-  margin: 25px;
+  height: 295px;
   position: relative;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -20,37 +25,40 @@ const CardContainer = styled.div`
   &:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
   }
-  @media (max-width: 767px) {
-    max-width: 444px;
+  @media (max-width: 480px) {
+    width: 320px;
+    height: 270px;
     margin: 20px 10px;
   }
+  @media (481px <= width < 768px) {
+    width: 380px;
+    height: 295px;
+    margin: 20px 10px;
+  }
+
   @media (min-width: 768px) {
-    max-width: 335px;
+    width: 335px;
     margin: 20px 20px;
   }
 `;
 
-const ImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-`;
-
 const StyledImage = styled(Image)`
   width: 100%;
-  height: 250px;
+  height: 180px;
   object-fit: cover;
-  transition: transform 0.1s ease;
+  @media (max-width: 480px) {
+    height: 150px;
+  }
 `;
 
 const Title = styled.h3`
-  margin: 10px;
+  margin: 10px 10px 0 10px;
+  font-size: ${({ longtitle }) => (longtitle ? "1rem" : "1.2rem")};
 `;
 
 const DetailsContainer = styled.div`
-  margin: 10px;
-  line-height: 1.3rem;
-  margin-top: auto;
+  line-height: 1.4rem;
+  margin: auto 10px 10px 10px;
 `;
 
 const DetailsRows = styled.div`
@@ -63,10 +71,13 @@ const Row1 = styled.div`
   justify-content: space-between;
 `;
 const Location = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 `;
 
-const Row2 = styled.div``;
+const Row2 = styled.div`
+  font-style: italic;
+  font-size: 0.8rem;
+`;
 
 export default function EventCard({
   title,
@@ -79,15 +90,16 @@ export default function EventCard({
   venue,
   onToggleFavorite,
   isFavorite,
+  longtitle,
 }) {
   return (
     <Wrapper>
-      <ImageContainer>
-        <FavoriteButton
-          isFavorite={isFavorite}
-          onToggleFavorite={onToggleFavorite}
-        />
-        <CardContainer>
+      <CardContainer>
+        <ImageContainer>
+          <FavoriteButton
+            isFavorite={isFavorite}
+            onToggleFavorite={onToggleFavorite}
+          />
           <Link href={`/details/${id}`}>
             <StyledImage
               src={image}
@@ -96,20 +108,21 @@ export default function EventCard({
               height={height}
             />
           </Link>
-          <Title>{title}</Title>
-          <DetailsContainer>
-            <DetailsRows>
-              <Row1>
-                <Location>{location}</Location>
-                <p>{date}</p>
-              </Row1>
-              <Row2>
-                <p>{venue}</p>
-              </Row2>
-            </DetailsRows>
-          </DetailsContainer>
-        </CardContainer>
-      </ImageContainer>
+        </ImageContainer>
+
+        <Title longtitle={longtitle}>{title}</Title>
+        <DetailsContainer>
+          <DetailsRows>
+            <Row1>
+              <Location>{location}</Location>
+              <p>{date}</p>
+            </Row1>
+            <Row2>
+              <p>{venue}</p>
+            </Row2>
+          </DetailsRows>
+        </DetailsContainer>
+      </CardContainer>
     </Wrapper>
   );
 }
