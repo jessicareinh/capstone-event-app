@@ -1,6 +1,6 @@
 import EventCard from "../EventCard";
 import styled from "styled-components";
-import selectImage from "../utils";
+import { selectImage, formatDate } from "../Utils";
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,6 +14,7 @@ const StyledList = styled.li`
 `;
 
 export default function EventList({ apiData, favList, onToggleFavorite }) {
+  const condition = "RETINA_PORTRAIT_16_9";
   const uniqueIds = new Set();
   const filteredData = [];
 
@@ -30,12 +31,13 @@ export default function EventList({ apiData, favList, onToggleFavorite }) {
         <StyledList key={event.id}>
           <EventCard
             title={event.name}
+            longtitle={event.name.length >= 30}
             location={event._embedded.venues[0].city.name}
             venue={event._embedded.venues[0].name}
-            date={event.dates.start.localDate}
-            image={selectImage(event.images).url}
-            width={event.images[2].width}
-            height={0}
+            date={formatDate(event.dates.start.localDate)}
+            image={selectImage(condition, event.images).url}
+            width={selectImage(condition, event.images).width}
+            height={selectImage(condition, event.images).height}
             id={event.id}
             isFavorite={favList?.find((fav) => fav.id === event.id)?.isFavorite}
             onToggleFavorite={() => onToggleFavorite(event.id)}
