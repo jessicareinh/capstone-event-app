@@ -10,6 +10,11 @@ const StyledDeleteButton = styled.button`
   position: absolute;
   bottom: 0.8rem;
   right: 0.8rem;
+  &:hover {
+    background-color: #ff6bd0;
+    color: black;
+    font-weight: 600;
+  }
 `;
 
 export default function DeleteButton({ id, onDeleteEvent, confirmMessage }) {
