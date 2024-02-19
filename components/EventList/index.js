@@ -1,6 +1,6 @@
 import EventCard from "../EventCard";
 import styled from "styled-components";
-import { selectImage, formatDate } from "../Utils";
+import { selectImage } from "../Utils";
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ export default function EventList({ apiData, favList, onToggleFavorite }) {
             title={event.name}
             location={event._embedded.venues[0].city.name}
             venue={event._embedded.venues[0].name}
-            date={formatDate(event.dates.start.localDate)}
+            date={event.dates.start.localDate}
             image={selectImage(event.images).url}
             width={selectImage(event.images).width}
             height={selectImage(event.images).height}

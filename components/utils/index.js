@@ -11,13 +11,13 @@ export function selectImage(images) {
 }
 
 //function to format date to German format
-export function formatDate(apiDate) {
-  const date = new Date(apiDate);
-  const options = {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  };
-  const dateFormatter = new Intl.DateTimeFormat("de-DE", options);
-  return dateFormatter.format(date);
-}
+// export function formatDate(apiDate) {
+//   const date = new Date(apiDate);
+//   const options = {
+//     day: "2-digit",
+//     month: "2-digit",
+//     year: "numeric",
+//   };
+//   const dateFormatter = new Intl.DateTimeFormat("de-DE", options);
+//   return dateFormatter.format(date);
+// }
