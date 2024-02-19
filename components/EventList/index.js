@@ -1,6 +1,6 @@
 import EventCard from "../EventCard";
 import styled from "styled-components";
-import selectImage from "../utils";
+import selectImage from "../utils.js";
 
 const Wrapper = styled.div`
   display: flex;
