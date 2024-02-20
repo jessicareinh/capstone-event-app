@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Modal from "../ModalWindow";
+import Modal from "../DeleteModalWindow";
 import React, { useState } from "react";
 
 const StyledDeleteButton = styled.button`
