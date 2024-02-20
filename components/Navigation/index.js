@@ -5,8 +5,8 @@ import styled from "styled-components";
 const NavBar = styled.nav`
   background-color: #fff;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  margin: 0 auto;
+  width: 100vw;
+  padding: 0 10px;
 `;
 
 const Sidebar = styled.div`
@@ -51,12 +51,12 @@ const Ul = styled.ul`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     li:not(:first-child):not(:last-child) {
       display: none;
     }
   }
-  @media (min-width: 481px) {
+  @media (min-width: 501px) {
     svg {
       display: none;
     }
@@ -126,9 +126,9 @@ export default function Navigation() {
         <Li onClick={showSidebar}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="45"
+            height="50"
             viewBox="0 -960 960 960"
-            width="45"
+            width="50"
           >
             <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
           </svg>

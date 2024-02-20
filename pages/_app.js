@@ -11,7 +11,6 @@ export default function App({ Component, pageProps }) {
   const [ownEvents, setOwnEvents] = useLocalStorageState("myEvents", {
     defaultValue: [],
   });
-
   const [favList, setFavList] = useLocalStorageState("favList", {
     defaultValue: [],
   });
@@ -24,7 +23,7 @@ export default function App({ Component, pageProps }) {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${baseUrl}${apiKey}&sort=${sortBy}&page=${page}&countryCode=${countryCode}&locale=*`
+          `${baseUrl}${apiKey}&size=27&sort=${sortBy}&page=${page}&countryCode=${countryCode}&locale=*`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch api");

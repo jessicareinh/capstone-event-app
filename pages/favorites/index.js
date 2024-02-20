@@ -3,9 +3,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  max-width: 1150px;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 const PageTitle = styled.h1`

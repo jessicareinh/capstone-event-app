@@ -5,7 +5,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1150px;
 `;
 
 const PageTitle = styled.h1`
