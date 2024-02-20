@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { useState } from "react";
 import styled from "styled-components";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
+import AddSuccessModal from "../AddSuccessModal";
 
 const Paragraph = styled.p`
   font-size: small;
@@ -10,15 +10,21 @@ const Paragraph = styled.p`
 
 export default function EventForm({ onAddEvent }) {
   const router = useRouter();
+
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
     onAddEvent(data);
-    alert("🎉You have added your Event successfully!");
-    router.push("/my-events");
+    setIsSuccessModalOpen(true);
   }
+  const handleModalConfirm = () => {
+    setIsSuccessModalOpen(false);
+    router.push("/my-events");
+  };
 
   return (
     <>
@@ -44,6 +50,11 @@ export default function EventForm({ onAddEvent }) {
 
         <button type="submit">Add Your Own Event</button>
       </form>
+      <AddSuccessModal
+        isOpen={isSuccessModalOpen}
+        confirmMessage=" You have added your Event successfully  🎉  "
+        onConfirm={handleModalConfirm}
+      />
     </>
   );
 }
