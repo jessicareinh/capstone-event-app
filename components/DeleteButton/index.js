@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
-const StyledDeleteButton = styled.button`
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  position: absolute;
-  bottom: 0.8rem;
-  right: 0.8rem;
+const StyledButton = styled.button`
+  border-radius: 8px;
+  border: 5px;
+  background-color: #bdbdbd;
+  font-family: monospace;
+  height: 25px;
+  margin: 5px;
+  padding: 5px;
+
+  &:hover {
+    background-color: #9e9e9e;
+  }
 `;
 
 export default function DeleteButton({ id, onDeleteEvent, confirmMessage }) {
@@ -20,7 +22,5 @@ export default function DeleteButton({ id, onDeleteEvent, confirmMessage }) {
     }
   };
 
-  return (
-    <StyledDeleteButton onClick={confirmDelete}>Delete</StyledDeleteButton>
-  );
+  return <StyledButton onClick={confirmDelete}>Delete</StyledButton>;
 }
