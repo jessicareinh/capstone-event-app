@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 
 const PageTitle = styled.h1`
   text-align: center;
-  margin: 30px 0;
+  margin: 30px auto 10px auto;
 `;
 
 export default function Favorites({ apiData, favList, onToggleFavorite }) {

@@ -1,13 +1,16 @@
 import EventForm from "@/components/EventForm";
-import Link from "next/link";
+import styled from "styled-components";
+
+const PageTitle = styled.h1`
+  text-align: center;
+  margin: 30px auto 30px auto;
+`;
 
 export default function MyEvents({ onAddEvent }) {
   return (
     <>
+      <PageTitle>Add your Events</PageTitle>
       <EventForm onAddEvent={onAddEvent} />
-      <Link href="/my-events"> Back to your Events </Link>
-      <br></br>
-      <Link href="/"> Back to homepage </Link>
     </>
   );
 }
