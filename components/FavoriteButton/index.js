@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Button = styled.button`
   position: absolute;
-  right: 1.5rem;
-  top: 1.5rem;
+  right: 0.5rem;
+  top: 0.5rem;
   z-index: 1;
   background: ${(props) =>
     props.$isFavorite
