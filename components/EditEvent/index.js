@@ -4,10 +4,44 @@ import styled from "styled-components";
 const StyledList = styled.ul`
   list-style: none;
   margin: 30px;
+  font-family: monospace;
+  display: grid;
+  padding: 5px;
+  width: 240px;
+`;
+
+const Input = styled.input`
+  font-family: sans-serif;
+  outline: 3px;
+  height: 35px;
+  width: 100%;
+  border: 0px;
+  background-color: whitesmoke;
+  padding: 5px;
+  font-style: italic;
+  border-radius: 12px;
+  margin: 5px;
+
+  &:focus {
+    background-color: #bdbdbd;
+  }
+`;
+const StyledButton = styled.button`
+  border-radius: 8px;
+  border: 5px;
+  background-color: #bdbdbd;
+  font-family: monospace;
+  height: 25px;
+  margin: 5px;
+  padding: 5px;
+
+  &:hover {
+    background-color: #9e9e9e;
+  }
 `;
 
 const Section = styled.section`
-  font-family: Inter, sans-serif;
+  font-family: monospace;
   font-size: 12px;
   color: #111;
 `;
@@ -32,7 +66,7 @@ export default function EditEvent({ event, onSave }) {
     <StyledList>
       {isEditing && (
         <Section>
-          <input
+          <Input
             type="text"
             defaultValue={event.title}
             onChange={(e) =>
@@ -45,7 +79,7 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
-          <input
+          <Input
             htmlFor="date"
             type="date"
             defaultValue={event.date}
@@ -59,7 +93,7 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
-          <input
+          <Input
             htmlFor="time"
             type="time"
             defaultValue={event.time}
@@ -73,7 +107,7 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
-          <input
+          <Input
             type="text"
             defaultValue={event.location}
             onChange={(e) =>
@@ -85,7 +119,7 @@ export default function EditEvent({ event, onSave }) {
             placeholder="Location"
             required
           />
-          <input
+          <Input
             type="text"
             defaultValue={event.description}
             onChange={(e) =>
@@ -96,21 +130,21 @@ export default function EditEvent({ event, onSave }) {
             }
             placeholder="Description"
           />
-          <button
+          <StyledButton
             onClick={() => {
               onSave(editableEvent);
               setIsEditing(false);
             }}
           >
             Save
-          </button>
-          <button onClick={() => setIsEditing(false)}>Cancel</button>
+          </StyledButton>
+          <StyledButton onClick={() => setIsEditing(false)}>
+            Cancel
+          </StyledButton>
         </Section>
       )}
       {!isEditing && (
-        <StyledEditButton onClick={() => setIsEditing(true)}>
-          edit
-        </StyledEditButton>
+        <StyledButton onClick={() => setIsEditing(true)}>edit</StyledButton>
       )}
     </StyledList>
   );
