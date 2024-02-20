@@ -2,6 +2,7 @@ import GlobalStyle from "../styles";
 import { useState, useEffect } from "react";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
+import Layout from "@/components/Layout";
 
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 export default function App({ Component, pageProps }) {
@@ -71,16 +72,18 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component
-        onAddEvent={handleAddEvents}
-        onSave={handleSaveEvent}
-        apiData={data}
-        handleLoadMore={handleLoadMore}
-        ownEvents={ownEvents}
-        onToggleFavorite={toggleFavorite}
-        favList={favList}
-        {...pageProps}
-      />
+      <Layout>
+        <Component
+          onAddEvent={handleAddEvents}
+          onSave={handleSaveEvent}
+          apiData={data}
+          handleLoadMore={handleLoadMore}
+          ownEvents={ownEvents}
+          onToggleFavorite={toggleFavorite}
+          favList={favList}
+          {...pageProps}
+        />
+      </Layout>
     </>
   );
 }

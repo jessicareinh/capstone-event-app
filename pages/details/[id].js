@@ -1,7 +1,6 @@
 import EventDetails from "@/components/EventDetails";
 import { useRouter } from "next/router";
 import selectImage from "@/components/utils";
-import Link from "next/link";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -15,19 +14,6 @@ const Wrapper = styled.div`
 const PageTitle = styled.h1`
   text-align: center;
   margin: 30px 0;
-`;
-
-const Nav = styled.nav`
-  display: flex;
-  gap: 30px;
-`;
-
-const NavLink = styled(Link)`
-  text-decoration: none;
-  color: navy;
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 export default function DetailsPage({ apiData, onToggleFavorite, favList }) {
@@ -44,11 +30,6 @@ export default function DetailsPage({ apiData, onToggleFavorite, favList }) {
     <>
       <Wrapper>
         <PageTitle>Details Page</PageTitle>
-        <Nav>
-          <NavLink href="/">Back</NavLink>
-          <NavLink href="/favorites">Favorites</NavLink>
-          <NavLink href="/my-events">My Events</NavLink>
-        </Nav>
         <EventDetails
           image={selectImage(currentEvent.images)?.url}
           title={currentEvent.name}
