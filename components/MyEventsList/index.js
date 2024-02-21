@@ -36,6 +36,7 @@ const AddEventButton = styled.button`
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
   background-color: #bdbdbd;
   font-family: monospace;
+  color: black;
   height: 25px;
   margin: 15px;
   padding: 3px;

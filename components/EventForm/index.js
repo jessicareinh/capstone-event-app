@@ -45,6 +45,7 @@ const Submit = styled.button`
   background-color: #bdbdbd;
   font-family: monospace;
   height: 40px;
+  color: black;
   &:hover {
     background-color: #9e9e9e;
   }

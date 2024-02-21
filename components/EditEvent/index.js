@@ -32,6 +32,7 @@ const StyledEditButton = styled.button`
   background-color: #bdbdbd;
   font-family: monospace;
   padding: 5px;
+  color: black;
   cursor: pointer;
 
   &:hover {
