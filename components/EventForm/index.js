@@ -9,6 +9,7 @@ const H2 = styled.h2`
 const Paragraph = styled.p`
   font-size: small;
   color: gray;
+  margin: 10px;
 `;
 
 const Input = styled.input`
@@ -19,10 +20,11 @@ const Input = styled.input`
   width: 300px;
   border: 0px;
   background-color: #d1c4e9;
-  padding: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
 
   &:focus {
-    background-color: #cbdccb;
+    background-color: whitesmoke;
   }
 `;
 
@@ -34,10 +36,10 @@ const Textarea = styled.textarea`
   padding: 5px;
 
   &:focus {
-    background-color: #cbdccb;
+    background-color: whitesmoke;
   }
 `;
-const AddButton = styled.button`
+const Submit = styled.button`
   border-radius: 12px;
   border: 0;
   background-color: #bdbdbd;
@@ -72,27 +74,26 @@ export default function EventForm({ onAddEvent }) {
 
   return (
     <>
-      <H2> Add your Own Event</H2>
+      <H2> Add Your Own Event</H2>
       <Form onSubmit={handleSubmit}>
         <label htmlFor="title">Title*</label>
         <Input type="text" id="title" name="title" required />
-        <br></br>
+
         <label htmlFor="date">Date*</label>
         <Input type="date" id="date" name="date" required />
         <label htmlFor="time">Time*</label>
         <Input type="time" id="time" name="time" required />
-        <br></br>
+
         <label htmlFor="location">Location*</label>
         <Input type="text" id="location" name="location" required />
-        <br></br>
-        <label htmlFor="description">Description</label>
-        <br></br>
-        <Textarea id="description" name="description" rows="8"></Textarea>
-        <br></br>
-        <Paragraph>*: Required</Paragraph>
-        <br></br>
 
-        <AddButton type="submit">Add Your Own Event</AddButton>
+        <label htmlFor="description">Description</label>
+
+        <Textarea id="description" name="description" rows="8"></Textarea>
+
+        <Paragraph>*: Required</Paragraph>
+
+        <Submit type="submit">Submit</Submit>
       </Form>
     </>
   );
