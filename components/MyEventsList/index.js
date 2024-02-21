@@ -28,6 +28,7 @@ const EventCard = styled.div`
   width: 250px;
   min-height: 200px;
   border-radius: 10px;
+  word-wrap: break-word;
 `;
 
 const AddEventButton = styled.button`
@@ -40,7 +41,7 @@ const AddEventButton = styled.button`
   height: 25px;
   margin: 15px;
   padding: 3px;
-  cursor: poninter;
+  cursor: pointer;
   width: 250px;
 
   &:hover {

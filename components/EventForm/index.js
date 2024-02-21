@@ -36,7 +36,7 @@ const Textarea = styled.textarea`
   padding: 5px;
 
   &:focus {
-    background-color: whitesmoke;
+    background-color: #f5f5f5;
   }
 `;
 const Submit = styled.button`
