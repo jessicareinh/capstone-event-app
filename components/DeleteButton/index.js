@@ -7,7 +7,9 @@ const StyledButton = styled.button`
   font-family: monospace;
   height: 25px;
   margin: 5px;
-  padding: 5px;
+  padding: 3px;
+  cursor: poninter;
+  width: 70%;
 
   &:hover {
     background-color: #9e9e9e;
@@ -22,5 +24,5 @@ export default function DeleteButton({ id, onDeleteEvent, confirmMessage }) {
     }
   };
 
-  return <StyledButton onClick={confirmDelete}>Delete</StyledButton>;
+  return <StyledButton onClick={confirmDelete}>delete</StyledButton>;
 }
