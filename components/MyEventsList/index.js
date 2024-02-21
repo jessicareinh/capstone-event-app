@@ -9,13 +9,12 @@ const StyledList = styled.ul`
 
 const EventCard = styled.div`
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
-  background-color: lightgray;
+  background-color: #d1c4e9;
   margin: 30px;
   padding: 15px;
-  width: 300px;
+  width: 250px;
   height: 400px;
   border-radius: 10px;
-  position: relative;
 `;
 
 const Title = styled.h2`
