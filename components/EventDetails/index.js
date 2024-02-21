@@ -13,17 +13,24 @@ const CardContainer = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-  margin: 20px 10px;
   height: 750px;
-  margin: 25px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 
-  @media (max-width: 767px) {
-    max-width: 444px;
+  @media (min-width: 400px) {
+    width: 380px;
+    height: 900px;
   }
+
+  @media (min-width: 600px) {
+    width: 500px;
+    height: 80vh;
+  }
+
   @media (min-width: 768px) {
+    width: 550px;
+    height: 90vh;
   }
 `;
 
@@ -34,7 +41,7 @@ const StyledList = styled.ul`
 
 const StyledImage = styled(Image)`
   width: 100%;
-  height: 250px;
+  height: auto;
   object-fit: cover;
 `;
 

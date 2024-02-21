@@ -31,11 +31,12 @@ export default function EventList({ apiData, favList, onToggleFavorite }) {
           <EventCard
             title={event.name}
             location={event._embedded.venues[0].city.name}
+            longTitle={event.name.length > 29}
             venue={event._embedded.venues[0].name}
             date={event.dates.start.localDate}
             image={selectImage(event.images).url}
-            width={event.images[2].width}
-            height={0}
+            width={selectImage(event.images).width}
+            height={selectImage(event.images).height}
             id={event.id}
             isFavorite={favList?.find((fav) => fav.id === event.id)?.isFavorite}
             onToggleFavorite={() => onToggleFavorite(event.id)}

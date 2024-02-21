@@ -2,6 +2,7 @@ import GlobalStyle from "../styles";
 import { useState, useEffect } from "react";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
+import Layout from "@/components/Layout";
 
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 export default function App({ Component, pageProps }) {
@@ -10,7 +11,6 @@ export default function App({ Component, pageProps }) {
   const [ownEvents, setOwnEvents] = useLocalStorageState("myEvents", {
     defaultValue: [],
   });
-
   const [favList, setFavList] = useLocalStorageState("favList", {
     defaultValue: [],
   });
@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${baseUrl}${apiKey}&sort=${sortBy}&page=${page}&countryCode=${countryCode}&locale=*`
+          `${baseUrl}${apiKey}&size=27&sort=${sortBy}&page=${page}&countryCode=${countryCode}&locale=*`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch api");
@@ -71,16 +71,18 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component
-        onAddEvent={handleAddEvents}
-        onSave={handleSaveEvent}
-        apiData={data}
-        handleLoadMore={handleLoadMore}
-        ownEvents={ownEvents}
-        onToggleFavorite={toggleFavorite}
-        favList={favList}
-        {...pageProps}
-      />
+      <Layout>
+        <Component
+          onAddEvent={handleAddEvents}
+          onSave={handleSaveEvent}
+          apiData={data}
+          handleLoadMore={handleLoadMore}
+          ownEvents={ownEvents}
+          onToggleFavorite={toggleFavorite}
+          favList={favList}
+          {...pageProps}
+        />
+      </Layout>
     </>
   );
 }

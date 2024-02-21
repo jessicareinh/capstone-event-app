@@ -22,7 +22,6 @@ export default function EventForm({ onAddEvent }) {
 
   return (
     <>
-      <h2> Add your Own Event</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title*</label>
         <input type="text" id="title" name="title" required />
