@@ -6,8 +6,8 @@ const StyledList = styled.ul`
   margin: 30px;
   font-family: monospace;
   display: grid;
-  padding: 5px;
-  width: 240px;
+  padding: 3px;
+  width: 70%;
 `;
 
 const Input = styled.input`
@@ -26,14 +26,27 @@ const Input = styled.input`
     background-color: #bdbdbd;
   }
 `;
+const StyledEditButton = styled.button`
+  border-radius: 8px;
+  border: 5px;
+  background-color: #bdbdbd;
+  font-family: monospace;
+  padding: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #9e9e9e;
+  }
+`;
+
 const StyledButton = styled.button`
   border-radius: 8px;
   border: 5px;
   background-color: #bdbdbd;
   font-family: monospace;
-  height: 25px;
+  padding: 5px 10px;
   margin: 5px;
-  padding: 5px;
+  cursor: pointer;
 
   &:hover {
     background-color: #9e9e9e;
@@ -44,18 +57,6 @@ const Section = styled.section`
   font-family: monospace;
   font-size: 12px;
   color: #111;
-`;
-
-const StyledEditButton = styled.button`
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  position: absolute;
-  bottom: 0.8rem;
-  left: 0.8rem;
 `;
 
 export default function EditEvent({ event, onSave }) {
@@ -144,7 +145,9 @@ export default function EditEvent({ event, onSave }) {
         </Section>
       )}
       {!isEditing && (
-        <StyledButton onClick={() => setIsEditing(true)}>edit</StyledButton>
+        <StyledEditButton onClick={() => setIsEditing(true)}>
+          edit
+        </StyledEditButton>
       )}
     </StyledList>
   );
