@@ -31,6 +31,7 @@ export default function EventList({ apiData, favList, onToggleFavorite }) {
           <EventCard
             title={event.name}
             location={event._embedded.venues[0].city.name}
+            longTitle={event.name.length > 29}
             venue={event._embedded.venues[0].name}
             date={event.dates.start.localDate}
             image={selectImage(event.images).url}

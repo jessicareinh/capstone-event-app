@@ -1,32 +1,11 @@
 import { useState } from "react";
-import Link from "next/link";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const NavBar = styled.nav`
   background-color: #fff;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   width: 100vw;
   padding: 0 10px;
-`;
-
-const Sidebar = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 50vw;
-  z-index: 999;
-  background-color: #ffffff4b;
-  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-  display: ${(props) => (props.visible ? "flex" : "none")};
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  list-style: none;
-  backdrop-filter: blur(10px);
-  @media (max-width: 400px) {
-    width: 50%;
-  }
 `;
 
 const Li = styled.li`
@@ -38,14 +17,14 @@ const Li = styled.li`
   }
 `;
 
-const Li_side = styled(Li)`
+const SideBarItem = styled(Li)`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const Ul = styled.ul`
+const NavMenu = styled.nav`
   width: 100%;
   list-style: none;
   display: flex;
@@ -63,7 +42,8 @@ const Ul = styled.ul`
   }
 `;
 
-const StyledLink = styled(Link)`
+const NavLink = styled.a`
+  width: 100%;
   height: 100%;
   padding: 0 30px;
   text-decoration: none;
@@ -75,21 +55,66 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const slideIn = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  animation: ${fadeIn} 0.3s ease forwards;
+  display: ${(props) => (props.$visible ? "block" : "none")};
+`;
+
+const Sidebar = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 50vw;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  display: ${(props) => (props.$visible ? "block" : "none")};
+  flex-direction: column;
+  animation: ${slideIn} 0.3s ease forwards;
+`;
+
 export default function Navigation() {
   const [sidebarVisible, setSidebarVisible] = useState(false);
 
-  function showSidebar() {
+  function toggleSidebar() {
     setSidebarVisible(!sidebarVisible);
   }
 
-  function hideSidebar() {
-    setSidebarVisible(!sidebarVisible);
+  function handleLinkClick() {
+    setSidebarVisible(false);
   }
 
   return (
     <NavBar>
-      <Sidebar visible={sidebarVisible}>
-        <Li_side onClick={hideSidebar}>
+      <Overlay $visible={sidebarVisible} onClick={toggleSidebar} />
+      <Sidebar $visible={sidebarVisible}>
+        <SideBarItem onClick={toggleSidebar} aria-label="Open sidebar">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="26"
@@ -98,32 +123,38 @@ export default function Navigation() {
           >
             <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
           </svg>
-        </Li_side>
-        <Li_side>
-          <StyledLink href="/">Home</StyledLink>
-        </Li_side>
-        <Li_side>
-          <StyledLink href="/my-events">My Events</StyledLink>
-        </Li_side>
-        <Li_side>
-          <StyledLink href="/favorites">Favorites</StyledLink>
-        </Li_side>
+        </SideBarItem>
+        <SideBarItem>
+          <NavLink href="/" onClick={handleLinkClick}>
+            Home
+          </NavLink>
+        </SideBarItem>
+        <SideBarItem>
+          <NavLink href="/my-events" onClick={handleLinkClick}>
+            My Events
+          </NavLink>
+        </SideBarItem>
+        <SideBarItem>
+          <NavLink href="/favorites" onClick={handleLinkClick}>
+            Favorites
+          </NavLink>
+        </SideBarItem>
       </Sidebar>
-      <Ul>
+      <NavMenu>
         <Li>
-          <StyledLink href="/">E</StyledLink>
+          <NavLink href="/">E</NavLink>
         </Li>
         <Li>
-          <StyledLink href="/">Home</StyledLink>
+          <NavLink href="/">Home</NavLink>
         </Li>
         <Li>
-          <StyledLink href="/favorites">Favorites</StyledLink>
+          <NavLink href="/favorites">Favorites</NavLink>
         </Li>
         <Li>
-          <StyledLink href="/my-events">My Events</StyledLink>
+          <NavLink href="/my-events">My Events</NavLink>
         </Li>
 
-        <Li onClick={showSidebar}>
+        <Li onClick={toggleSidebar} aria-label="Close sidebar">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="50"
@@ -133,7 +164,7 @@ export default function Navigation() {
             <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
           </svg>
         </Li>
-      </Ul>
+      </NavMenu>
     </NavBar>
   );
 }

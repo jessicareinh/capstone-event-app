@@ -14,7 +14,7 @@ const PageTitle = styled.h1`
   text-align: center;
 `;
 
-const Header = styled.div`
+const Header = styled.header`
   display: flex;
   justify-content: space-between;
 `;

@@ -53,7 +53,7 @@ const StyledImage = styled(Image)`
 
 const Title = styled.h3`
   margin: 10px 10px 0 10px;
-  font-size: ${({ longtitle }) => (longtitle ? "1rem" : "1.2rem")};
+  font-size: ${(prop) => (prop.$longTitle ? "1rem" : "1.2rem")};
 `;
 
 const DetailsContainer = styled.div`
@@ -90,6 +90,7 @@ export default function EventCard({
   venue,
   onToggleFavorite,
   isFavorite,
+  longTitle,
 }) {
   return (
     <Wrapper>
@@ -109,7 +110,7 @@ export default function EventCard({
           </Link>
         </ImageContainer>
 
-        <Title>{title}</Title>
+        <Title $longTitle={longTitle}>{title}</Title>
         <DetailsContainer>
           <DetailsRows>
             <Row1>
