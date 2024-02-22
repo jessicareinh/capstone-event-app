@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import AddSuccessModal from "../AddSuccessModal";
+import Modal from "../ModalWindow";
 
 const Paragraph = styled.p`
   font-size: small;
@@ -50,8 +50,9 @@ export default function EventForm({ onAddEvent }) {
 
         <button type="submit">Add Your Own Event</button>
       </form>
-      <AddSuccessModal
+      <Modal
         isOpen={isSuccessModalOpen}
+        modalType="success"
         confirmMessage=" You have added your Event successfully  🎉  "
         onConfirm={handleModalConfirm}
       />
