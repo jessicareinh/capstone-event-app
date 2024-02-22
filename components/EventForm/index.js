@@ -14,7 +14,7 @@ const Paragraph = styled.p`
 
 const Input = styled.input`
   font-family: monospace;
-  border-radius: 6px;
+  border-radius: 8px;
   outline: 3px;
   height: 35px;
   width: 300px;
@@ -22,6 +22,7 @@ const Input = styled.input`
   background-color: #d1c4e9;
   padding: 15px;
   margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   &:focus {
     background-color: whitesmoke;
@@ -34,18 +35,20 @@ const Textarea = styled.textarea`
   background-color: #d1c4e9;
   border: 0;
   padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   &:focus {
     background-color: #f5f5f5;
   }
 `;
 const Submit = styled.button`
-  border-radius: 12px;
+  border-radius: 8px;
   border: 0;
   background-color: #bdbdbd;
   font-family: monospace;
   height: 40px;
   color: black;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   &:hover {
     background-color: #9e9e9e;
   }
@@ -53,7 +56,6 @@ const Submit = styled.button`
 
 const Form = styled.form`
   display: grid;
-  border-radius: 20px;
   box-sizing: border-box;
   height: 500px;
   padding: 20px;

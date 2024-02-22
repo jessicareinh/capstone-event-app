@@ -21,28 +21,32 @@ const P = styled.p`
 `;
 
 const EventCard = styled.div`
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background-color: #d1c4e9;
-  margin: 50px;
+  margin: 20px;
   padding: 15px;
-  width: 250px;
+  width: 280px;
   min-height: 200px;
   border-radius: 10px;
   word-wrap: break-word;
 `;
 
-const AddEventButton = styled.button`
+const AddEventLink = styled.a`
+  text-align: center;
+  text-decoration: none;
   border-radius: 8px;
-  border: 5px;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
+  border: 2px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;  
   background-color: #bdbdbd;
   font-family: monospace;
   color: black;
   height: 25px;
-  margin: 15px;
-  padding: 3px;
+  margin-top: 20px
+  margin-bottom: 20px;
+  padding: 6px;
+  padding-left: 10px;
   cursor: pointer;
-  width: 250px;
+  width: 280px;
 
   &:hover {
     background-color: #9e9e9e;
@@ -53,7 +57,7 @@ const ButtonContainer = styled.div`
   text-align: center;
 `;
 const H1 = styled.h1`
-  margin-top: 30px;
+  margin: 25px;
   font-family: monospace;
   font-size: 32px;
   font-weight: bold;
@@ -67,9 +71,8 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
     return (
       <>
         <P>You have not added any events yet... </P>
-        <Link href="/add-event">
-          <AddEventButton>Add your Event</AddEventButton>
-        </Link>
+
+        <AddEventLink href="/add-event">Add your Event</AddEventLink>
       </>
     );
   }
@@ -96,9 +99,7 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
             </ButtonContainer>
           </EventCard>
         ))}
-        <Link href="/add-event">
-          <AddEventButton>Add your Event</AddEventButton>
-        </Link>
+        <AddEventLink href="/add-event">Add your Event</AddEventLink>
       </Wrapper>
     </>
   );
