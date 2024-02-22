@@ -74,11 +74,11 @@ export default function Modal({
         <p>{confirmMessage}</p>
         <ButtonWrapper>
           {modalType === "success" ? (
-            <Button onClick={handleConfirm}>OK</Button>
+            <Button onClick={onConfirm}>OK</Button>
           ) : (
             <>
-              <Button onClick={handleConfirm}>Yes</Button>
-              <Button onClick={handleCancel}>Cancel</Button>
+              <Button onClick={onConfirm}>Yes</Button>
+              <Button onClick={onCancel}>Cancel</Button>
             </>
           )}
         </ButtonWrapper>
