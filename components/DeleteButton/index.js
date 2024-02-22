@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Modal from "../DeleteModalWindow";
-import React, { useState } from "react";
 
 const StyledDeleteButton = styled.button`
   background-color: black;
@@ -14,31 +12,10 @@ const StyledDeleteButton = styled.button`
   right: 0.8rem;
 `;
 
-export default function DeleteButton({ id, onDeleteEvent, confirmMessage }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const confirmDelete = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleConfirmDelete = () => {
+export default function DeleteButton({ id, onDeleteEvent }) {
+  const handleClick = () => {
     onDeleteEvent(id);
-    setIsModalOpen(false);
   };
 
-  const handleCancelDelete = () => {
-    setIsModalOpen(false);
-  };
-
-  return (
-    <>
-      <StyledDeleteButton onClick={confirmDelete}>Delete</StyledDeleteButton>
-      <Modal
-        isOpen={isModalOpen}
-        confirmMessage={confirmMessage}
-        onConfirm={handleConfirmDelete}
-        onCancel={handleCancelDelete}
-      />
-    </>
-  );
+  return <StyledDeleteButton onClick={handleClick}>Delete</StyledDeleteButton>;
 }
