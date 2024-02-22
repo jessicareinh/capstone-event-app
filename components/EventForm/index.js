@@ -38,7 +38,7 @@ export default function EventForm({ onAddEvent }) {
         <br></br>
         <textarea id="description" name="description" rows="8"></textarea>
         <br></br>
-        <Paragraph>*: Required</Paragraph>
+        <Paragraph>* Required</Paragraph>
         <br></br>
 
         <button type="submit">Add Your Own Event</button>
