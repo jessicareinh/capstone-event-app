@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-const H2 = styled.h2`
-  font-family: monospace;
-  margin-top: 30px;
-  font-size: 32px;
-`;
 const Paragraph = styled.p`
   font-size: small;
   color: gray;
@@ -77,7 +72,6 @@ export default function EventForm({ onAddEvent }) {
 
   return (
     <>
-      <H2> Add Your Own Event</H2>
       <Form onSubmit={handleSubmit}>
         <label htmlFor="title">Title*</label>
         <Input type="text" id="title" name="title" required />
@@ -94,7 +88,7 @@ export default function EventForm({ onAddEvent }) {
 
         <Textarea id="description" name="description" rows="8"></Textarea>
 
-        <Paragraph>*: Required</Paragraph>
+        <Paragraph>* Required</Paragraph>
 
         <Submit type="submit">Submit</Submit>
       </Form>
