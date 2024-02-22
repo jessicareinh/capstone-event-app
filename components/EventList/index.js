@@ -2,15 +2,24 @@ import EventCard from "../EventCard";
 import styled from "styled-components";
 import selectImage from "../utils";
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+const Wrapper = styled.ul`
   max-width: 1300px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 1em;
+  gap: 1.5em;
+  @media (min-width: 950px) {
+    gap: 2.3em;
+  }
 `;
 
-const StyledList = styled.li`
-  list-style: none;
+const StyledListItem = styled.li`
+  width: 100%;
+  @media (min-width: 768px) {
+    max-width: 350px;
+  }
 `;
 
 export default function EventList({ apiData, favList, onToggleFavorite }) {
@@ -27,7 +36,7 @@ export default function EventList({ apiData, favList, onToggleFavorite }) {
   return (
     <Wrapper>
       {filteredData.map((event) => (
-        <StyledList key={event.id}>
+        <StyledListItem key={event.id}>
           <EventCard
             title={event.name}
             location={event._embedded.venues[0].city.name}
@@ -41,7 +50,7 @@ export default function EventList({ apiData, favList, onToggleFavorite }) {
             isFavorite={favList?.find((fav) => fav.id === event.id)?.isFavorite}
             onToggleFavorite={() => onToggleFavorite(event.id)}
           />
-        </StyledList>
+        </StyledListItem>
       ))}
     </Wrapper>
   );
