@@ -3,21 +3,14 @@ import styled from "styled-components";
 import Link from "next/link";
 import FavoriteButton from "../FavoriteButton";
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const ImageContainer = styled.div`
-  width: 100%;
-`;
-
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #fff;
   width: 100%;
-  height: 295px;
+  margin: auto;
+  min-width: 335px;
+  height: 270px;
   position: relative;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -25,29 +18,21 @@ const CardContainer = styled.div`
   &:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
   }
-  @media (max-width: 480px) {
-    width: 320px;
-    height: 270px;
-    margin: 20px 10px;
-  }
-  @media (481px <= width < 768px) {
-    width: 380px;
+  @media (min-width: 480px) {
     height: 295px;
-    margin: 20px 10px;
+    max-width: 450px;
   }
 
   @media (min-width: 768px) {
-    width: 335px;
-    margin: 20px 20px;
+    max-width: 350px;
   }
 `;
-
 const StyledImage = styled(Image)`
   width: 100%;
-  height: 180px;
+  height: 160px;
   object-fit: cover;
-  @media (max-width: 480px) {
-    height: 150px;
+  @media (min-width: 480px) {
+    height: 180px;
   }
 `;
 
@@ -93,36 +78,27 @@ export default function EventCard({
   longTitle,
 }) {
   return (
-    <Wrapper>
-      <CardContainer>
-        <ImageContainer>
-          <FavoriteButton
-            isFavorite={isFavorite}
-            onToggleFavorite={onToggleFavorite}
-          />
-          <Link href={`/details/${id}`}>
-            <StyledImage
-              src={image}
-              alt={title}
-              width={width}
-              height={height}
-            />
-          </Link>
-        </ImageContainer>
+    <CardContainer>
+      <FavoriteButton
+        isFavorite={isFavorite}
+        onToggleFavorite={onToggleFavorite}
+      />
+      <Link href={`/details/${id}`}>
+        <StyledImage src={image} alt={title} width={width} height={height} />
+      </Link>
 
-        <Title $longTitle={longTitle}>{title}</Title>
-        <DetailsContainer>
-          <DetailsRows>
-            <Row1>
-              <Location>{location}</Location>
-              <p>{date}</p>
-            </Row1>
-            <Row2>
-              <p>{venue}</p>
-            </Row2>
-          </DetailsRows>
-        </DetailsContainer>
-      </CardContainer>
-    </Wrapper>
+      <Title $longTitle={longTitle}>{title}</Title>
+      <DetailsContainer>
+        <DetailsRows>
+          <Row1>
+            <Location>{location}</Location>
+            <p>{date}</p>
+          </Row1>
+          <Row2>
+            <p>{venue}</p>
+          </Row2>
+        </DetailsRows>
+      </DetailsContainer>
+    </CardContainer>
   );
 }
