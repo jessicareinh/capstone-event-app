@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import DeleteButton from "../DeleteButton";
 import EditEvent from "../EditEvent";
-<<<<<<< HEAD
-import Link from "next/link";
+import React, { useState } from "react";
+import Modal from "../ModalWindow";
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,10 +10,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-=======
-import React, { useState } from "react";
-import Modal from "../ModalWindow";
->>>>>>> origin/modal-window
 
 const StyledList = styled.ul`
   list-style: none;
@@ -41,12 +37,12 @@ const AddEventLink = styled.a`
   text-decoration: none;
   border-radius: 8px;
   border: 2px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;  
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background-color: #bdbdbd;
   font-family: monospace;
   color: black;
   height: 25px;
-  margin-top: 20px
+  margin-top: 20px;
   margin-bottom: 20px;
   padding: 6px;
   padding-left: 10px;
@@ -101,9 +97,7 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
 
   return (
     <>
-<<<<<<< HEAD
       <Wrapper>
-        <H1>My Events List</H1>
         {ownEvents.map((event) => (
           <EventCard key={event.id}>
             <Title>{event.title}</Title>
@@ -117,7 +111,7 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
               <EditEvent key={event.id} event={event} onSave={onSave} />
               <DeleteButton
                 id={event.id}
-                onDeleteEvent={() => onDeleteEvent(event.id)}
+                onDeleteEvent={() => handleDelete(event)}
                 confirmMessage="Are you sure you want to delete this event?"
               />
             </ButtonContainer>
@@ -125,24 +119,6 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
         ))}
         <AddEventLink href="/add-event">Add your Event</AddEventLink>
       </Wrapper>
-=======
-      {ownEvents.map((event) => (
-        <EventCard key={event.id}>
-          <Title>{event.title}</Title>
-          <StyledList>
-            <li>{event.date}</li>
-            <li>{event.time}</li>
-            <li>{event.location}</li>
-            <li>{event.description}</li>
-          </StyledList>
-          <EditEvent key={event.id} event={event} onSave={onSave} />
-          <DeleteButton
-            id={event.id}
-            onDeleteEvent={() => handleDelete(event)}
-            confirmMessage="Are you sure you want to delete this event?"
-          />
-        </EventCard>
-      ))}
       <Modal
         isOpen={isModalOpen}
         modalType="delete"
@@ -152,7 +128,6 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
         onConfirm={handleConfirmDelete}
         onCancel={handleCancelDelete}
       />
->>>>>>> origin/modal-window
     </>
   );
 }
