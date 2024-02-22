@@ -18,13 +18,10 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function DeleteButton({ id, onDeleteEvent, confirmMessage }) {
-  const confirmDelete = () => {
-    const isConfirmed = window.confirm(confirmMessage);
-    if (isConfirmed) {
-      onDeleteEvent(id);
-    }
+export default function DeleteButton({ id, onDeleteEvent }) {
+  const handleClick = () => {
+    onDeleteEvent(id);
   };
 
-  return <StyledButton onClick={confirmDelete}>delete</StyledButton>;
+  return <StyledButton onClick={handleClick}>Delete</StyledButton>;
 }

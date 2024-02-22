@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import DeleteButton from "../DeleteButton";
 import EditEvent from "../EditEvent";
+<<<<<<< HEAD
 import Link from "next/link";
 
 const Wrapper = styled.div`
@@ -9,6 +10,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+=======
+import React, { useState } from "react";
+import Modal from "../ModalWindow";
+>>>>>>> origin/modal-window
 
 const StyledList = styled.ul`
   list-style: none;
@@ -67,6 +72,23 @@ const Title = styled.h2`
 `;
 
 export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [eventToDelete, setEventToDelete] = useState(null);
+
+  const handleDelete = (event) => {
+    setEventToDelete(event);
+    setIsModalOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
+    onDeleteEvent(eventToDelete.id);
+    setIsModalOpen(false);
+  };
+
+  const handleCancelDelete = () => {
+    setIsModalOpen(false);
+  };
+
   if (!ownEvents || ownEvents.length === 0) {
     return (
       <>
@@ -76,8 +98,10 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
       </>
     );
   }
+
   return (
     <>
+<<<<<<< HEAD
       <Wrapper>
         <H1>My Events List</H1>
         {ownEvents.map((event) => (
@@ -101,6 +125,34 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
         ))}
         <AddEventLink href="/add-event">Add your Event</AddEventLink>
       </Wrapper>
+=======
+      {ownEvents.map((event) => (
+        <EventCard key={event.id}>
+          <Title>{event.title}</Title>
+          <StyledList>
+            <li>{event.date}</li>
+            <li>{event.time}</li>
+            <li>{event.location}</li>
+            <li>{event.description}</li>
+          </StyledList>
+          <EditEvent key={event.id} event={event} onSave={onSave} />
+          <DeleteButton
+            id={event.id}
+            onDeleteEvent={() => handleDelete(event)}
+            confirmMessage="Are you sure you want to delete this event?"
+          />
+        </EventCard>
+      ))}
+      <Modal
+        isOpen={isModalOpen}
+        modalType="delete"
+        confirmMessage={
+          eventToDelete ? `Are you sure you want to delete this Event?` : ""
+        }
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+      />
+>>>>>>> origin/modal-window
     </>
   );
 }

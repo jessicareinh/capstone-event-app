@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { useRouter } from "next/router";
+import Modal from "../ModalWindow";
 
 const Paragraph = styled.p`
   font-size: small;
@@ -60,15 +62,21 @@ const Form = styled.form`
 
 export default function EventForm({ onAddEvent }) {
   const router = useRouter();
+
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
     onAddEvent(data);
-    alert("🎉You have added your Event successfully!");
-    router.push("/my-events");
+    setIsSuccessModalOpen(true);
   }
+  const handleModalConfirm = () => {
+    setIsSuccessModalOpen(false);
+    router.push("/my-events");
+  };
 
   return (
     <>
@@ -90,8 +98,14 @@ export default function EventForm({ onAddEvent }) {
 
         <Paragraph>* Required</Paragraph>
 
-        <Submit type="submit">Submit</Submit>
+        <Submit type="submit">Add Your Own Event</Submit>
       </Form>
+      <Modal
+        isOpen={isSuccessModalOpen}
+        modalType="success"
+        confirmMessage=" You have added your Event successfully  🎉  "
+        onConfirm={handleModalConfirm}
+      />
     </>
   );
 }
