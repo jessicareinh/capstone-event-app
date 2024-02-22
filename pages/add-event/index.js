@@ -1,4 +1,5 @@
 import EventForm from "@/components/EventForm";
+import Link from "next/link";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -8,16 +9,18 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const PageTitle = styled.h1`
-  text-align: center;
-  margin: 30px auto 30px auto;
+const H2 = styled.h2`
+  font-family: monospace;
+  margin-top: 30px;
+  font-size: 32px;
 `;
 
 export default function MyEvents({ onAddEvent }) {
   return (
     <>
       <Wrapper>
-        <PageTitle>Add your Events</PageTitle>
+        <H2> Add Your Own Event</H2>
+
         <EventForm onAddEvent={onAddEvent} />
       </Wrapper>
     </>

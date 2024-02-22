@@ -1,11 +1,61 @@
-import Link from "next/link";
-import { useState } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
 const Paragraph = styled.p`
   font-size: small;
   color: gray;
+  margin: 10px;
+`;
+
+const Input = styled.input`
+  font-family: monospace;
+  border-radius: 8px;
+  outline: 3px;
+  height: 35px;
+  width: 300px;
+  border: 0px;
+  background-color: #d1c4e9;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  &:focus {
+    background-color: whitesmoke;
+  }
+`;
+
+const Textarea = styled.textarea`
+  font-family: monospace;
+  border-radius: 8px;
+  background-color: #d1c4e9;
+  border: 0;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  &:focus {
+    background-color: #f5f5f5;
+  }
+`;
+const Submit = styled.button`
+  border-radius: 8px;
+  border: 0;
+  background-color: #bdbdbd;
+  font-family: monospace;
+  height: 40px;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  &:hover {
+    background-color: #9e9e9e;
+  }
+`;
+
+const Form = styled.form`
+  display: grid;
+  box-sizing: border-box;
+  height: 500px;
+  padding: 20px;
+  width: 320px;
+  font-family: monospace;
 `;
 
 export default function EventForm({ onAddEvent }) {
@@ -22,27 +72,26 @@ export default function EventForm({ onAddEvent }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <label htmlFor="title">Title*</label>
-        <input type="text" id="title" name="title" required />
-        <br></br>
-        <label htmlFor="date">Date*</label>
-        <input type="date" id="date" name="date" required />
-        <label htmlFor="time">Time*</label>
-        <input type="time" id="time" name="time" required />
-        <br></br>
-        <label htmlFor="location">Location*</label>
-        <input type="text" id="location" name="location" required />
-        <br></br>
-        <label htmlFor="description">Description</label>
-        <br></br>
-        <textarea id="description" name="description" rows="8"></textarea>
-        <br></br>
-        <Paragraph>* Required</Paragraph>
-        <br></br>
+        <Input type="text" id="title" name="title" required />
 
-        <button type="submit">Add Your Own Event</button>
-      </form>
+        <label htmlFor="date">Date*</label>
+        <Input type="date" id="date" name="date" required />
+        <label htmlFor="time">Time*</label>
+        <Input type="time" id="time" name="time" required />
+
+        <label htmlFor="location">Location*</label>
+        <Input type="text" id="location" name="location" required />
+
+        <label htmlFor="description">Description</label>
+
+        <Textarea id="description" name="description" rows="8"></Textarea>
+
+        <Paragraph>* Required</Paragraph>
+
+        <Submit type="submit">Submit</Submit>
+      </Form>
     </>
   );
 }

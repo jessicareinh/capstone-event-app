@@ -28,17 +28,12 @@ export default function MyEvents({ ownEvents, onSave }) {
     <>
       <Wrapper>
         <PageTitle>My Events </PageTitle>
+
         <MyEventsList
           ownEvents={storedOwnEvents}
           onDeleteEvent={handleDeleteEvent}
           onSave={onSave}
         />
-        <Link href="/"> Back to homepage </Link>
-        <br></br>
-        <br></br>
-        <Link href="/add-event">
-          <button>Add your Event</button>
-        </Link>
       </Wrapper>
     </>
   );
