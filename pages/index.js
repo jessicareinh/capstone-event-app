@@ -1,5 +1,6 @@
 import EventList from "@/components/EventList";
 import styled from "styled-components";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -38,6 +39,7 @@ export default function HomePage({
         />
         <StyledButton onClick={handleLoadMore}>See More</StyledButton>
       </Wrapper>
+      <ScrollToTopButton />
     </>
   );
 }
