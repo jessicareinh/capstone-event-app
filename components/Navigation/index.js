@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
+import Image from "next/image";
 
 const NavBar = styled.nav`
   background-color: #fff;
@@ -9,10 +10,11 @@ const NavBar = styled.nav`
 `;
 
 const Li = styled.li`
-  height: 50px;
+  height: 60px;
+  margin-right: 10px;
   &:first-child {
     margin-right: auto;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 600;
   }
 `;
@@ -30,12 +32,13 @@ const NavMenu = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  @media (max-width: 500px) {
+  white-space: nowrap;
+  @media (max-width: 550px) {
     li:not(:first-child):not(:last-child) {
       display: none;
     }
   }
-  @media (min-width: 501px) {
+  @media (min-width: 551px) {
     svg {
       display: none;
     }
@@ -130,6 +133,11 @@ export default function Navigation() {
           </NavLink>
         </SideBarItem>
         <SideBarItem>
+          <NavLink href="/search" onClick={handleLinkClick}>
+            Search
+          </NavLink>
+        </SideBarItem>
+        <SideBarItem>
           <NavLink href="/my-events" onClick={handleLinkClick}>
             My Events
           </NavLink>
@@ -145,7 +153,7 @@ export default function Navigation() {
           <NavLink href="/">E</NavLink>
         </Li>
         <Li>
-          <NavLink href="/">Home</NavLink>
+          <NavLink href="/search">Search</NavLink>
         </Li>
         <Li>
           <NavLink href="/favorites">Favorites</NavLink>

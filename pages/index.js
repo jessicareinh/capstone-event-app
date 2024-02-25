@@ -23,7 +23,7 @@ const StyledButton = styled.button`
 
 export default function HomePage({
   apiData,
-  handleLoadMore,
+  onLoadMore,
   onToggleFavorite,
   favList,
 }) {
@@ -32,11 +32,11 @@ export default function HomePage({
       <Wrapper>
         <PageTitle>Upcoming Events</PageTitle>
         <EventList
-          apiData={apiData}
+          DATA={apiData}
           onToggleFavorite={onToggleFavorite}
           favList={favList}
         />
-        <StyledButton onClick={handleLoadMore}>See More</StyledButton>
+        <StyledButton onClick={onLoadMore}>See More</StyledButton>
       </Wrapper>
     </>
   );

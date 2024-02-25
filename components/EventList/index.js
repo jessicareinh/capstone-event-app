@@ -22,32 +22,32 @@ const StyledListItem = styled.li`
   }
 `;
 
-export default function EventList({ apiData, favList, onToggleFavorite }) {
+export default function EventList({ DATA, favList, onToggleFavorite }) {
   const uniqueIds = new Set();
   const filteredData = [];
 
-  // Filter out duplicate events based on their IDs
-  apiData.forEach((event) => {
+  DATA.forEach((event) => {
     if (!uniqueIds.has(event.id)) {
       uniqueIds.add(event.id);
       filteredData.push(event);
     }
   });
+
   return (
     <Wrapper>
-      {filteredData.map((event) => (
+      {filteredData?.map((event) => (
         <StyledListItem key={event.id}>
           <EventCard
             title={event.name}
             location={event._embedded.venues[0].city.name}
-            longTitle={event.name.length > 29}
+            longTitle={event.name.length >= 35}
             venue={event._embedded.venues[0].name}
             date={event.dates.start.localDate}
             image={selectImage(event.images).url}
             width={selectImage(event.images).width}
             height={selectImage(event.images).height}
             id={event.id}
-            isFavorite={favList?.find((fav) => fav.id === event.id)?.isFavorite}
+            isFavorite={favList.find((fav) => fav.id === event.id)?.isFavorite}
             onToggleFavorite={() => onToggleFavorite(event.id)}
           />
         </StyledListItem>

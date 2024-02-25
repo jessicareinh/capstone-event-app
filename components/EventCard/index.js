@@ -10,13 +10,13 @@ const CardContainer = styled.div`
   width: 100%;
   margin: auto;
   min-width: 335px;
-  height: 270px;
+  height: 255px;
   position: relative;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   &:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
   }
   @media (min-width: 480px) {
     height: 295px;
@@ -29,7 +29,7 @@ const CardContainer = styled.div`
 `;
 const StyledImage = styled(Image)`
   width: 100%;
-  height: 160px;
+  height: ${(prop) => (prop.$longTitle ? "140px" : "150px")};
   object-fit: cover;
   @media (min-width: 480px) {
     height: 180px;
@@ -37,7 +37,7 @@ const StyledImage = styled(Image)`
 `;
 
 const Title = styled.h3`
-  margin: 10px 10px 0 10px;
+  margin: 5px 10px 0 10px;
   font-size: ${(prop) => (prop.$longTitle ? "1rem" : "1.2rem")};
 `;
 
@@ -84,7 +84,14 @@ export default function EventCard({
         onToggleFavorite={onToggleFavorite}
       />
       <Link href={`/details/${id}`}>
-        <StyledImage src={image} alt={title} width={width} height={height} />
+        <StyledImage
+          src={image}
+          alt={title}
+          width={width}
+          height={height}
+          $longTitle={longTitle}
+          priority
+        />
       </Link>
 
       <Title $longTitle={longTitle}>{title}</Title>

@@ -10,6 +10,7 @@ const Wrapper = styled.div`
 
 const CardContainer = styled.div`
   display: flex;
+  background-color: #fff;
   flex-direction: column;
   position: relative;
   width: 100%;
