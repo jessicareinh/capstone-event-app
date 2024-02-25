@@ -93,7 +93,7 @@ export default function App({ Component, pageProps }) {
   console.log("SEARCHDATA from app.js: ", searchData);
   return (
     <>
-      <h5>rendered {counter} times on mount</h5>
+      <p>rendered {counter} times on mount</p>
       <GlobalStyle />
       <Layout>
         <Component
