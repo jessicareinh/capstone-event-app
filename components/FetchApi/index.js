@@ -1,4 +1,4 @@
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const baseUrl = "https://app.ticketmaster.com/discovery/v2/events?apikey=";
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 export default async function fetchData(param, onSetData) {
   const sortBy = "relevance,desc";
