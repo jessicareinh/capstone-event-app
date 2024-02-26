@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EventList from "@/components/EventList";
+import SearchForm from "@/components/SearchForm";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -8,42 +9,19 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Form = styled.form`
-  display: flex;
-  margin: 20px;
-`;
+const PageTitle = styled.h3`
+  text-align: center;
+  margin: 20px auto 0;
 
-const Input = styled.input`
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  flex-grow: 1;
-  margin-right: 1rem;
-
-  &:focus {
-    outline: none;
-    border-color: #999;
-  }
-`;
-
-const Button = styled.button`
-  padding: 1rem 1.5rem;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #222;
+  @media (min-width: 501px) {
+    font-size: 2rem;
+    margin: 30px auto 10px;
   }
 `;
 
 const ResultAmount = styled.div`
-  margin-top: 1rem;
   text-align: center;
+  margin: 10px;
 `;
 
 export default function Search({
@@ -66,20 +44,13 @@ export default function Search({
 
   return (
     <Wrapper>
-      <Form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          name="searchTerm"
-          placeholder="Search for events"
-          autoComplete="off"
-        />
-        <Button type="submit">Submit</Button>
-      </Form>
+      <PageTitle>Search</PageTitle>
+      <SearchForm onSubmit={handleSubmit} />
 
       <ResultAmount>
         {query && (
           <h3>
-            Results for {query} : {searchData.length}
+             {searchData.length} results found for "{query}"
           </h3>
         )}
       </ResultAmount>

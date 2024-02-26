@@ -4,13 +4,12 @@ import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
 import Layout from "@/components/Layout";
 import { baseUrl, apiKey } from "@/components/utils";
-// import fetchData from "@/components/FetchApi";
+import fetchData from "@/components/FetchApi";
 
 export default function App({ Component, pageProps }) {
   const [apiData, setApiData] = useState([]);
   const [searchData, setSearchData] = useState([]);
   const [page, setPage] = useState(1);
-  const [counter, setCounter] = useState(0); // counter to check the double rendering on mount
   const [ownEvents, setOwnEvents] = useLocalStorageState("myEvents", {
     defaultValue: [],
   });
@@ -18,46 +17,23 @@ export default function App({ Component, pageProps }) {
     defaultValue: [],
   });
 
-  async function fetchData(param, onSetData) {
-    const sortBy = "date,asc";
-
-    try {
-      const response = await fetch(
-        `${baseUrl}${apiKey}&sort=${sortBy}&countryCode=DE&locale=*&size=10${param}`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const data = await response.json();
-      onSetData(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }
-
   useEffect(() => {
-    fetchData(`&page=${page}`, (data) =>
+    fetchData(`&page=${page}&size=27`, (data) =>
       setApiData((prev) => [...prev, ...data._embedded.events])
     );
   }, [page]);
 
-  useEffect(() => {
-    setCounter((prev) => prev + 1);
-  }, []);
-
-
-//triggers search on submit in /search
+  //triggers search on submit in /search
   async function handleSearch(query) {
-    fetchData(`&keyword=${query}`, (data) =>
-      setSearchData(data._embedded.events)
+    fetchData(`&keyword=${query}&size=50`, (searchData) =>
+      setSearchData(searchData._embedded.events)
     );
   }
 
-  //loads the next 10 event cards in the homepage "/"
+  //loads the next page of event cards in the homepage "/"
   function handleLoadMore() {
     setPage(page + 1);
   }
-
 
   //CRUD functions
   function handleAddEvents(newEvent) {
@@ -93,7 +69,6 @@ export default function App({ Component, pageProps }) {
   console.log("SEARCHDATA from app.js: ", searchData);
   return (
     <>
-      <p>rendered {counter} times on mount</p>
       <GlobalStyle />
       <Layout>
         <Component

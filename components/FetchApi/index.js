@@ -1,6 +1,6 @@
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-const sortBy = "date,asc";
+const sortBy = "relevance,desc";
 
 export default async function fetchData(param, onSetData) {
   try {

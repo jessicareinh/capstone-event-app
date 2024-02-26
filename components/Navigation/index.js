@@ -128,23 +128,18 @@ export default function Navigation() {
           </svg>
         </SideBarItem>
         <SideBarItem>
-          <NavLink href="/" onClick={handleLinkClick}>
-            Home
-          </NavLink>
-        </SideBarItem>
-        <SideBarItem>
           <NavLink href="/search" onClick={handleLinkClick}>
             Search
           </NavLink>
         </SideBarItem>
         <SideBarItem>
-          <NavLink href="/my-events" onClick={handleLinkClick}>
-            My Events
+          <NavLink href="/favorites" onClick={handleLinkClick}>
+            Favorites
           </NavLink>
         </SideBarItem>
         <SideBarItem>
-          <NavLink href="/favorites" onClick={handleLinkClick}>
-            Favorites
+          <NavLink href="/my-events" onClick={handleLinkClick}>
+            My Events
           </NavLink>
         </SideBarItem>
       </Sidebar>
