@@ -50,7 +50,7 @@ export default function Search({
       <ResultAmount>
         {query && (
           <h3>
-             {searchData.length} results found for "{query}"
+            {searchData.length} results found for &ldquo;{query}&ldquo;
           </h3>
         )}
       </ResultAmount>
