@@ -40,8 +40,6 @@ export default function Search({
     e.target.reset();
   }
 
-  console.log("searchdata FROM Search.js: ", searchData);
-
   return (
     <Wrapper>
       <PageTitle>Search</PageTitle>
