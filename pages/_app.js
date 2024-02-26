@@ -17,14 +17,14 @@ export default function App({ Component, pageProps }) {
   });
 
   useEffect(() => {
-    fetchData(`&page=${page}&size=27`, (data) =>
+    fetchData(`page=${page}&size=27`, (data) =>
       setApiData((prev) => [...prev, ...data._embedded.events])
     );
   }, [page]);
 
   //triggers search on submit in /search
   async function handleSearch(query) {
-    fetchData(`&keyword=${query}&size=50`, (searchData) =>
+    fetchData(`keyword=${query}&size=50`, (searchData) =>
       setSearchData(searchData._embedded.events)
     );
   }
