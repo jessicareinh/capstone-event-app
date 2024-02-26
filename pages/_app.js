@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }) {
       } catch (error) {
         console.log("Error:", error);
       } finally {
-        setLoading(false);
+        // setLoading(false);
       }
     };
     fetchData();
@@ -77,7 +77,12 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Layout>
-        {loading ? <LoadingAnimation /> : null}
+        {loading ? (
+          <LoadingAnimation
+            duration={1000}
+            onComplete={() => setLoading(false)}
+          />
+        ) : null}
         <Component
           onAddEvent={handleAddEvents}
           onSave={handleSaveEvent}
