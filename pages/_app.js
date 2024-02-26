@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
 import Layout from "@/components/Layout";
+import LoadingAnimation from "@/components/LoadingAnimation";
 
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 export default function App({ Component, pageProps }) {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+
   const [ownEvents, setOwnEvents] = useLocalStorageState("myEvents", {
     defaultValue: [],
   });
@@ -32,6 +35,8 @@ export default function App({ Component, pageProps }) {
         setData((prev) => [...prev, ...json._embedded.events]);
       } catch (error) {
         console.log("Error:", error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
@@ -72,6 +77,7 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Layout>
+        {loading ? <LoadingAnimation /> : null}
         <Component
           onAddEvent={handleAddEvents}
           onSave={handleSaveEvent}
