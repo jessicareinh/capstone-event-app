@@ -1,8 +1,7 @@
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-const sortBy = "relevance,desc";
-
 export default async function fetchData(param, onSetData) {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+  const sortBy = "relevance,desc";
   try {
     const response = await fetch(
       `${baseUrl}${apiKey}&sort=${sortBy}&countryCode=DE&locale=*&${param}`
