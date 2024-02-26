@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { ClimbingBoxLoader } from "react-spinners";
 
-export default function LoadingAnimation() {
-  const [loading, setLoading] = useState(true);
-
+export default function LoadingAnimation({ duration, onComplete }) {
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);
-    }, 10000);
+      onComplete();
+    }, duration);
 
     return () => clearTimeout(timer);
   }, []);
@@ -23,19 +21,17 @@ export default function LoadingAnimation() {
         position: "fixed",
         top: 0,
         left: 0,
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        backgroundColor: "white",
         backdropFilter: "blur(5px)",
         zIndex: 9999,
       }}
     >
-      {loading && (
-        <ClimbingBoxLoader
-          size={25}
-          color={"black"}
-          loading={true}
-          speedMultiplier={4}
-        />
-      )}
+      <ClimbingBoxLoader
+        size={25}
+        color={"#d1c4e9"}
+        loading={true}
+        speedMultiplier={4}
+      />
     </div>
   );
 }
