@@ -36,7 +36,6 @@ export default function App({ Component, pageProps }) {
       } catch (error) {
         console.log("Error:", error);
       } finally {
-        // setLoading(false);
       }
     };
     fetchData();
