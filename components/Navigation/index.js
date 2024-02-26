@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
-import Image from "next/image";
+import Link from "next/link";
 
 const NavBar = styled.nav`
   background-color: #fff;
@@ -45,7 +45,7 @@ const NavMenu = styled.nav`
   }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   width: 100%;
   height: 100%;
   padding: 0 30px;

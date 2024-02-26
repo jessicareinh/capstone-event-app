@@ -23,8 +23,6 @@ export default function Favorites({
     favList?.some((fav) => fav.id === event.id && fav.isFavorite)
   );
 
-  console.log("API Data from FAVORITES", apiData);
-  console.log("SEARCHDATA from FAVORITES", searchData);
   return (
     <>
       <PageTitle>Favorites Page</PageTitle>

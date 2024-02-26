@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
 import Layout from "@/components/Layout";
-import { baseUrl, apiKey } from "@/components/utils";
 import fetchData from "@/components/FetchApi";
 
 export default function App({ Component, pageProps }) {
@@ -65,8 +64,6 @@ export default function App({ Component, pageProps }) {
     }
   }
 
-  console.log("API DATA from app.js: ", apiData);
-  console.log("SEARCHDATA from app.js: ", searchData);
   return (
     <>
       <GlobalStyle />
