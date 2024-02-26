@@ -9,6 +9,3 @@ export default function selectImage(images) {
   }
 }
 
-export const apiKey = "KUfDtCZdKiqgRrrY7R9qumcHOH8tg1RA";
-export const baseUrl =
-  "https://app.ticketmaster.com/discovery/v2/events?apikey=";
