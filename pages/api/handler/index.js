@@ -1,11 +1,13 @@
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+
 export default async function handler(req, res) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   const sortBy = "relevance,desc";
+  const param = req.query?.param;
 
   try {
     const response = await fetch(
-      `${baseUrl}${apiKey}&sort=${sortBy}&countryCode=DE&locale=*&keyword=${query}`
+      `${baseUrl}${apiKey}&sort=${sortBy}&countryCode=DE&locale=*&${param}`
     );
 
     if (!response.ok) {
