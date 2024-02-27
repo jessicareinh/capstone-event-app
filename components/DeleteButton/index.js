@@ -1,12 +1,17 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
   border-radius: 8px;
   border: 5px;
-  background-color: #bdbdbd;
+  background-color: #756ab6;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   font-family: monospace;
-  padding: 50px;
+  padding: 10px;
+  height: 40px;
+  width: 150px;
 
   cursor: pointer;
 
