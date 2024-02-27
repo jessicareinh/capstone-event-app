@@ -1,7 +1,7 @@
-import Link from "next/link";
 import MyEventsList from "@/components/MyEventsList";
 import useLocalStorageState from "use-local-storage-state";
 import styled from "styled-components";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -35,6 +35,7 @@ export default function MyEvents({ ownEvents, onSave }) {
           onSave={onSave}
         />
       </Wrapper>
+      <ScrollToTopButton />
     </>
   );
 }

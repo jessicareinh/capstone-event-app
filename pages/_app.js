@@ -4,11 +4,15 @@ import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
 import Layout from "@/components/Layout";
 import fetchData from "@/components/FetchApi";
+import LoadingAnimation from "@/components/LoadingAnimation";
+
 
 export default function App({ Component, pageProps }) {
   const [apiData, setApiData] = useState([]);
   const [searchData, setSearchData] = useState([]);
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+
   const [ownEvents, setOwnEvents] = useLocalStorageState("myEvents", {
     defaultValue: [],
   });
@@ -68,6 +72,12 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Layout>
+        {loading ? (
+          <LoadingAnimation
+            duration={1000}
+            onComplete={() => setLoading(false)}
+          />
+        ) : null}
         <Component
           apiData={apiData}
           searchData={searchData}

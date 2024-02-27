@@ -1,5 +1,6 @@
 import EventList from "@/components/EventList";
 import styled from "styled-components";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -33,6 +34,7 @@ export default function Favorites({
           DATA={favorites}
         />
       </Wrapper>
+      <ScrollToTopButton />
     </>
   );
 }
