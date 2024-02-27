@@ -38,14 +38,14 @@ const ButtonWrapper = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: ${(props) => (props.cancel ? "gray" : "slateblue")};
-  color: white;
+  background-color: ${(props) => (props.cancel ? "gray" : "#531f7a")};
+  color: #f5f5f5;
   border: none;
   border-radius: 5px;
   padding: 15px 20px;
   height: 50px;
   cursor: pointer;
-  font-size: 80%;
+  font-size: 90%;
 `;
 
 export default function Modal({
