@@ -13,10 +13,17 @@ const PageTitle = styled.h1`
   margin: 30px auto 10px auto;
 `;
 
-export default function Favorites({ apiData, favList, onToggleFavorite }) {
-  const favorites = apiData.filter((event) =>
-    favList.find((fav) => fav.id === event.id && fav.isFavorite)
+export default function Favorites({
+  apiData,
+  searchData,
+  favList,
+  onToggleFavorite,
+}) {
+  const combinedData = [...searchData, ...apiData];
+  const favorites = combinedData?.filter((event) =>
+    favList?.some((fav) => fav.id === event.id && fav.isFavorite)
   );
+
   return (
     <>
       <PageTitle>Favorites Page</PageTitle>
@@ -24,7 +31,7 @@ export default function Favorites({ apiData, favList, onToggleFavorite }) {
         <EventList
           favList={favList}
           onToggleFavorite={onToggleFavorite}
-          apiData={favorites}
+          DATA={favorites}
         />
       </Wrapper>
       <ScrollToTopButton />

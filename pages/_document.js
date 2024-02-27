@@ -26,7 +26,13 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link
+            rel="stylesheet"
+            href="https://kit.fontawesome.com/KIT_CODE.js"
+            crossorigin="anonymous"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

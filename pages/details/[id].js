@@ -21,7 +21,13 @@ const Header = styled.header`
   justify-content: space-between;
 `;
 
-export default function DetailsPage({ apiData, onToggleFavorite, favList }) {
+export default function DetailsPage({
+  searchData,
+  apiData,
+  onToggleFavorite,
+  favList,
+}) {
+  const combinedData = [...searchData, ...apiData];
   const router = useRouter();
   const { id } = router.query;
   const [loading, setLoading] = useState(true);
@@ -32,7 +38,7 @@ export default function DetailsPage({ apiData, onToggleFavorite, favList }) {
     }, 1000);
   }, [id]);
 
-  const currentEvent = apiData.find((event) => event.id === id);
+  const currentEvent = combinedData.find((event) => event.id === id);
 
   if (!currentEvent) {
     return <div>Loading..</div>;

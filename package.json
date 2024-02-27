@@ -20,6 +20,7 @@
     "react-scroll-up": "^1.4.0",
     "react-spinners": "^0.13.8",
     "styled-components": "^6.0.2",
+    "swr": "^2.2.5",
     "uid": "^2.0.2",
     "use-local-storage-state": "^19.1.0"
   },

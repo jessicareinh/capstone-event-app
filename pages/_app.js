@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
 import Layout from "@/components/Layout";
+import fetchData from "@/components/FetchApi";
 import LoadingAnimation from "@/components/LoadingAnimation";
 
-const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+
 export default function App({ Component, pageProps }) {
-  const [data, setData] = useState([]);
+  const [apiData, setApiData] = useState([]);
+  const [searchData, setSearchData] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
@@ -18,32 +20,25 @@ export default function App({ Component, pageProps }) {
     defaultValue: [],
   });
 
-  const baseUrl = "https://app.ticketmaster.com/discovery/v2/events?apikey=";
-  const countryCode = "DE";
-  const sortBy = "relevance,desc";
-
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${baseUrl}${apiKey}&size=27&sort=${sortBy}&page=${page}&countryCode=${countryCode}&locale=*`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch api");
-        }
-        const json = await response.json();
-        setData((prev) => [...prev, ...json._embedded.events]);
-      } catch (error) {
-        console.log("Error:", error);
-      } finally {
-      }
-    };
-    fetchData();
+    fetchData(`page=${page}&size=27`, (data) =>
+      setApiData((prev) => [...prev, ...data._embedded.events])
+    );
   }, [page]);
 
-  function handleLoadMore() {
-    setPage((prevPage) => prevPage + 1);
+  //triggers search on submit in /search
+  async function handleSearch(query) {
+    fetchData(`keyword=${query}&size=50`, (searchData) =>
+      setSearchData(searchData._embedded.events)
+    );
   }
+
+  //loads the next page of event cards in the homepage "/"
+  function handleLoadMore() {
+    setPage(page + 1);
+  }
+
+  //CRUD functions
   function handleAddEvents(newEvent) {
     setOwnEvents([...ownEvents, { ...newEvent, id: uid() }]);
   }
@@ -72,6 +67,7 @@ export default function App({ Component, pageProps }) {
       setFavList([...favList, { id, isFavorite: true }]);
     }
   }
+
   return (
     <>
       <GlobalStyle />
@@ -83,13 +79,15 @@ export default function App({ Component, pageProps }) {
           />
         ) : null}
         <Component
+          apiData={apiData}
+          searchData={searchData}
+          ownEvents={ownEvents}
+          favList={favList}
+          onSubmit={handleSearch}
           onAddEvent={handleAddEvents}
           onSave={handleSaveEvent}
-          apiData={data}
-          handleLoadMore={handleLoadMore}
-          ownEvents={ownEvents}
+          onLoadMore={handleLoadMore}
           onToggleFavorite={toggleFavorite}
-          favList={favList}
           {...pageProps}
         />
       </Layout>
