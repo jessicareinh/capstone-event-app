@@ -13,25 +13,31 @@ const StyledList = styled.ul`
 const Input = styled.input`
   font-family: sans-serif;
   outline: 3px;
-  height: 35px;
-  width: 210px;
+  height: 40px;
+  width: 240px;
   border: 0px;
   background-color: #f5f5f5;
   padding: 5px;
   font-style: italic;
   border-radius: 8px;
-  margin: 5px;
+  margin: 20px;
 
   &:focus {
     background-color: #bdbdbd;
   }
 `;
 const StyledEditButton = styled.button`
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
   border-radius: 8px;
   border: 5px;
-  background-color: #bdbdbd;
+  background-color: #f5f5f5;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   font-family: monospace;
+  padding: 10px;
+  height: 40px;
+  width: 150px;
 
   cursor: pointer;
 
@@ -45,8 +51,8 @@ const StyledButton = styled.button`
   border: 5px;
   background-color: #bdbdbd;
   font-family: monospace;
-  padding: 5px 10px;
-  margin: 5px;
+  padding: 10px 15px;
+  margin: 18px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   cursor: pointer;
 
@@ -148,7 +154,7 @@ export default function EditEvent({ event, onSave }) {
       )}
       {!isEditing && (
         <StyledEditButton onClick={() => setIsEditing(true)}>
-          edit
+          Edit
         </StyledEditButton>
       )}
     </StyledList>
