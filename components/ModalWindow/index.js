@@ -14,26 +14,27 @@ const Overlay = styled.div`
 const ModalWrapper = styled.div`
   display: ${(props) => (props.isOpen ? "block" : "none ")};
   position: fixed;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: whitesmoke;
-  padding: 25px;
+  text-align: left;
+  font-size: 20px;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  padding: 100px;
+  width: 100%;
+
+  flex-direction: column;
   border-radius: 5px;
   z-index: 1000;
 `;
 
-const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
   margin-top: 20px;
+  align-items: center;
 `;
 
 const Button = styled.button`
@@ -41,15 +42,10 @@ const Button = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 8px 16px;
+  padding: 15px 20px;
+  height: 50px;
   cursor: pointer;
-`;
-
-const Paragraph = styled.p`
-  text-align: center;
-  font-family: Caveat;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 80%;
 `;
 
 export default function Modal({
