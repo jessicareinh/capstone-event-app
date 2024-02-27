@@ -38,7 +38,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: ${(props) => (props.cancel ? "gray" : "#531f7a")};
+  background-color: ${(props) => (props.cancel ? "gray" : "#756ab6")};
   color: #f5f5f5;
   border: none;
   border-radius: 5px;
@@ -55,14 +55,6 @@ export default function Modal({
   onConfirm,
   onCancel,
 }) {
-  const handleConfirm = () => {
-    onConfirm();
-  };
-
-  const handleCancel = () => {
-    onCancel();
-  };
-
   return (
     <>
       {isOpen && <Overlay />}
