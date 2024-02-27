@@ -1,0 +1,26 @@
+[
+  {
+    "id": 111,
+    "title": "Abschluss",
+    "date": "2024-03-01",
+    "time": "14:00",
+    "location": "Zoom-Classroom",
+    "description": "Bester Abschluss, Sekt einkaufen"
+  },
+  {
+    "id": 222,
+    "title": "Oma Geburtstag",
+    "date": "2024-03-12",
+    "time": "11:00",
+    "location": "Cafe unter den Linden",
+    "description": "Blumen nicht vergessen"
+  },
+  {
+    "id": 305,
+    "title": "Sauna",
+    "date": "2024-03-15",
+    "time": "10:00",
+    "location": "Vabali",
+    "description": "Massage noch buchen"
+  }
+]
