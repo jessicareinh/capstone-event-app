@@ -13,10 +13,11 @@ const ScrollButton = styled.button`
   cursor: pointer;
   border-radius: 100%;
   font-size: 30px;
-  border: none;
-  box-shadow: 0 5px 10px #ccc;
+  border: 0;
   width: 50px;
   height: 50px;
+
+  border-color: #f5f5f5;
 
   :hover {
     background: #d1c4e9;
