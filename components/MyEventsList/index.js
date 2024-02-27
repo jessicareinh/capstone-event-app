@@ -3,13 +3,7 @@ import DeleteButton from "../DeleteButton";
 import EditEvent from "../EditEvent";
 import React, { useState } from "react";
 import Modal from "../ModalWindow";
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`;
+import Link from "next/link";
 
 const StyledList = styled.ul`
   list-style: none;
@@ -22,17 +16,21 @@ const P = styled.p`
 `;
 
 const EventCard = styled.div`
+  display: grid;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background-color: #d1c4e9;
-  margin: 20px;
+  margin: 15px;
   padding: 15px;
-  width: 280px;
+  width: 80%;
   min-height: 200px;
   border-radius: 10px;
   word-wrap: break-word;
 `;
 
-const AddEventLink = styled.a`
+const AddEventLink = styled(Link)`
   text-align: center;
   text-decoration: none;
   border-radius: 8px;
@@ -54,15 +52,6 @@ const AddEventLink = styled.a`
   }
 `;
 
-const ButtonContainer = styled.div`
-  text-align: center;
-`;
-const H1 = styled.h1`
-  margin: 25px;
-  font-family: monospace;
-  font-size: 32px;
-  font-weight: bold;
-`;
 const Title = styled.h2`
   font-weight: 600;
 `;
@@ -97,28 +86,26 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
 
   return (
     <>
-      <Wrapper>
-        {ownEvents.map((event) => (
-          <EventCard key={event.id}>
-            <Title>{event.title}</Title>
-            <StyledList>
-              <li>{event.date}</li>
-              <li>{event.time}</li>
-              <li>{event.location}</li>
-              <li>{event.description}</li>
-            </StyledList>
-            <ButtonContainer>
-              <EditEvent key={event.id} event={event} onSave={onSave} />
-              <DeleteButton
-                id={event.id}
-                onDeleteEvent={() => handleDelete(event)}
-                confirmMessage="Are you sure you want to delete this event?"
-              />
-            </ButtonContainer>
-          </EventCard>
-        ))}
-        <AddEventLink href="/add-event">Add your Event</AddEventLink>
-      </Wrapper>
+      {ownEvents.map((event) => (
+        <EventCard key={event.id}>
+          <Title>{event.title}</Title>
+          <StyledList>
+            <li>{event.date}</li>
+            <li>{event.time}</li>
+            <li>{event.location}</li>
+            <li>{event.description}</li>
+          </StyledList>
+
+          <EditEvent key={event.id} event={event} onSave={onSave} />
+          <DeleteButton
+            id={event.id}
+            onDeleteEvent={() => handleDelete(event)}
+            confirmMessage="Are you sure you want to delete this event?"
+          />
+        </EventCard>
+      ))}
+      <AddEventLink href="/add-event">Add your Event</AddEventLink>
+
       <Modal
         isOpen={isModalOpen}
         modalType="delete"
