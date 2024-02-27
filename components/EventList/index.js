@@ -26,7 +26,6 @@ export default function EventList({ apiData, favList, onToggleFavorite }) {
   const uniqueIds = new Set();
   const filteredData = [];
 
-  // Filter out duplicate events based on their IDs
   apiData.forEach((event) => {
     if (!uniqueIds.has(event.id)) {
       uniqueIds.add(event.id);
