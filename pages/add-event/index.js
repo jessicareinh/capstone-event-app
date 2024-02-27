@@ -1,5 +1,4 @@
 import EventForm from "@/components/EventForm";
-import Link from "next/link";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -21,7 +20,8 @@ export default function MyEvents({ onAddEvent }) {
       <Wrapper>
         <H2> Add Your Own Event</H2>
 
-        <EventForm onAddEvent={onAddEvent} />
+        <label htmlFor="event-title" />
+        <EventForm id="event-title" onAddEvent={onAddEvent} />
       </Wrapper>
     </>
   );

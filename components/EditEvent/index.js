@@ -71,7 +71,9 @@ export default function EditEvent({ event, onSave }) {
     <StyledList>
       {isEditing && (
         <Section>
+          <label htmlFor="title">Title:</label>
           <Input
+            id="title"
             type="text"
             defaultValue={event.title}
             onChange={(e) =>
@@ -84,7 +86,9 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
+          <label htmlFor="date">Date:</label>
           <Input
+            id="date"
             htmlFor="date"
             type="date"
             defaultValue={event.date}
@@ -98,8 +102,9 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
+          <label htmlFor="time">Time:</label>
           <Input
-            htmlFor="time"
+            id="time"
             type="time"
             defaultValue={event.time}
             onChange={(e) =>
@@ -112,7 +117,9 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
+          <label htmlFor="location">Location:</label>
           <Input
+            id="location"
             type="text"
             defaultValue={event.location}
             onChange={(e) =>
@@ -124,7 +131,10 @@ export default function EditEvent({ event, onSave }) {
             placeholder="Location"
             required
           />
+
+          <label htmlFor="description">Description:</label>
           <Input
+            id="description"
             type="text"
             defaultValue={event.description}
             onChange={(e) =>
@@ -150,7 +160,7 @@ export default function EditEvent({ event, onSave }) {
       )}
       {!isEditing && (
         <StyledEditButton onClick={() => setIsEditing(true)}>
-          edit
+          Edit
         </StyledEditButton>
       )}
     </StyledList>

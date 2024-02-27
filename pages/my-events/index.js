@@ -35,7 +35,7 @@ export default function MyEvents({ ownEvents, onSave }) {
           onSave={onSave}
         />
       </Wrapper>
-      <ScrollToTopButton />
+      <ScrollToTopButton aria-label="Go to top" />
     </>
   );
 }

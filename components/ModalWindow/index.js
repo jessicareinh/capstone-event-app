@@ -70,15 +70,21 @@ export default function Modal({
   return (
     <>
       {isOpen && <Overlay />}
-      <ModalWrapper isOpen={isOpen}>
+      <ModalWrapper isOpen={isOpen} aria-label="Confirmation Modal">
         <p>{confirmMessage}</p>
         <ButtonWrapper>
           {modalType === "success" ? (
-            <Button onClick={onConfirm}>OK</Button>
+            <Button onClick={onConfirm} aria-label="Confirm">
+              OK
+            </Button>
           ) : (
             <>
-              <Button onClick={onConfirm}>Yes</Button>
-              <Button onClick={onCancel}>Cancel</Button>
+              <Button onClick={onConfirm} aria-label="Confirm">
+                Yes
+              </Button>
+              <Button onClick={onCancel} aria-label="Cancel">
+                Cancel
+              </Button>
             </>
           )}
         </ButtonWrapper>

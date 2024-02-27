@@ -12,6 +12,8 @@ export default function LoadingAnimation({ duration, onComplete }) {
 
   return (
     <div
+      role="status"
+      aria-live="assertive"
       style={{
         display: "flex",
         justifyContent: "center",

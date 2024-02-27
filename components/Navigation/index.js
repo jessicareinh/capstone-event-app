@@ -123,6 +123,7 @@ export default function Navigation() {
             height="26"
             viewBox="0 -960 960 960"
             width="26"
+            alt="Open sidebar"
           >
             <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
           </svg>
@@ -163,6 +164,7 @@ export default function Navigation() {
             height="50"
             viewBox="0 -960 960 960"
             width="50"
+            alt="Close sidebar"
           >
             <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
           </svg>

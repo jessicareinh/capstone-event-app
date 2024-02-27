@@ -82,23 +82,54 @@ export default function EventForm({ onAddEvent }) {
     <>
       <Form onSubmit={handleSubmit}>
         <label htmlFor="title">Title*</label>
-        <Input type="text" id="title" name="title" required />
+        <Input
+          type="text"
+          id="title"
+          name="title"
+          aria-required="true"
+          required
+        />
 
         <label htmlFor="date">Date*</label>
-        <Input type="date" id="date" name="date" required />
+        <Input
+          type="date"
+          id="date"
+          name="date"
+          aria-required="true"
+          required
+        />
         <label htmlFor="time">Time*</label>
-        <Input type="time" id="time" name="time" required />
+        <Input
+          type="time"
+          id="time"
+          name="time"
+          aria-required="true"
+          required
+        />
 
         <label htmlFor="location">Location*</label>
-        <Input type="text" id="location" name="location" required />
+        <Input
+          type="text"
+          id="location"
+          name="location"
+          aria-required="true"
+          required
+        />
 
         <label htmlFor="description">Description</label>
 
-        <Textarea id="description" name="description" rows="8"></Textarea>
+        <Textarea
+          id="description"
+          name="description"
+          rows="8"
+          aria-label="Event Description"
+        ></Textarea>
 
         <Paragraph>* Required</Paragraph>
 
-        <Submit type="submit">Add Your Own Event</Submit>
+        <Submit type="submit" aria-label="Add Your Own Event">
+          Add Your Own Event
+        </Submit>
       </Form>
       <Modal
         isOpen={isSuccessModalOpen}

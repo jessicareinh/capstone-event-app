@@ -82,6 +82,7 @@ export default function EventCard({
       <FavoriteButton
         isFavorite={isFavorite}
         onToggleFavorite={onToggleFavorite}
+        aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
       />
       <Link href={`/details/${id}`}>
         <StyledImage

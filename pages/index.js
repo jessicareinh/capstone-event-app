@@ -37,7 +37,9 @@ export default function HomePage({
           onToggleFavorite={onToggleFavorite}
           favList={favList}
         />
-        <StyledButton onClick={onLoadMore}>See More</StyledButton>
+        <StyledButton onClick={onLoadMore} aria-label="See More">
+          See More
+        </StyledButton>
       </Wrapper>
       <ScrollToTopButton />
     </>

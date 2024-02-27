@@ -34,7 +34,7 @@ export default function Favorites({
           DATA={favorites}
         />
       </Wrapper>
-      <ScrollToTopButton />
+      <ScrollToTopButton aria-label="Go to top" />
     </>
   );
 }

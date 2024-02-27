@@ -23,5 +23,9 @@ export default function DeleteButton({ id, onDeleteEvent }) {
     onDeleteEvent(id);
   };
 
-  return <StyledButton onClick={handleClick}>Delete</StyledButton>;
+  return (
+    <StyledButton onClick={handleClick} aria-label="Delete Event">
+      Delete
+    </StyledButton>
+  );
 }
