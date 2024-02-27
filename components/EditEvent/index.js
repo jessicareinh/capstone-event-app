@@ -160,7 +160,7 @@ export default function EditEvent({ event, onSave }) {
       )}
       {!isEditing && (
         <StyledEditButton onClick={() => setIsEditing(true)}>
-          Edit
+          Edit Event
         </StyledEditButton>
       )}
     </StyledList>

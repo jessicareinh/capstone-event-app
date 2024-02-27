@@ -82,48 +82,19 @@ export default function EventForm({ onAddEvent }) {
     <>
       <Form onSubmit={handleSubmit}>
         <label htmlFor="title">Title*</label>
-        <Input
-          type="text"
-          id="title"
-          name="title"
-          aria-required="true"
-          required
-        />
+        <Input type="text" id="title" name="title" required />
 
         <label htmlFor="date">Date*</label>
-        <Input
-          type="date"
-          id="date"
-          name="date"
-          aria-required="true"
-          required
-        />
+        <Input type="date" id="date" name="date" required />
         <label htmlFor="time">Time*</label>
-        <Input
-          type="time"
-          id="time"
-          name="time"
-          aria-required="true"
-          required
-        />
+        <Input type="time" id="time" name="time" required />
 
         <label htmlFor="location">Location*</label>
-        <Input
-          type="text"
-          id="location"
-          name="location"
-          aria-required="true"
-          required
-        />
+        <Input type="text" id="location" name="location" required />
 
         <label htmlFor="description">Description</label>
 
-        <Textarea
-          id="description"
-          name="description"
-          rows="8"
-          aria-label="Event Description"
-        ></Textarea>
+        <Textarea id="description" name="description" rows="8"></Textarea>
 
         <Paragraph>* Required</Paragraph>
 

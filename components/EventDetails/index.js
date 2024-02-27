@@ -71,13 +71,7 @@ export default function EventDetails({
             isFavorite={isFavorite}
             onToggleFavorite={onToggleFavorite}
           />
-          <StyledImage
-            src={image}
-            alt={title}
-            width={width}
-            height={height}
-            aria-label={title}
-          />
+          <StyledImage src={image} alt={title} width={width} height={height} />
           <StyledList>
             <h3>{title}</h3>
             <li>
