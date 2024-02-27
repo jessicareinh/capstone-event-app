@@ -17,14 +17,15 @@ const P = styled.p`
 
 const EventCard = styled.div`
   display: grid;
+  position: relative;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background-color: #d1c4e9;
   margin: 15px;
   padding: 15px;
-  width: 80%;
+  width: 90%;
   min-height: 200px;
   border-radius: 10px;
   word-wrap: break-word;
@@ -34,18 +35,19 @@ const AddEventLink = styled(Link)`
   text-align: center;
   text-decoration: none;
   border-radius: 8px;
-  border: 2px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background-color: #bdbdbd;
   font-family: monospace;
+  font-size: 20px;
   color: black;
-  height: 25px;
+  height: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 6px;
-  padding-left: 10px;
+  padding: 40px;
+  padding-top: 12px;
+
   cursor: pointer;
-  width: 280px;
+  width: 80%;
 
   &:hover {
     background-color: #9e9e9e;
