@@ -1,26 +1,21 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const StyledList = styled.ul`
-  list-style: none;
-  margin: 30px;
-  font-family: monospace;
-  display: grid;
-  padding: 3px;
-  width: 70%;
+const ButtonContainer = styled.div`
+  margin-top: 10px;
 `;
 
 const Input = styled.input`
   font-family: sans-serif;
   outline: 3px;
   height: 40px;
-  width: 240px;
+  width: 45%;
   border: 0px;
   background-color: #f5f5f5;
+  margin: 10px 5px;
   padding: 5px;
   font-style: italic;
   border-radius: 8px;
-  margin: 20px;
 
   &:focus {
     background-color: #bdbdbd;
@@ -29,18 +24,17 @@ const Input = styled.input`
 const StyledEditButton = styled.button`
   position: absolute;
   bottom: 10px;
-  left: 5px;
+  left: 10px;
   border-radius: 8px;
   border: 5px;
   background-color: #f5f5f5;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   font-family: monospace;
+  font-size: 1.1rem;
   padding: 10px;
   height: 40px;
-  width: 150px;
-
+  width: 90px;
   cursor: pointer;
-
   &:hover {
     background-color: #9e9e9e;
   }
@@ -51,8 +45,11 @@ const StyledButton = styled.button`
   border: 5px;
   background-color: #bdbdbd;
   font-family: monospace;
-  padding: 10px 15px;
-  margin: 18px;
+  font-weight: 700;
+  font-size: 1rem;
+  width: 70px;
+  height: 30px;
+  margin: 5px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   cursor: pointer;
 
@@ -72,7 +69,7 @@ export default function EditEvent({ event, onSave }) {
   const [editableEvent, setEditableEvent] = useState({ ...event });
 
   return (
-    <StyledList>
+    <>
       {isEditing && (
         <Section>
           <Input
@@ -139,17 +136,21 @@ export default function EditEvent({ event, onSave }) {
             }
             placeholder="Description"
           />
-          <StyledButton
-            onClick={() => {
-              onSave(editableEvent);
-              setIsEditing(false);
-            }}
-          >
-            Save
-          </StyledButton>
-          <StyledButton onClick={() => setIsEditing(false)}>
-            Cancel
-          </StyledButton>
+
+          <ButtonContainer>
+            <StyledButton
+              onClick={() => {
+                onSave(editableEvent);
+                setIsEditing(false);
+              }}
+            >
+              Save
+            </StyledButton>
+
+            <StyledButton onClick={() => setIsEditing(false)}>
+              Cancel
+            </StyledButton>
+          </ButtonContainer>
         </Section>
       )}
       {!isEditing && (
@@ -157,6 +158,6 @@ export default function EditEvent({ event, onSave }) {
           Edit
         </StyledEditButton>
       )}
-    </StyledList>
+    </>
   );
 }
