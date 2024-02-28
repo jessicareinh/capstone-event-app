@@ -1,6 +1,9 @@
+// HomePage.js
 import EventList from "@/components/EventList";
 import styled from "styled-components";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import DropDownMenu from "@/components/DropDownMenu";
+import { germanCities } from "@/components/utils";
 
 const Wrapper = styled.div`
   display: flex;
@@ -8,9 +11,14 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const PageTitle = styled.h1`
+const PageTitle = styled.h2`
   text-align: center;
-  margin: 30px auto 10px;
+  margin: 20px auto;
+
+  @media (min-width: 501px) {
+    font-size: 2rem;
+    margin: 30px auto;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -27,11 +35,19 @@ export default function HomePage({
   onLoadMore,
   onToggleFavorite,
   favList,
+  onCityChange,
+  city,
 }) {
   return (
     <>
       <Wrapper>
         <PageTitle>Upcoming Events</PageTitle>
+
+        <DropDownMenu
+          selectedCity={city}
+          onCityChange={onCityChange}
+          cities={germanCities}
+        />
         <EventList
           DATA={apiData}
           onToggleFavorite={onToggleFavorite}
