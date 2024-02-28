@@ -32,13 +32,11 @@ export default function HomePage({
     <>
       <Wrapper>
         <PageTitle>Upcoming Events</PageTitle>
-        <ul>
-          <EventList
-            DATA={apiData}
-            onToggleFavorite={onToggleFavorite}
-            favList={favList}
-          />
-        </ul>
+        <EventList
+          DATA={apiData}
+          onToggleFavorite={onToggleFavorite}
+          favList={favList}
+        />
         <StyledButton onClick={onLoadMore}>See More</StyledButton>
       </Wrapper>
       <ScrollToTopButton />

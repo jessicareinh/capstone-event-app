@@ -36,7 +36,7 @@ const StyledImage = styled(Image)`
   }
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   margin: 5px 10px 0 10px;
   font-size: ${(prop) => (prop.$longTitle ? "1rem" : "1.2rem")};
 `;
