@@ -128,6 +128,11 @@ export default function Navigation() {
           </svg>
         </SideBarItem>
         <SideBarItem>
+          <NavLink href="/categories" onClick={handleLinkClick}>
+            Categories
+          </NavLink>
+        </SideBarItem>
+        <SideBarItem>
           <NavLink href="/search" onClick={handleLinkClick}>
             Search
           </NavLink>
@@ -146,6 +151,9 @@ export default function Navigation() {
       <NavMenu>
         <Li>
           <NavLink href="/">E</NavLink>
+        </Li>
+        <Li>
+          <NavLink href="/categories">Categories</NavLink>
         </Li>
         <Li>
           <NavLink href="/search">Search</NavLink>
