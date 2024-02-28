@@ -22,12 +22,10 @@ const Header = styled.header`
 `;
 
 export default function DetailsPage({
-  searchData,
-  apiData,
+  combinedData,
   onToggleFavorite,
   favList,
 }) {
-  const combinedData = [...searchData, ...apiData];
   const router = useRouter();
   const { id } = router.query;
   const [loading, setLoading] = useState(true);
