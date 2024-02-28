@@ -60,6 +60,7 @@ const Location = styled.p`
 `;
 
 const Row2 = styled.li`
+  list-style: none;
   font-style: italic;
   font-size: 0.8rem;
 `;
