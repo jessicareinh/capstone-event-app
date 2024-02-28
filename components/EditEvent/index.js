@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const StyledForm = styled.form`
+const StyledFormList = styled.ul`
   list-style: none;
   margin: 30px;
   font-family: monospace;
@@ -68,7 +68,7 @@ export default function EditEvent({ event, onSave }) {
   const [editableEvent, setEditableEvent] = useState({ ...event });
 
   return (
-    <StyledForm>
+    <StyledFormList>
       {isEditing && (
         <Section>
           <label htmlFor="title">Title:</label>
@@ -163,6 +163,6 @@ export default function EditEvent({ event, onSave }) {
           Edit Event
         </StyledEditButton>
       )}
-    </StyledForm>
+    </StyledFormList>
   );
 }

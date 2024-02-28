@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const H2 = styled.h2`
+const H1 = styled.h1`
   font-family: monospace;
   margin-top: 30px;
   font-size: 32px;
@@ -18,7 +18,7 @@ export default function MyEvents({ onAddEvent }) {
   return (
     <>
       <Wrapper>
-        <H2> Add Your Own Event</H2>
+        <H1> Add Your Own Event</H1>
 
         <label htmlFor="event-title" />
         <EventForm id="event-title" onAddEvent={onAddEvent} />

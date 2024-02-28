@@ -55,9 +55,7 @@ export default function SearchForm({ onSubmit }) {
           aria-label="Enter your search term"
           autoComplete="off"
         />
-        <Button type="submit" aria-label="Submit Search">
-          Submit
-        </Button>
+        <Button type="submit">Submit</Button>
       </Form>
     </>
   );

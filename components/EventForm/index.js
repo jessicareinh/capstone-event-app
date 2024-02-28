@@ -98,9 +98,7 @@ export default function EventForm({ onAddEvent }) {
 
         <Paragraph>* Required</Paragraph>
 
-        <Submit type="submit" aria-label="Add Your Own Event">
-          Add Your Own Event
-        </Submit>
+        <Submit type="submit">Add Your Own Event</Submit>
       </Form>
       <Modal
         isOpen={isSuccessModalOpen}
