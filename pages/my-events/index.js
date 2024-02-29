@@ -28,13 +28,13 @@ export default function MyEvents({ ownEvents, onSave }) {
     <>
       <Wrapper>
         <PageTitle>My Events </PageTitle>
-        <ul>
+       
           <MyEventsList
             ownEvents={storedOwnEvents}
             onDeleteEvent={handleDeleteEvent}
             onSave={onSave}
           />
-        </ul>
+      
       </Wrapper>
       <ScrollToTopButton aria-label="Go to top" />
     </>
