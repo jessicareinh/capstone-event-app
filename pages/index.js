@@ -3,7 +3,9 @@ import EventList from "@/components/EventList";
 import styled from "styled-components";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import DropDownMenu from "@/components/DropDownMenu";
+import CategoryButton from "@/components/CategoryButtons";
 import { germanCities } from "@/components/utils";
+import { useState } from "react";
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,7 +23,30 @@ const PageTitle = styled.h2`
   }
 `;
 
-const StyledButton = styled.button`
+const Info = styled.p`
+  font-size: 1.3rem;
+  margin: 20px;
+`;
+
+const ButtonContainer = styled.div`
+  position: relative;
+  margin: 0 10px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  @media (min-width: 768px) {
+    width: 100%;
+    gap: 10px;
+  }
+  @media (min-width: 1156px) {
+    gap: 20px;
+  }
+`;
+
+const LoadMore = styled.button`
   width: 150px;
   height: 40px;
   font-size: 1.1rem;
@@ -32,28 +57,64 @@ const StyledButton = styled.button`
 
 export default function HomePage({
   apiData,
+  onCategoryChange,
   onLoadMore,
   onToggleFavorite,
   favList,
   onCityChange,
   city,
 }) {
+  const [activeCategory, setActiveCategory] = useState(null);
+
+  const categories = [
+    { name: "Art", value: "arts & theatre" },
+    { name: "Music", value: "music" },
+    { name: "Comedy", value: "comedy" },
+    { name: "Sport", value: "sport" },
+    { name: "Other", value: "miscellaneous" },
+  ];
+
+  function handleCategoryClick(categoryValue) {
+    if (categoryValue !== activeCategory) {
+      setActiveCategory(categoryValue);
+      onCategoryChange(categoryValue);
+    }
+  }
   return (
     <>
       <Wrapper>
         <PageTitle>Upcoming Events</PageTitle>
 
-        <DropDownMenu
-          selectedCity={city}
-          onCityChange={onCityChange}
-          cities={germanCities}
-        />
-        <EventList
-          DATA={apiData}
-          onToggleFavorite={onToggleFavorite}
-          favList={favList}
-        />
-        <StyledButton onClick={onLoadMore}>See More</StyledButton>
+        <ButtonContainer>
+          <DropDownMenu
+            onCityChange={onCityChange}
+            selectedCity={city}
+            cities={germanCities}
+          />
+
+          {categories.map((category) => (
+            <CategoryButton
+              key={category.value}
+              onClick={() => handleCategoryClick(category.value)}
+              active={category.value === activeCategory}
+            >
+              {category.name}
+            </CategoryButton>
+          ))}
+        </ButtonContainer>
+
+        {(!apiData || apiData.length === 0) && <Info>No results found</Info>}
+
+        {apiData && apiData.length > 0 && (
+          <EventList
+            DATA={apiData}
+            favList={favList}
+            onToggleFavorite={onToggleFavorite}
+          />
+        )}
+        {apiData && apiData.length > 0 && (
+          <LoadMore onClick={onLoadMore}>See More</LoadMore>
+        )}
       </Wrapper>
       <ScrollToTopButton />
     </>

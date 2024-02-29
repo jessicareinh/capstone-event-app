@@ -9,7 +9,6 @@ import LoadingAnimation from "@/components/LoadingAnimation";
 export default function App({ Component, pageProps }) {
   const [apiData, setApiData] = useState([]);
   const [searchData, setSearchData] = useState([]);
-  const [categoryEvents, setCategoryEvents] = useState([]);
   const [page, setPage] = useState(1);
   const [city, setCity] = useState("");
   const [category, setCategory] = useState("");
@@ -21,56 +20,41 @@ export default function App({ Component, pageProps }) {
   const [favList, setFavList] = useLocalStorageState("favList", {
     defaultValue: [],
   });
-  //combines apiData, searchData and categoryEvents to one unified state for pages/[id] and /favorites
+  //combines apiData, searchData to one unified state for pages/[id] and /favorites
   const [combinedData, setCombinedData] = useLocalStorageState("combinedData", {
     defaultValue: [],
   });
 
   //fetches data on homepage
   useEffect(() => {
-    fetchData(`page=${page}&city=${city}&size=27`, (apiData) => {
-      setApiData(apiData._embedded.events);
-      setCombinedData([...combinedData, ...apiData._embedded.events]);
-    });
-  }, [page, city]);
-
-  function handleAddCategory(category) {
-    setCategory(category);
-    if (city !== "" && category !== "") {
-      fetchDataAndUpdate(category, city);
-    }
-  }
-
-  function handleCityChange(city) {
-    setCity(city);
-    if (city !== "" && category !== "") {
-      fetchDataAndUpdate(category, city);
-    }
-  }
-
-  // Define a common function to fetch data based on parameters
-  function fetchDataAndUpdate(category, city) {
     fetchData(
-      `classificationName=${category}&city=${city}&size=30`,
-      (categoryEvents) => {
-        setCategoryEvents(
-          "_embedded" in categoryEvents ? categoryEvents._embedded.events : []
-        );
+      `page=${page}&city=${city}&classificationName=${category}&size=27`,
+      (apiData) => {
+        setApiData("_embedded" in apiData ? apiData._embedded.events : []);
         setCombinedData(
-          "_embedded" in categoryEvents
-            ? [...combinedData, ...categoryEvents._embedded.events]
+          "_embedded" in apiData
+            ? [...combinedData, ...apiData._embedded.events]
             : combinedData
         );
       }
     );
-  }
+  }, [page, city, category]);
 
+  
   //triggers search on submit in /search
   function handleSearch(query) {
     fetchData(`keyword=${query}&size=50`, (searchData) => {
       setSearchData(searchData._embedded.events);
       setCombinedData([...combinedData, ...searchData._embedded.events]);
     });
+  }
+
+  function handleCityChange(city) {
+    setCity(city);
+  }
+
+  function handleCategoryChange(category) {
+    setCategory(category);
   }
 
   //loads the next page of event cards in the homepage "/"
@@ -123,8 +107,7 @@ export default function App({ Component, pageProps }) {
           combinedData={combinedData}
           apiData={apiData}
           searchData={searchData}
-          categoryEvents={categoryEvents}
-          onAddCategory={handleAddCategory}
+          onCategoryChange={handleCategoryChange}
           city={city}
           onCityChange={handleCityChange}
           ownEvents={ownEvents}

@@ -127,21 +127,19 @@ export default function Navigation() {
             <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
           </svg>
         </SideBarItem>
-        <SideBarItem>
-          <NavLink href="/categories" onClick={handleLinkClick}>
-            Categories
-          </NavLink>
-        </SideBarItem>
+
         <SideBarItem>
           <NavLink href="/search" onClick={handleLinkClick}>
             Search
           </NavLink>
         </SideBarItem>
+
         <SideBarItem>
           <NavLink href="/favorites" onClick={handleLinkClick}>
             Favorites
           </NavLink>
         </SideBarItem>
+
         <SideBarItem>
           <NavLink href="/my-events" onClick={handleLinkClick}>
             My Events
@@ -152,15 +150,15 @@ export default function Navigation() {
         <Li>
           <NavLink href="/">E</NavLink>
         </Li>
-        <Li>
-          <NavLink href="/categories">Categories</NavLink>
-        </Li>
+
         <Li>
           <NavLink href="/search">Search</NavLink>
         </Li>
+
         <Li>
           <NavLink href="/favorites">Favorites</NavLink>
         </Li>
+
         <Li>
           <NavLink href="/my-events">My Events</NavLink>
         </Li>
