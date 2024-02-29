@@ -7,7 +7,7 @@ const CatButton = styled.button`
   width: 25%;
   height: 40px;
   font-size: 1.1rem;
-  border-radius: 20px;
+  border-radius: 5px;
   background-color: ${(props) => (props.$active ? "#c083d3" : "#5e5e5e")};
   color: white;
   text-decoration: none;

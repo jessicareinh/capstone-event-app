@@ -8,7 +8,7 @@ const CustomSelect = styled.select`
 
   background-color: transparent;
   border: 1px solid #333;
-  border-radius: 30px;
+  border-radius: 5px;
   outline: none;
   cursor: pointer;
   &:hover {
