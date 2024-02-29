@@ -26,7 +26,7 @@ export default function Favorites({
 
   return (
     <>
-      <PageTitle>Favorites Page</PageTitle>
+      <PageTitle>Favorites</PageTitle>
     
         <Wrapper>
           <EventList

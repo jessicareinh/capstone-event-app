@@ -48,7 +48,7 @@ export default function DetailsPage({
     <>
       <Wrapper>
         <Header>
-          <PageTitle>Details Page</PageTitle>
+          <PageTitle>Details</PageTitle>
         </Header>
         {loading ? (
           <LoadingAnimation
