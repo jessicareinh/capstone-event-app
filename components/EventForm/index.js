@@ -9,7 +9,7 @@ const Form = styled.form`
   align-items: center;
   height: 80vh;
   padding: 20px;
-  width: 80vw;
+  width: 90vw;
   font-family: monospace;
 `;
 
