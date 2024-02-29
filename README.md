@@ -14,22 +14,22 @@ The app is designed to be a hub for collecting and planning your upcoming events
 
 ## Key Features
 
-⭐️ **Events All Over The Country:**
+#### ⭐️ Events All Over The Country:
 Experience any event that is happening in Germany. Get inspired by our overview page, which depicts a numerous list of different events and help you find mesmerizing events.
  
-📱 **Seamless Idea Collection:**  
+#### 📱 Seamless Idea Collection: 
 Effortlessly collect and organize your upcoming events with the Event-App. Add, edit, and remove Events effortlessly, making it easy to curate a list of the events you would like to enjoy. Whether it's experiencing a concert, going to an art gallery or simply just wanting to plan your grandmas birthday. The Event-App treasures all of you upcoming outings.
 
-❤️ **Favorites Page:**  
+#### ❤️ Favorites Page: 
 Create and manage a list of your favorite Events with the new Favorites Page. Easily access and view a compilation of your preferred Events for quick reference and planning.
 
-🔎 **Search Bar:**
+#### 🔎 Search Bar:
 In case you would like to narrow your endless possibility of fantastic events down: You can comfortably choose a city and even a category to make the decision about what Event you would like to attend. Thus, you can make an easy choice, where to go next!
 
-🌎 **Location Details:**  
+#### 🌎 Location Details: 
 Explore the chosen Event location with a detailed map showcasing a marker pinpointing the specific spot. The Event-App provides a visual representation of the event-venue, ensuring you can easily navigate to and enjoy your experience attending your chosen event.
 
-✨ **Intuitive Design:**  
+#### ✨ Intuitive Design:
 Experience an intuitive and user-friendly design that caters to your needs. The Event-App is designed to be your seamless companion, facilitating the effortless collection of all your wonderfull events. Whether you're a music lover enjoying concerts or a sports enthusiast wanting to feel the energy of a stadium. The Event-App is here to enhance your experience. Enjoy!
 
 
