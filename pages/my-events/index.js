@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 
 const PageTitle = styled.h1`
   text-align: center;
-  margin: 30px 10;
+  margin: 30px 10px;
 `;
 
 export default function MyEvents({ ownEvents, onSave }) {
@@ -28,13 +28,12 @@ export default function MyEvents({ ownEvents, onSave }) {
     <>
       <Wrapper>
         <PageTitle>My Events </PageTitle>
-       
-          <MyEventsList
-            ownEvents={storedOwnEvents}
-            onDeleteEvent={handleDeleteEvent}
-            onSave={onSave}
-          />
-      
+
+        <MyEventsList
+          ownEvents={storedOwnEvents}
+          onDeleteEvent={handleDeleteEvent}
+          onSave={onSave}
+        />
       </Wrapper>
       <ScrollToTopButton aria-label="Go to top" />
     </>
