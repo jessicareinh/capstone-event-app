@@ -9,6 +9,7 @@ export function selectImage(images) {
   }
 }
 
+
 export function formatDate(apiDate) {
   const date = new Date(apiDate);
   const options = {
@@ -21,3 +22,18 @@ export function formatDate(apiDate) {
   const formattedDate = dateFormatter.format(date);
   return formattedDate;
 }
+
+export const germanCities = [
+  "Berlin",
+  "Hamburg",
+  "Munich",
+  "Cologne",
+  "Frankfurt am Main",
+  "Stuttgart",
+  "Dortmund",
+  "Leipzig",
+  "Hannover",
+  "Nürnberg",
+  "Braunschweig",
+];
+

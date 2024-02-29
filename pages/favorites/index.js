@@ -13,13 +13,7 @@ const PageTitle = styled.h1`
   margin: 30px auto 10px auto;
 `;
 
-export default function Favorites({
-  apiData,
-  searchData,
-  favList,
-  onToggleFavorite,
-}) {
-  const combinedData = [...searchData, ...apiData];
+export default function Favorites({ combinedData, favList, onToggleFavorite }) {
   const favorites = combinedData?.filter((event) =>
     favList?.some((fav) => fav.id === event.id && fav.isFavorite)
   );

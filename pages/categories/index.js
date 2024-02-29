@@ -1,31 +1,17 @@
-// HomePage.js
-import EventList from "@/components/EventList";
-import styled from "styled-components";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
-import DropDownMenu from "@/components/DropDownMenu";
-import CategoryButton from "@/components/CategoryButtons";
-import { germanCities } from "@/components/utils";
 import { useState } from "react";
+import CategoryButton from "@/components/CategoryButtons";
+import styled from "styled-components";
+import EventList from "@/components/EventList";
+import DropDownMenu from "@/components/DropDownMenu";
+import { germanCities } from "@/components/utils";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-`;
-
-const PageTitle = styled.h2`
-  text-align: center;
-  margin: 20px auto;
-
-  @media (min-width: 501px) {
-    font-size: 2rem;
-    margin: 30px auto;
-  }
-`;
-
-const Info = styled.p`
-  font-size: 1.3rem;
-  margin: 20px;
 `;
 
 const ButtonContainer = styled.div`
@@ -46,26 +32,25 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const LoadMore = styled.button`
-  width: 150px;
-  height: 40px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding: 6px;
-  margin: 20px;
+const PageTitle = styled.h3`
+  text-align: center;
+  margin: 20px auto;
+
+  @media (min-width: 501px) {
+    font-size: 2rem;
+    margin: 30px auto;
+  }
 `;
 
-export default function HomePage({
-  apiData,
-  onCategoryChange,
-  onLoadMore,
-  onToggleFavorite,
+export default function Categories({
+  categoryEvents,
+  onAddCategory,
   favList,
+  onToggleFavorite,
   onCityChange,
   city,
 }) {
   const [activeCategory, setActiveCategory] = useState(null);
-
   const categories = [
     { name: "Art", value: "arts & theatre" },
     { name: "Music", value: "music" },
@@ -77,14 +62,13 @@ export default function HomePage({
   function handleCategoryClick(categoryValue) {
     if (categoryValue !== activeCategory) {
       setActiveCategory(categoryValue);
-      onCategoryChange(categoryValue);
+      onAddCategory(categoryValue);
     }
   }
   return (
     <>
+      <PageTitle>Categories</PageTitle>
       <Wrapper>
-        <PageTitle>Upcoming Events</PageTitle>
-
         <ButtonContainer>
           <DropDownMenu
             onCityChange={onCityChange}
@@ -103,17 +87,16 @@ export default function HomePage({
           ))}
         </ButtonContainer>
 
-        {(!apiData || apiData.length === 0) && <Info>No results found</Info>}
+        {(!categoryEvents || categoryEvents.length === 0) && (
+          <p>No results found</p>
+        )}
 
-        {apiData && apiData.length > 0 && (
+        {categoryEvents && categoryEvents.length > 0 && (
           <EventList
-            DATA={apiData}
+            DATA={categoryEvents}
             favList={favList}
             onToggleFavorite={onToggleFavorite}
           />
-        )}
-        {apiData && apiData.length > 0 && (
-          <LoadMore onClick={onLoadMore}>See More</LoadMore>
         )}
       </Wrapper>
       <ScrollToTopButton />

@@ -6,11 +6,12 @@ import Layout from "@/components/Layout";
 import fetchData from "@/components/FetchApi";
 import LoadingAnimation from "@/components/LoadingAnimation";
 
-
 export default function App({ Component, pageProps }) {
   const [apiData, setApiData] = useState([]);
   const [searchData, setSearchData] = useState([]);
   const [page, setPage] = useState(1);
+  const [city, setCity] = useState("");
+  const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(true);
 
   const [ownEvents, setOwnEvents] = useLocalStorageState("myEvents", {
@@ -19,23 +20,47 @@ export default function App({ Component, pageProps }) {
   const [favList, setFavList] = useLocalStorageState("favList", {
     defaultValue: [],
   });
+  //combines apiData, searchData to one unified state for pages/[id] and /favorites
+  const [combinedData, setCombinedData] = useLocalStorageState("combinedData", {
+    defaultValue: [],
+  });
 
+  //fetches data on homepage
   useEffect(() => {
-    fetchData(`page=${page}&size=27`, (data) =>
-      setApiData((prev) => [...prev, ...data._embedded.events])
+    fetchData(
+      `page=${page}&city=${city}&classificationName=${category}&size=27`,
+      (apiData) => {
+        setApiData("_embedded" in apiData ? apiData._embedded.events : []);
+        setCombinedData(
+          "_embedded" in apiData
+            ? [...combinedData, ...apiData._embedded.events]
+            : combinedData
+        );
+      }
     );
-  }, [page]);
+  }, [page, city, category]);
 
+  
   //triggers search on submit in /search
-  async function handleSearch(query) {
-    fetchData(`keyword=${query}&size=50`, (searchData) =>
-      setSearchData(searchData._embedded.events)
-    );
+  function handleSearch(query) {
+    fetchData(`keyword=${query}&size=50`, (searchData) => {
+      setSearchData(searchData._embedded.events);
+      setCombinedData([...combinedData, ...searchData._embedded.events]);
+    });
+  }
+
+  function handleCityChange(city) {
+    setCity(city);
+  }
+
+  function handleCategoryChange(category) {
+    setCategory(category);
   }
 
   //loads the next page of event cards in the homepage "/"
   function handleLoadMore() {
     setPage(page + 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   //CRUD functions
@@ -79,8 +104,12 @@ export default function App({ Component, pageProps }) {
           />
         ) : null}
         <Component
+          combinedData={combinedData}
           apiData={apiData}
           searchData={searchData}
+          onCategoryChange={handleCategoryChange}
+          city={city}
+          onCityChange={handleCityChange}
           ownEvents={ownEvents}
           favList={favList}
           onSubmit={handleSearch}

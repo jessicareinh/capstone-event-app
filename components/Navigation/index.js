@@ -116,46 +116,49 @@ export default function Navigation() {
   return (
     <NavBar>
       <Overlay $visible={sidebarVisible} onClick={toggleSidebar} />
-      <ul>
-        <Sidebar $visible={sidebarVisible}>
-          <SideBarItem onClick={toggleSidebar}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="26"
-              viewBox="0 -960 960 960"
-              width="26"
-              alt="Open sidebar"
-            >
-              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-            </svg>
-          </SideBarItem>
-          <SideBarItem>
-            <NavLink href="/search" onClick={handleLinkClick}>
-              Search
-            </NavLink>
-          </SideBarItem>
-          <SideBarItem>
-            <NavLink href="/favorites" onClick={handleLinkClick}>
-              Favorites
-            </NavLink>
-          </SideBarItem>
-          <SideBarItem>
-            <NavLink href="/my-events" onClick={handleLinkClick}>
-              My Events
-            </NavLink>
-          </SideBarItem>
-        </Sidebar>
-      </ul>
+      <Sidebar $visible={sidebarVisible}>
+        <SideBarItem onClick={toggleSidebar} aria-label="Open sidebar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="26"
+            viewBox="0 -960 960 960"
+            width="26"
+          >
+            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+          </svg>
+        </SideBarItem>
+
+        <SideBarItem>
+          <NavLink href="/search" onClick={handleLinkClick}>
+            Search
+          </NavLink>
+        </SideBarItem>
+
+        <SideBarItem>
+          <NavLink href="/favorites" onClick={handleLinkClick}>
+            Favorites
+          </NavLink>
+        </SideBarItem>
+
+        <SideBarItem>
+          <NavLink href="/my-events" onClick={handleLinkClick}>
+            My Events
+          </NavLink>
+        </SideBarItem>
+      </Sidebar>
       <NavMenu>
         <Li>
           <NavLink href="/">E</NavLink>
         </Li>
+
         <Li>
           <NavLink href="/search">Search</NavLink>
         </Li>
+
         <Li>
           <NavLink href="/favorites">Favorites</NavLink>
         </Li>
+
         <Li>
           <NavLink href="/my-events">My Events</NavLink>
         </Li>
