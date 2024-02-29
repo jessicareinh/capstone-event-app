@@ -12,8 +12,14 @@ const Wrapper = styled.div`
 `;
 
 const PageTitle = styled.h1`
-  margin: 30px 0;
+font-size: 1.5rem;
   text-align: center;
+  margin: 15px auto;
+
+  @media (min-width: 501px) {
+    font-size: 2rem;
+    margin: 30px auto;
+  }
 `;
 
 const Header = styled.header`

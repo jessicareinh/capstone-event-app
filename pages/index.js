@@ -13,9 +13,10 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const PageTitle = styled.h2`
+const PageTitle = styled.h1`
+font-size: 1.5rem;
   text-align: center;
-  margin: 20px auto;
+  margin: 15px auto;
 
   @media (min-width: 501px) {
     font-size: 2rem;

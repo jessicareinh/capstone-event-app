@@ -7,7 +7,7 @@ const Form = styled.form`
 
 const Info = styled.p`
   font-style: italic;
-  margin: 20px 20px;
+  margin: 0px 20px 10px;
   word-wrap: break-word;
 `;
 
