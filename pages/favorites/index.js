@@ -27,7 +27,7 @@ export default function Favorites({
   return (
     <>
       <PageTitle>Favorites Page</PageTitle>
-      <ul>
+    
         <Wrapper>
           <EventList
             favList={favList}
@@ -35,7 +35,7 @@ export default function Favorites({
             DATA={favorites}
           />
         </Wrapper>
-      </ul>
+      
       <ScrollToTopButton aria-label="Go to top" />
     </>
   );
