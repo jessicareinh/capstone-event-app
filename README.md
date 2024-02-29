@@ -1,13 +1,14 @@
 # EVENT-APP
 
-"Event-App" - Your ultimate companion for memorable experiences! Discover, plan, and immerse yourself in exciting events. With Event Explorer, you can explore a various amount of activities all over Germany, add your own events, bookmark your favorites, and effortlessly find event locations on an interactive map. Whether it’s a music festival, a food fair, or a thrilling adventure, let Event Explorer guide you through every moment of your event journey.
+"Event-App" - Your ultimate companion for memorable experiences! Discover, plan, and immerse yourself in exciting events. With the Event-App , you can explore a various amount of activities all over Germany, add your own events, bookmark your favorites, and effortlessly find event locations on an interactive map. Whether it’s a music festival, a food fair, or a thrilling adventure, let Event Explorer guide you through every moment of your event journey.
 
 ## Project
-
-Embark on a captivating exploration of outdoor activities with "My Outivities," the ultimate app tailored exclusively for outdoor enthusiasts. Whether you're a nature lover, thrill-seeker, or someone looking to curate and gather ideas for your next adventure, My Outivities is your perfect companion.
+///
+Embark on a captivating exploration of all upcoming events in Germany 
+outdoor activities with "My Outivities," the ultimate app tailored exclusively for outdoor enthusiasts. Whether you're a nature lover, thrill-seeker, or someone looking to curate and gather ideas for your next adventure, My Outivities is your perfect companion.
 
 In the Outivity app, you can gather and organize outdoor activity ideas, personalize them by uploading your own images, add them to your Favorites Page for quick access, and explore their specific locations with a detailed map showcasing a marker for each chosen Outivity. The app is designed to be a hub for collecting and planning your outdoor adventures, ensuring a straightforward and user-friendly experience for outdoor enthusiasts.
-
+///
 ## Key Features
 
 ⭐️ **Events all over the country**
@@ -28,7 +29,8 @@ Explore the chosen Event location with a detailed map showcasing a marker pinpoi
 ✨ **Intuitive Design:**  
 Experience an intuitive and user-friendly design that caters to your needs. The Event-App is designed to be your seamless companion, facilitating the effortless collection of all your wonderfull events. Whether you're a music lover enjoying concerts or a sports enthusiast wanting to feel the energy of a stadium. The Event-App is here to enhance your experience. Enjoy!
 
-Note: All features are developed with a strong emphasis on accessibility and responsive design, ensuring usability across various devices including desktops, tablets, and smartphones. Screen reader compatibility, adjustable text sizes, high-contrast modes, and seamless adaptation to different screen sizes are integral components of the app's design philosophy.
+
+`Note: All features are developed with a strong emphasis on accessibility and responsive design, ensuring usability across various devices including desktops, tablets, and smartphones. Screen reader compatibility, adjustable text sizes, high-contrast modes, and seamless adaptation to different screen sizes are integral components of the app's design philosophy.`
 
 ## Technologies and Tools
 
