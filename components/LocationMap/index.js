@@ -8,6 +8,7 @@ export default function Map({ lat, lon }) {
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         title="google map"
+        aria-label="Google Map with location coordinates"
       ></iframe>
     </>
   );

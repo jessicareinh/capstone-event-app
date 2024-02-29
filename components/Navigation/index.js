@@ -26,7 +26,7 @@ const SideBarItem = styled(Li)`
   justify-content: center;
 `;
 
-const NavMenu = styled.nav`
+const NavMenu = styled.ul`
   width: 100%;
   list-style: none;
   display: flex;
@@ -163,12 +163,13 @@ export default function Navigation() {
           <NavLink href="/my-events">My Events</NavLink>
         </Li>
 
-        <Li onClick={toggleSidebar} aria-label="Close sidebar">
+        <Li onClick={toggleSidebar}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="50"
             viewBox="0 -960 960 960"
             width="50"
+            alt="Close sidebar"
           >
             <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
           </svg>

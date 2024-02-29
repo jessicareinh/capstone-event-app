@@ -99,7 +99,7 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
     <>
       <Wrapper>
         {ownEvents.map((event) => (
-          <EventCard key={event.id}>
+          <EventCard key={event.id} aria-label="Event Card">
             <Title>{event.title}</Title>
             <StyledList>
               <li>{event.date}</li>
@@ -108,11 +108,17 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
               <li>{event.description}</li>
             </StyledList>
             <ButtonContainer>
-              <EditEvent key={event.id} event={event} onSave={onSave} />
+              <EditEvent
+                key={event.id}
+                event={event}
+                onSave={onSave}
+                aria-label="Edit Event"
+              />
               <DeleteButton
                 id={event.id}
                 onDeleteEvent={() => handleDelete(event)}
                 confirmMessage="Are you sure you want to delete this event?"
+                aria-label="Delete Event"
               />
             </ButtonContainer>
           </EventCard>

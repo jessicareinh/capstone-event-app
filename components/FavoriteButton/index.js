@@ -26,7 +26,12 @@ const Button = styled.button`
 
 export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
   return (
-    <Button type="button" onClick={onToggleFavorite} $isFavorite={isFavorite}>
+    <Button
+      type="button"
+      onClick={onToggleFavorite}
+      $isFavorite={isFavorite}
+      aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+    >
       <Image src="/star-1.png" width={30} height={30} alt="" />
     </Button>
   );

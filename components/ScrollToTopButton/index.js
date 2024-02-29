@@ -48,7 +48,7 @@ const ScrollToTopButton = () => {
   return (
     <>
       {showButton && (
-        <ScrollButton onClick={scrollToTop}>
+        <ScrollButton onClick={scrollToTop} aria-label="Go to top">
           <BsFillRocketFill />
         </ScrollButton>
       )}

@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const PageTitle = styled.h3`
+const PageTitle = styled.h1`
   text-align: center;
   margin: 20px auto 0;
 
@@ -54,11 +54,13 @@ export default function Search({
       </ResultAmount>
 
       {searchData.length > 0 && (
-        <EventList
-          DATA={searchData}
-          onToggleFavorite={onToggleFavorite}
-          favList={favList}
-        />
+        <ul>
+          <EventList
+            DATA={searchData}
+            onToggleFavorite={onToggleFavorite}
+            favList={favList}
+          />
+        </ul>
       )}
     </Wrapper>
   );
