@@ -1,17 +1,20 @@
 # EVENT-APP
 
-"Event-App" - Your ultimate companion for memorable experiences! Discover, plan, and immerse yourself in exciting events. With the Event-App , you can explore a various amount of activities all over Germany, add your own events, bookmark your favorites, and effortlessly find event locations on an interactive map. Whether it’s a music festival, a food fair, or a thrilling adventure, let Event Explorer guide you through every moment of your event journey.
+"Event-App" - Your ultimate companion for memorable experiences! Discover, plan, and immerse yourself in exciting events. With the Event-App , you can explore a various amount of activities all over Germany, add your own events, bookmark your favorites, and effortlessly find event locations on an interactive map. Whether it’s a music festival, a food fair, or a thrilling adventure, let the Event-App guide you through every moment of your event journey.
 
 ## Project
-///
-Embark on a captivating exploration of all upcoming events in Germany 
-outdoor activities with "My Outivities," the ultimate app tailored exclusively for outdoor enthusiasts. Whether you're a nature lover, thrill-seeker, or someone looking to curate and gather ideas for your next adventure, My Outivities is your perfect companion.
 
-In the Outivity app, you can gather and organize outdoor activity ideas, personalize them by uploading your own images, add them to your Favorites Page for quick access, and explore their specific locations with a detailed map showcasing a marker for each chosen Outivity. The app is designed to be a hub for collecting and planning your outdoor adventures, ensuring a straightforward and user-friendly experience for outdoor enthusiasts.
-///
+Embark on a captivating exploration of all upcoming events in Germany with the Event-App. The ultimate App tailored to everyone who loves to make treasured memorys by going to events and enjoying life.
+
+
+In the Event-App you can gather inspiring events, add them to your Favourites Page for quick access, explore all events and even adjust the search to your own preferences by choosing a city and favourite category. Additionaly you can add your own events, edit and even delete them to stay on top of all your planned experiences. 
+
+The app is designed to be a hub for collecting and planning your upcoming events, ensuring a straightforward and user-friendly experience for everyone who likes to have a great time.
+
+
 ## Key Features
 
-⭐️ **Events all over the country**
+⭐️ **Events All Over The Country:**
 Experience any event that is happening in Germany. Get inspired by our overview page, which depicts a numerous list of different events and help you find mesmerizing events.
  
 📱 **Seamless Idea Collection:**  
