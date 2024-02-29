@@ -9,3 +9,16 @@ export default function selectImage(images) {
   }
 }
 
+export const germanCities = [
+  "Berlin",
+  "Hamburg",
+  "Munich",
+  "Cologne",
+  "Frankfurt am Main",
+  "Stuttgart",
+  "Dortmund",
+  "Leipzig",
+  "Hannover",
+  "Nürnberg",
+  "Braunschweig",
+];
