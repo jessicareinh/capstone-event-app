@@ -17,6 +17,7 @@ const AddEventButton = styled.button`
   color: #fff;
   font-size: 1.2rem;
   margin: 20px auto;
+  font-family: monospace;
 `;
 
 export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
@@ -26,12 +27,12 @@ export default function MyEventsList({ ownEvents, onDeleteEvent, onSave }) {
   const router = useRouter();
 
   const handleDelete = (event) => {
-    setEventToDelete(event);
     setIsModalOpen(true);
+    setEventToDelete(event);
   };
 
   const handleConfirmDelete = () => {
-    onDeleteEvent(eventToDelete.id);
+    onDeleteEvent(eventToDelete);
     setIsModalOpen(false);
   };
 
