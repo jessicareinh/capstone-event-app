@@ -4,11 +4,11 @@ const CustomSelect = styled.select`
   flex: 1 0 1;
   width: 30%;
   height: 40px;
-  font-size: 1rem;
+  font-size: .8rem;
 
   background-color: transparent;
   border: 1px solid #333;
-  border-radius: 8px;
+  border-radius: 30px;
   outline: none;
   cursor: pointer;
   &:hover {
