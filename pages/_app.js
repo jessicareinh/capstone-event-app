@@ -11,8 +11,8 @@ export default function App({ Component, pageProps }) {
   const [searchData, setSearchData] = useState([]);
   const [categoryEvents, setCategoryEvents] = useState([]);
   const [page, setPage] = useState(1);
-
   const [city, setCity] = useState("");
+  const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(true);
 
   const [ownEvents, setOwnEvents] = useLocalStorageState("myEvents", {
@@ -33,8 +33,36 @@ export default function App({ Component, pageProps }) {
       setCombinedData([...combinedData, ...apiData._embedded.events]);
     });
   }, [page, city]);
-  {
-    /*please check if 2 depenencies are avoidable*/
+
+  function handleAddCategory(category) {
+    setCategory(category);
+    if (city !== "" && category !== "") {
+      fetchDataAndUpdate(category, city);
+    }
+  }
+
+  function handleCityChange(city) {
+    setCity(city);
+    if (city !== "" && category !== "") {
+      fetchDataAndUpdate(category, city);
+    }
+  }
+
+  // Define a common function to fetch data based on parameters
+  function fetchDataAndUpdate(category, city) {
+    fetchData(
+      `classificationName=${category}&city=${city}&size=30`,
+      (categoryEvents) => {
+        setCategoryEvents(
+          "_embedded" in categoryEvents ? categoryEvents._embedded.events : []
+        );
+        setCombinedData(
+          "_embedded" in categoryEvents
+            ? [...combinedData, ...categoryEvents._embedded.events]
+            : combinedData
+        );
+      }
+    );
   }
 
   //triggers search on submit in /search
@@ -43,20 +71,6 @@ export default function App({ Component, pageProps }) {
       setSearchData(searchData._embedded.events);
       setCombinedData([...combinedData, ...searchData._embedded.events]);
     });
-  }
-  //fetches events based on clicked category button
-  function handleAddCategory(category) {
-    fetchData(
-      `classificationName=${category}&city=${city}&size=54`,
-      (categoryEvents) => {
-        setCategoryEvents(categoryEvents._embedded.events);
-        setCombinedData([...combinedData, ...categoryEvents._embedded.events]);
-      }
-    );
-  }
-  //sets the selected city from dropdownmenu as state for both homepage and categories
-  function handleCityChange(city) {
-    setCity(city);
   }
 
   //loads the next page of event cards in the homepage "/"
@@ -110,7 +124,7 @@ export default function App({ Component, pageProps }) {
           apiData={apiData}
           searchData={searchData}
           categoryEvents={categoryEvents}
-          handleAddCategory={handleAddCategory}
+          onAddCategory={handleAddCategory}
           city={city}
           onCityChange={handleCityChange}
           ownEvents={ownEvents}

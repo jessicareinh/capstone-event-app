@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 const CatButton = styled.button`
+  flex: 1 0 auto;
   text-align: center;
   min-width: 70px;
-  width: 25vw;
-  max-width: 140px;
-  height: 60px;
-  margin: 10px;
+  width: 25%;
+  height: 40px;
   font-size: 1.1rem;
   border-radius: 4px;
-  background-color: #5e5e5e;
+  background-color: ${(props) => (props.active ? "#b18bbd" : "#5e5e5e")};
   color: white;
   text-decoration: none;
   border: none;
@@ -19,19 +18,19 @@ const CatButton = styled.button`
     background-color: #b18bbd;
   }
   @media (min-width: 501px) {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    max-width: 135px;
   }
-  @media (min-width:758px) {
-    max-width: 120px;
-    height: 50px;
-    margin-top: 15px;
+  @media (min-width: 758px) {
+    max-width: 100px;
+    height: 40px;
   }
 `;
 
-export default function CategoryButton({ onClick, children }) {
+export default function CategoryButton({ onClick, children, active }) {
   return (
-    <>
-      <CatButton onClick={onClick}>{children}</CatButton>
-    </>
+    <CatButton $active={active} onClick={onClick}>
+      {children}
+    </CatButton>
   );
 }

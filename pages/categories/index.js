@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CategoryButton from "@/components/CategoryButtons";
 import styled from "styled-components";
 import EventList from "@/components/EventList";
@@ -14,12 +15,20 @@ const Wrapper = styled.div`
 `;
 
 const ButtonContainer = styled.div`
+  position: relative;
+  margin: 0 10px;
+  padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  padding: 10px;
   justify-content: center;
-  @media (min-width: 650px) {
-    max-width: 80vw;
+  align-items: center;
+  gap: 10px;
+  @media (min-width: 768px) {
+    width: 100%;
+    gap: 10px;
+  }
+  @media (min-width: 1156px) {
+    gap: 20px;
   }
 `;
 
@@ -35,45 +44,52 @@ const PageTitle = styled.h3`
 
 export default function Categories({
   categoryEvents,
-  handleAddCategory,
+  onAddCategory,
   favList,
   onToggleFavorite,
   onCityChange,
   city,
 }) {
+  const [activeCategory, setActiveCategory] = useState(null);
+  const categories = [
+    { name: "Art", value: "arts & theatre" },
+    { name: "Music", value: "music" },
+    { name: "Comedy", value: "comedy" },
+    { name: "Sport", value: "sport" },
+    { name: "Other", value: "miscellaneous" },
+  ];
+
+  function handleCategoryClick(categoryValue) {
+    if (categoryValue !== activeCategory) {
+      setActiveCategory(categoryValue);
+      onAddCategory(categoryValue);
+    }
+  }
   return (
     <>
       <PageTitle>Categories</PageTitle>
       <Wrapper>
-        <DropDownMenu
-          onCityChange={onCityChange}
-          selectedCity={city}
-          cities={germanCities}
-        />
+        <ButtonContainer>
+          <DropDownMenu
+            onCityChange={onCityChange}
+            selectedCity={city}
+            cities={germanCities}
+          />
+
+          {categories.map((category) => (
+            <CategoryButton
+              key={category.value}
+              onClick={() => handleCategoryClick(category.value)}
+              active={category.value === activeCategory}
+            >
+              {category.name}
+            </CategoryButton>
+          ))}
+        </ButtonContainer>
 
         {(!categoryEvents || categoryEvents.length === 0) && (
           <p>No results found</p>
         )}
-        <ButtonContainer>
-          <CategoryButton onClick={() => handleAddCategory("arts & theatre")}>
-            Art
-          </CategoryButton>
-          <CategoryButton onClick={() => handleAddCategory("music")}>
-            Music
-          </CategoryButton>
-          <CategoryButton onClick={() => handleAddCategory("comedy")}>
-            Comedy
-          </CategoryButton>
-          <CategoryButton onClick={() => handleAddCategory("cultural")}>
-            Cultural
-          </CategoryButton>
-          <CategoryButton onClick={() => handleAddCategory("sport")}>
-            Sport
-          </CategoryButton>
-          <CategoryButton onClick={() => handleAddCategory("miscellaneous")}>
-            Other
-          </CategoryButton>
-        </ButtonContainer>
 
         {categoryEvents && categoryEvents.length > 0 && (
           <EventList

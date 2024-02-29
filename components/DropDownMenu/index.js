@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 const CustomSelect = styled.select`
-  width: 60%;
+  flex: 1 0 1;
+  width: 30%;
   height: 40px;
   font-size: 1rem;
-  padding: 8px 12px;
+
   background-color: transparent;
   border: 1px solid #333;
   border-radius: 8px;
@@ -19,9 +20,14 @@ const CustomSelect = styled.select`
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
   }
   @media (min-width: 501px) {
-    margin-bottom: 10px;
     font-size: 1.2rem;
-    max-width: 230px;
+    width: 160px;
+  }
+  @media (min-width: 758px) {
+    width: 175px;
+  }
+  @media (min-width: 1156px) {
+    width: 230px;
   }
 `;
 
@@ -30,10 +36,10 @@ const Option = styled.option`
 `;
 
 export default function DropDownMenu({ selectedCity, onCityChange, cities }) {
-  const handleChange = (event) => {
+  function handleChange(event) {
     const selectedCity = event.target.value;
     onCityChange(selectedCity);
-  };
+  }
 
   return (
     <CustomSelect value={selectedCity} onChange={handleChange}>
