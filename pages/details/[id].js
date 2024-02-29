@@ -1,6 +1,6 @@
 import EventDetails from "@/components/EventDetails";
 import { useRouter } from "next/router";
-import selectImage from "@/components/utils";
+import { selectImage, formatDate } from "@/components/utils";
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import LoadingAnimation from "@/components/LoadingAnimation";
@@ -60,7 +60,7 @@ export default function DetailsPage({
             image={selectImage(currentEvent.images)?.url}
             alt={currentEvent.name}
             title={currentEvent.name}
-            date={currentEvent.dates.start.localDate}
+            date={formatDate(currentEvent.dates.start.localDate)}
             category={currentEvent.classifications[0].segment.name}
             genre={currentEvent.classifications[0].genre.name}
             address={currentEvent._embedded.venues[0].address?.line1}

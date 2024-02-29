@@ -1,6 +1,6 @@
 import EventCard from "../EventCard";
 import styled from "styled-components";
-import selectImage from "../utils";
+import {selectImage, formatDate } from "../utils";
 
 const Wrapper = styled.ul`
   max-width: 1300px;
@@ -42,7 +42,7 @@ export default function EventList({ DATA, favList, onToggleFavorite }) {
             location={event._embedded.venues[0].city.name}
             longTitle={event.name.length >= 35}
             venue={event._embedded.venues[0].name}
-            date={event.dates.start.localDate}
+            date={formatDate(event.dates.start.localDate)}
             image={selectImage(event.images).url}
             width={selectImage(event.images).width}
             height={selectImage(event.images).height}
