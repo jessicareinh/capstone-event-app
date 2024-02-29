@@ -6,6 +6,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Input = styled.input`
+  flex: 1 0 auto;
   font-family: sans-serif;
   outline: 3px;
   height: 40px;
@@ -48,8 +49,8 @@ const StyledButton = styled.button`
   font-weight: 700;
   font-size: 1rem;
   width: 70px;
-  height: 30px;
-  margin: 5px;
+  height: 40px;
+  margin: 0 15px 40px 5px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   cursor: pointer;
 
@@ -59,9 +60,13 @@ const StyledButton = styled.button`
 `;
 
 const Section = styled.section`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   font-family: monospace;
   font-size: 12px;
   color: #111;
+  margin-bottom: 15px
 `;
 
 export default function EditEvent({ event, onSave }) {
