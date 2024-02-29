@@ -58,6 +58,7 @@ export default function DetailsPage({
         ) : (
           <EventDetails
             image={selectImage(currentEvent.images)?.url}
+            alt={currentEvent.name}
             title={currentEvent.name}
             date={currentEvent.dates.start.localDate}
             category={currentEvent.classifications[0].segment.name}

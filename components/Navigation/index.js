@@ -26,7 +26,7 @@ const SideBarItem = styled(Li)`
   justify-content: center;
 `;
 
-const NavMenu = styled.nav`
+const NavMenu = styled.ul`
   width: 100%;
   list-style: none;
   display: flex;
@@ -116,33 +116,36 @@ export default function Navigation() {
   return (
     <NavBar>
       <Overlay $visible={sidebarVisible} onClick={toggleSidebar} />
-      <Sidebar $visible={sidebarVisible}>
-        <SideBarItem onClick={toggleSidebar} aria-label="Open sidebar">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="26"
-            viewBox="0 -960 960 960"
-            width="26"
-          >
-            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-          </svg>
-        </SideBarItem>
-        <SideBarItem>
-          <NavLink href="/search" onClick={handleLinkClick}>
-            Search
-          </NavLink>
-        </SideBarItem>
-        <SideBarItem>
-          <NavLink href="/favorites" onClick={handleLinkClick}>
-            Favorites
-          </NavLink>
-        </SideBarItem>
-        <SideBarItem>
-          <NavLink href="/my-events" onClick={handleLinkClick}>
-            My Events
-          </NavLink>
-        </SideBarItem>
-      </Sidebar>
+      <ul>
+        <Sidebar $visible={sidebarVisible}>
+          <SideBarItem onClick={toggleSidebar}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="26"
+              viewBox="0 -960 960 960"
+              width="26"
+              alt="Open sidebar"
+            >
+              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+          </SideBarItem>
+          <SideBarItem>
+            <NavLink href="/search" onClick={handleLinkClick}>
+              Search
+            </NavLink>
+          </SideBarItem>
+          <SideBarItem>
+            <NavLink href="/favorites" onClick={handleLinkClick}>
+              Favorites
+            </NavLink>
+          </SideBarItem>
+          <SideBarItem>
+            <NavLink href="/my-events" onClick={handleLinkClick}>
+              My Events
+            </NavLink>
+          </SideBarItem>
+        </Sidebar>
+      </ul>
       <NavMenu>
         <Li>
           <NavLink href="/">E</NavLink>
@@ -157,12 +160,13 @@ export default function Navigation() {
           <NavLink href="/my-events">My Events</NavLink>
         </Li>
 
-        <Li onClick={toggleSidebar} aria-label="Close sidebar">
+        <Li onClick={toggleSidebar}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="50"
             viewBox="0 -960 960 960"
             width="50"
+            alt="Close sidebar"
           >
             <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
           </svg>

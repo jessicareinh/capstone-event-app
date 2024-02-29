@@ -70,7 +70,7 @@ export default function Modal({
   return (
     <>
       {isOpen && <Overlay />}
-      <ModalWrapper isOpen={isOpen}>
+      <ModalWrapper isOpen={isOpen} aria-label="Confirmation Modal">
         <p>{confirmMessage}</p>
         <ButtonWrapper>
           {modalType === "success" ? (
