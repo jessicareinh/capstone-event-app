@@ -12,29 +12,31 @@ const Overlay = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-  display: ${(props) => (props.isOpen ? "block" : "none ")};
+  display: ${(props) => (props.$isOpen ? "block" : "none ")};
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: left;
-  font-size: 20px;
-  line-height: 1.6;
+  font-size: 1rem;
+
   background-color: #f5f5f5;
-  padding: 100px;
-  width: 100%;
+  padding: 50px;
+  width: 90vw;
 
   flex-direction: column;
   border-radius: 5px;
   z-index: 1000;
+  @media (min-width: 501px) {
+    max-width: 500px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
-  width: 100%;
+  max-width: 200px;
   margin-top: 20px;
-  align-items: center;
 `;
 
 const Button = styled.button`
@@ -42,10 +44,11 @@ const Button = styled.button`
   color: #f5f5f5;
   border: none;
   border-radius: 5px;
-  padding: 15px 20px;
-  height: 50px;
+  width: 60px;
+  height: 40px;
+  margin: 10px;
   cursor: pointer;
-  font-size: 90%;
+  font-size: 1rem;
 `;
 
 export default function Modal({
@@ -58,7 +61,7 @@ export default function Modal({
   return (
     <>
       {isOpen && <Overlay />}
-      <ModalWrapper isOpen={isOpen}>
+      <ModalWrapper $isOpen={isOpen}>
         <p>{confirmMessage}</p>
         <ButtonWrapper>
           {modalType === "success" ? (

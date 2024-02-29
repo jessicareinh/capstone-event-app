@@ -6,10 +6,8 @@ import Modal from "../ModalWindow";
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 80vh;
   padding: 20px;
-  width: 90vw;
   font-family: monospace;
 `;
 
@@ -25,7 +23,6 @@ const Label = styled.label`
   align-self: flex-start;
   @media (min-width: 501px) {
     font-size: 1.2rem;
-    align-self: center;
   }
 `;
 
@@ -34,8 +31,8 @@ const Input = styled.input`
   border-radius: 8px;
   outline: 3px;
   height: 40px;
-  width: 100%;
   border: 0px;
+  width: 80vw;
   background-color: #d1c4e9;
   padding: 15px;
   margin: 0px auto 20px;
@@ -45,8 +42,8 @@ const Input = styled.input`
     background-color: whitesmoke;
   }
   @media (min-width: 501px) {
-    max-width: 400px;
     height: 45px;
+    max-width: 500px;
   }
 `;
 
@@ -58,14 +55,15 @@ const Textarea = styled.textarea`
   border: 0;
   padding: 5px;
   height: 40px;
+  width: 80vw;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   &:focus {
     background-color: #f5f5f5;
   }
   @media (min-width: 501px) {
-    max-width: 400px;
     height: 45px;
+    max-width: 500px;
   }
 `;
 const Submit = styled.button`
@@ -97,6 +95,7 @@ export default function EventForm({ onAddEvent }) {
 
     onAddEvent(data);
     setIsSuccessModalOpen(true);
+    console.log("Formdata: ", data);
   }
   const handleModalConfirm = () => {
     setIsSuccessModalOpen(false);
