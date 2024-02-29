@@ -27,14 +27,16 @@ export default function Favorites({
   return (
     <>
       <PageTitle>Favorites Page</PageTitle>
-      <Wrapper>
-        <EventList
-          favList={favList}
-          onToggleFavorite={onToggleFavorite}
-          DATA={favorites}
-        />
-      </Wrapper>
-      <ScrollToTopButton />
+    
+        <Wrapper>
+          <EventList
+            favList={favList}
+            onToggleFavorite={onToggleFavorite}
+            DATA={favorites}
+          />
+        </Wrapper>
+      
+      <ScrollToTopButton aria-label="Go to top" />
     </>
   );
 }

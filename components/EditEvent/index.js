@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const ButtonContainer = styled.div`
   margin-top: 10px;
-`;
 
 const Input = styled.input`
   flex: 1 0 auto;
@@ -75,9 +74,13 @@ export default function EditEvent({ event, onSave }) {
 
   return (
     <>
+    <StyledFormList>
+
       {isEditing && (
         <Section>
+          <label htmlFor="title">Title:</label>
           <Input
+            id="title"
             type="text"
             defaultValue={event.title}
             onChange={(e) =>
@@ -90,7 +93,9 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
+          <label htmlFor="date">Date:</label>
           <Input
+            id="date"
             htmlFor="date"
             type="date"
             defaultValue={event.date}
@@ -104,8 +109,9 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
+          <label htmlFor="time">Time:</label>
           <Input
-            htmlFor="time"
+            id="time"
             type="time"
             defaultValue={event.time}
             onChange={(e) =>
@@ -118,7 +124,9 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
+          <label htmlFor="location">Location:</label>
           <Input
+            id="location"
             type="text"
             defaultValue={event.location}
             onChange={(e) =>
@@ -130,7 +138,10 @@ export default function EditEvent({ event, onSave }) {
             placeholder="Location"
             required
           />
+
+          <label htmlFor="description">Description:</label>
           <Input
+            id="description"
             type="text"
             defaultValue={event.description}
             onChange={(e) =>
@@ -160,9 +171,11 @@ export default function EditEvent({ event, onSave }) {
       )}
       {!isEditing && (
         <StyledEditButton onClick={() => setIsEditing(true)}>
-          Edit
+
+           Edit Event
         </StyledEditButton>
       )}
-    </>
+    </StyledFormList>
+     </>
   );
 }

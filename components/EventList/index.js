@@ -49,6 +49,7 @@ export default function EventList({ DATA, favList, onToggleFavorite }) {
             id={event.id}
             isFavorite={favList.find((fav) => fav.id === event.id)?.isFavorite}
             onToggleFavorite={() => onToggleFavorite(event.id)}
+            aria-label={`Event: ${event.name}, Location: ${event._embedded.venues[0].city.name}, Venue: ${event._embedded.venues[0].name}, Date: ${event.dates.start.localDate}`}
           />
         </StyledListItem>
       ))}

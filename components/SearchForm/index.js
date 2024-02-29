@@ -46,12 +46,13 @@ export default function SearchForm({ onSubmit }) {
         Enter events, cities, venues or genres like pop, rap etc. Combinations
         are possible.{" "}
       </Info>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={onSubmit} aria-label="Search Form" role="search">
         <Input
           type="text"
-          id="seatchInput"
+          id="searchInput"
           name="searchTerm"
           placeholder='"Adele", "Berlin", "Comedy"...'
+          aria-label="Enter your search term"
           autoComplete="off"
         />
         <Button type="submit">Submit</Button>

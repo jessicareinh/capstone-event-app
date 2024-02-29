@@ -36,7 +36,7 @@ const StyledImage = styled(Image)`
   }
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
   margin: 5px 10px 0 10px;
   font-size: ${(prop) => (prop.$longTitle ? "1rem" : "1.2rem")};
 `;
@@ -46,12 +46,12 @@ const DetailsContainer = styled.div`
   margin: auto 10px 10px 10px;
 `;
 
-const DetailsRows = styled.div`
+const DetailsRows = styled.ul`
   display: flex;
   flex-direction: column;
 `;
 
-const Row1 = styled.div`
+const Row1 = styled.li`
   display: flex;
   justify-content: space-between;
 `;
@@ -59,7 +59,8 @@ const Location = styled.p`
   font-size: 1.1rem;
 `;
 
-const Row2 = styled.div`
+const Row2 = styled.li`
+  list-style: none;
   font-style: italic;
   font-size: 0.8rem;
 `;

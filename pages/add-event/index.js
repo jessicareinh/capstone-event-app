@@ -15,15 +15,14 @@ const PageTitle = styled.h1`
     font-size: 2rem;
     margin: 30px auto 10px;
   }
-`;
 
 export default function MyEvents({ onAddEvent }) {
   return (
     <>
       <Wrapper>
         <PageTitle> Add Your Own Event</PageTitle>
-
-        <EventForm onAddEvent={onAddEvent} />
+        <label htmlFor="event-title" />
+        <EventForm id="event-title" onAddEvent={onAddEvent} />
       </Wrapper>
     </>
   );

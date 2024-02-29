@@ -23,9 +23,9 @@ const StyledButton = styled.button`
 `;
 
 export default function DeleteButton({ id, onDeleteEvent }) {
-  const handleClick = () => {
+  function handleClick() {
     onDeleteEvent(id);
-  };
+  }
 
   return <StyledButton onClick={handleClick}>Delete</StyledButton>;
 }
