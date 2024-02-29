@@ -21,12 +21,12 @@ const CardContainer = styled.div`
 
   @media (min-width: 400px) {
     width: 380px;
-    height: 900px;
+    height: 90vh;
   }
 
   @media (min-width: 600px) {
     width: 500px;
-    height: 80vh;
+    height: 90vh;
   }
 
   @media (min-width: 768px) {
