@@ -5,9 +5,9 @@ import Modal from "../ModalWindow";
 import MyEventCard from "../MyEventCard";
 
 const Info = styled.p`
-font-size: 1rem;
-  margin-top: 40px;
-  font-family: monospace;
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 20px;
 `;
 const AddEventButton = styled.button`
   margin-top: 20px;

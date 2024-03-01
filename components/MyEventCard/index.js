@@ -8,9 +8,8 @@ const CardContainer = styled.div`
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background-color: #d1c4e9;
-  margin: 15px;
   padding: 15px;
-  width: 85%;
+  width: 90%;
   min-width: 300px;
   max-width: 480px;
   min-height: 300px;

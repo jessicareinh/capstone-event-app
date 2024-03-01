@@ -18,7 +18,7 @@ const ModalWrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: left;
-  font-size: 1rem;
+  font-size: 1.2rem;
 
   background-color: #f5f5f5;
   padding: 50px;
@@ -44,7 +44,7 @@ const Button = styled.button`
   color: #f5f5f5;
   border: none;
   border-radius: 5px;
-  width: 60px;
+  width: 70px;
   height: 40px;
   margin: 10px;
   cursor: pointer;
