@@ -10,6 +10,7 @@ const CardContainer = styled.div`
   background-color: #d1c4e9;
   padding: 15px;
   width: 90%;
+  margin: 12px;
   min-width: 300px;
   max-width: 480px;
   min-height: 300px;
