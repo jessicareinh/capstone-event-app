@@ -56,7 +56,6 @@ const StyledButton = styled.button`
   border: 5px;
   background-color: #bdbdbd;
   font-family: monospace;
-  font-weight: 700;
   font-size: 1rem;
   width: 80px;
   height: 40px;

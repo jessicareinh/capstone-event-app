@@ -67,6 +67,7 @@ const Textarea = styled.textarea`
   }
 `;
 const Submit = styled.button`
+  padding: 10px;
   margin-top: 10px;
   border-radius: 8px;
   border: 0;
@@ -75,7 +76,6 @@ const Submit = styled.button`
   height: 40px;
   width: 160px;
   color: black;
-  font-weight: 700;
   font-size: 1.2rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   &:hover {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledButton = styled.button`
+const DeleteBtn = styled.button`
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -13,7 +13,7 @@ const StyledButton = styled.button`
   font-family: monospace;
   padding: 10px;
   height: 40px;
-  width: 90px;
+  width: 100px;
 
   cursor: pointer;
 
@@ -27,5 +27,5 @@ export default function DeleteButton({ id, onDeleteEvent }) {
     onDeleteEvent(id);
   }
 
-  return <StyledButton onClick={handleClick}>Delete</StyledButton>;
+  return <DeleteBtn onClick={handleClick}>Delete</DeleteBtn>;
 }
