@@ -19,7 +19,7 @@ const CatButton = styled.button`
   }
   @media (min-width: 501px) {
     font-size: 1.2rem;
-    max-width: 135px;
+    max-width: 140px;
   }
   @media (min-width: 758px) {
     max-width: 100px;
