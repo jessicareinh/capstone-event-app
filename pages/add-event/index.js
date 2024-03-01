@@ -4,22 +4,24 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 `;
 
-const H1 = styled.h1`
-  font-family: monospace;
-  margin-top: 30px;
-  font-size: 32px;
+const PageTitle = styled.h1`
+  margin: 20px auto 0;
+  font-size: 1.5rem;
+
+  @media (min-width: 501px) {
+    font-size: 2rem;
+    margin: 30px auto 10px;
+  }
 `;
 
 export default function MyEvents({ onAddEvent }) {
   return (
     <>
       <Wrapper>
-        <H1> Add Your Own Event</H1>
-
+        <PageTitle> Add Your Own Event</PageTitle>
         <label htmlFor="event-title" />
         <EventForm id="event-title" onAddEvent={onAddEvent} />
       </Wrapper>

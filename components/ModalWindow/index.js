@@ -12,44 +12,43 @@ const Overlay = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-  display: ${(props) => (props.isOpen ? "block" : "none ")};
+  display: ${(props) => (props.$isOpen ? "block" : "none ")};
   position: fixed;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: whitesmoke;
-  padding: 25px;
+  text-align: left;
+  font-size: 1.2rem;
+
+  background-color: #f5f5f5;
+  padding: 50px;
+  width: 90vw;
+
+  flex-direction: column;
   border-radius: 5px;
   z-index: 1000;
-`;
-
-const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @media (min-width: 501px) {
+    max-width: 500px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: space-evenly;
+  max-width: 200px;
   margin-top: 20px;
 `;
 
 const Button = styled.button`
-  background-color: ${(props) => (props.cancel ? "gray" : "slateblue")};
-  color: white;
+  background-color: ${(props) => (props.cancel ? "gray" : "#756ab6")};
+  color: #f5f5f5;
   border: none;
   border-radius: 5px;
-  padding: 8px 16px;
+  width: 70px;
+  height: 40px;
+  margin: 10px;
   cursor: pointer;
-`;
-
-const Paragraph = styled.p`
-  text-align: center;
-  font-family: Caveat;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 1rem;
 `;
 
 export default function Modal({
@@ -59,18 +58,10 @@ export default function Modal({
   onConfirm,
   onCancel,
 }) {
-  const handleConfirm = () => {
-    onConfirm();
-  };
-
-  const handleCancel = () => {
-    onCancel();
-  };
-
   return (
     <>
       {isOpen && <Overlay />}
-      <ModalWrapper isOpen={isOpen} aria-label="Confirmation Modal">
+      <ModalWrapper $isOpen={isOpen} aria-label="Confirmation Modal">
         <p>{confirmMessage}</p>
         <ButtonWrapper>
           {modalType === "success" ? (

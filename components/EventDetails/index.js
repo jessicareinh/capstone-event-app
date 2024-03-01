@@ -13,24 +13,13 @@ const CardContainer = styled.div`
   background-color: #fff;
   flex-direction: column;
   position: relative;
-  width: 100%;
+  width: 90%;
   height: 750px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 
   @media (min-width: 400px) {
-    width: 380px;
-    height: 900px;
-  }
-
-  @media (min-width: 600px) {
-    width: 500px;
-    height: 80vh;
-  }
-
-  @media (min-width: 768px) {
-    width: 550px;
     height: 90vh;
   }
 `;

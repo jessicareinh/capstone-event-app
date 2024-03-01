@@ -13,7 +13,7 @@ export default createGlobalStyle`
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
-    background-color: #faf4ea63;
+    background-color: #eee9e079;
   }
 
   .card-container {

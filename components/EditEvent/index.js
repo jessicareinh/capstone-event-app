@@ -1,42 +1,51 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const StyledFormList = styled.ul`
-  list-style: none;
-  margin: 30px;
-  font-family: monospace;
-  display: grid;
-  padding: 3px;
-  width: 70%;
+const ButtonContainer = styled.div`
+  margin-top: 10px;
 `;
-
 const Input = styled.input`
+  flex: 1 0 auto;
   font-family: sans-serif;
   outline: 3px;
-  height: 35px;
-  width: 210px;
+  height: 40px;
+  width: 95%;
   border: 0px;
   background-color: #f5f5f5;
+  margin: 3px auto 10px;
   padding: 5px;
   font-style: italic;
   border-radius: 8px;
-  margin: 5px;
 
   &:focus {
     background-color: #bdbdbd;
   }
 `;
-const StyledEditButton = styled.button`
+
+const Label = styled.label`
+  font-size: 1rem;
+  margin-left: 10px;
+  align-self: flex-start;
+  @media (min-width: 501px) {
+    font-size: 1.2rem;
+    margin-left: 15px;
+  }
+`;
+
+const EditButton = styled.button`
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
   border-radius: 8px;
   border: 5px;
-  background-color: #bdbdbd;
+  background-color: #f5f5f5;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   font-family: monospace;
-  padding: 5px;
-  color: black;
+  font-size: 1.1rem;
+  padding: 10px;
+  height: 40px;
+  width: 12s0px;
   cursor: pointer;
-  margin-left: 10px;
-
   &:hover {
     background-color: #9e9e9e;
   }
@@ -47,8 +56,10 @@ const StyledButton = styled.button`
   border: 5px;
   background-color: #bdbdbd;
   font-family: monospace;
-  padding: 5px 10px;
-  margin: 5px;
+  font-size: 1rem;
+  width: 80px;
+  height: 40px;
+  margin: 0 10px 40px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   cursor: pointer;
 
@@ -58,9 +69,15 @@ const StyledButton = styled.button`
 `;
 
 const Section = styled.section`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
   font-family: monospace;
   font-size: 12px;
   color: #111;
+  margin-bottom: 15px;
+  padding-top: 20px;
 `;
 
 export default function EditEvent({ event, onSave }) {
@@ -68,10 +85,10 @@ export default function EditEvent({ event, onSave }) {
   const [editableEvent, setEditableEvent] = useState({ ...event });
 
   return (
-    <StyledFormList>
+    <>
       {isEditing && (
         <Section>
-          <label htmlFor="title">Title:</label>
+          <Label htmlFor="title">Title:</Label>
           <Input
             id="title"
             type="text"
@@ -86,7 +103,7 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
-          <label htmlFor="date">Date:</label>
+          <Label htmlFor="date">Date:</Label>
           <Input
             id="date"
             htmlFor="date"
@@ -102,7 +119,7 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
-          <label htmlFor="time">Time:</label>
+          <Label htmlFor="time">Time:</Label>
           <Input
             id="time"
             type="time"
@@ -117,7 +134,7 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
-          <label htmlFor="location">Location:</label>
+          <Label htmlFor="location">Location:</Label>
           <Input
             id="location"
             type="text"
@@ -132,7 +149,7 @@ export default function EditEvent({ event, onSave }) {
             required
           />
 
-          <label htmlFor="description">Description:</label>
+          <Label htmlFor="description">Description:</Label>
           <Input
             id="description"
             type="text"
@@ -145,24 +162,26 @@ export default function EditEvent({ event, onSave }) {
             }
             placeholder="Description"
           />
-          <StyledButton
-            onClick={() => {
-              onSave(editableEvent);
-              setIsEditing(false);
-            }}
-          >
-            Save
-          </StyledButton>
-          <StyledButton onClick={() => setIsEditing(false)}>
-            Cancel
-          </StyledButton>
+
+          <ButtonContainer>
+            <StyledButton
+              onClick={() => {
+                onSave(editableEvent);
+                setIsEditing(false);
+              }}
+            >
+              Save
+            </StyledButton>
+
+            <StyledButton onClick={() => setIsEditing(false)}>
+              Cancel
+            </StyledButton>
+          </ButtonContainer>
         </Section>
       )}
       {!isEditing && (
-        <StyledEditButton onClick={() => setIsEditing(true)}>
-          Edit Event
-        </StyledEditButton>
+        <EditButton onClick={() => setIsEditing(true)}>Edit Event</EditButton>
       )}
-    </StyledFormList>
+    </>
   );
 }

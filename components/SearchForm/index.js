@@ -7,8 +7,12 @@ const Form = styled.form`
 
 const Info = styled.p`
   font-style: italic;
-  margin: 20px 20px;
+  margin: 0px 20px 10px;
   word-wrap: break-word;
+  @media (min-width: 500px) {
+    font-size: 1.2rem;
+    margin-inline: 40px;
+  }
 `;
 
 const Input = styled.input`
@@ -22,6 +26,10 @@ const Input = styled.input`
   &:focus {
     outline: none;
     border-color: #999;
+  }
+  @media (min-width: 501px) {
+    font-size: 1.2rem;
+    width: 370px;
   }
 `;
 

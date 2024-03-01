@@ -1,6 +1,6 @@
 import EventDetails from "@/components/EventDetails";
 import { useRouter } from "next/router";
-import selectImage from "@/components/utils";
+import { selectImage, formatDate } from "@/components/utils";
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import LoadingAnimation from "@/components/LoadingAnimation";
@@ -12,8 +12,14 @@ const Wrapper = styled.div`
 `;
 
 const PageTitle = styled.h1`
-  margin: 30px 0;
+font-size: 1.5rem;
   text-align: center;
+  margin: 15px auto;
+
+  @media (min-width: 501px) {
+    font-size: 2rem;
+    margin: 30px auto;
+  }
 `;
 
 const Header = styled.header`
@@ -46,7 +52,7 @@ export default function DetailsPage({
     <>
       <Wrapper>
         <Header>
-          <PageTitle>Details Page</PageTitle>
+          <PageTitle>Details</PageTitle>
         </Header>
         {loading ? (
           <LoadingAnimation
@@ -58,7 +64,7 @@ export default function DetailsPage({
             image={selectImage(currentEvent.images)?.url}
             alt={currentEvent.name}
             title={currentEvent.name}
-            date={currentEvent.dates.start.localDate}
+            date={formatDate(currentEvent.dates.start.localDate)}
             category={currentEvent.classifications[0].segment.name}
             genre={currentEvent.classifications[0].genre.name}
             address={currentEvent._embedded.venues[0].address?.line1}

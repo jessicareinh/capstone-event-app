@@ -3,61 +3,84 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Modal from "../ModalWindow";
 
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  padding: 20px;
+  font-family: monospace;
+`;
+
 const Paragraph = styled.p`
   font-size: small;
   color: gray;
   margin: 10px;
 `;
 
+const Label = styled.label`
+  font-size: 1rem;
+  margin-bottom: 5px;
+  align-self: flex-start;
+  @media (min-width: 501px) {
+    font-size: 1.2rem;
+  }
+`;
+
 const Input = styled.input`
   font-family: monospace;
   border-radius: 8px;
   outline: 3px;
-  height: 35px;
-  width: 300px;
+  height: 40px;
   border: 0px;
+  width: 80vw;
   background-color: #d1c4e9;
   padding: 15px;
-  margin-bottom: 20px;
+  margin: 0px auto 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   &:focus {
     background-color: whitesmoke;
   }
+  @media (min-width: 501px) {
+    height: 45px;
+    max-width: 500px;
+  }
 `;
 
 const Textarea = styled.textarea`
+  width: 100%;
   font-family: monospace;
   border-radius: 8px;
   background-color: #d1c4e9;
   border: 0;
   padding: 5px;
+  height: 40px;
+  width: 80vw;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   &:focus {
     background-color: #f5f5f5;
   }
+  @media (min-width: 501px) {
+    height: 45px;
+    max-width: 500px;
+  }
 `;
 const Submit = styled.button`
+  padding: 10px;
+  margin-top: 10px;
   border-radius: 8px;
   border: 0;
   background-color: #bdbdbd;
   font-family: monospace;
   height: 40px;
+  width: 160px;
   color: black;
+  font-size: 1.2rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   &:hover {
     background-color: #9e9e9e;
   }
-`;
-
-const Form = styled.form`
-  display: grid;
-  box-sizing: border-box;
-  height: 500px;
-  padding: 20px;
-  width: 320px;
-  font-family: monospace;
 `;
 
 export default function EventForm({ onAddEvent }) {
@@ -72,6 +95,7 @@ export default function EventForm({ onAddEvent }) {
 
     onAddEvent(data);
     setIsSuccessModalOpen(true);
+    console.log("Formdata: ", data);
   }
   const handleModalConfirm = () => {
     setIsSuccessModalOpen(false);
@@ -81,24 +105,24 @@ export default function EventForm({ onAddEvent }) {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <label htmlFor="title">Title*</label>
+        <Label htmlFor="title">Title*</Label>
         <Input type="text" id="title" name="title" required />
 
-        <label htmlFor="date">Date*</label>
+        <Label htmlFor="date">Date*</Label>
         <Input type="date" id="date" name="date" required />
-        <label htmlFor="time">Time*</label>
+        <Label htmlFor="time">Time*</Label>
         <Input type="time" id="time" name="time" required />
 
-        <label htmlFor="location">Location*</label>
+        <Label htmlFor="location">Location*</Label>
         <Input type="text" id="location" name="location" required />
 
-        <label htmlFor="description">Description</label>
+        <Label htmlFor="description">Description</Label>
 
         <Textarea id="description" name="description" rows="8"></Textarea>
 
         <Paragraph>* Required</Paragraph>
 
-        <Submit type="submit">Add Your Own Event</Submit>
+        <Submit type="submit">Submit Event</Submit>
       </Form>
       <Modal
         isOpen={isSuccessModalOpen}
